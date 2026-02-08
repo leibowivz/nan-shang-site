@@ -4,26 +4,27 @@ import Base from "../layouts/Base.astro";
 
 <Base>
   <!-- ─── Hero ─── -->
-  <div class="site-container">
+  <div class="container">
     <header class="hero">
-      <div class="hero__status">
-        <span class="hero__status-dot"></span>
-        Building production AI systems
-      </div>
-      <div class="hero__name">Dr. Nan Shang</div>
-      <div class="hero__title">Chief Scientist & Founding Engineer</div>
-      <div class="hero__org">Drone Institute</div>
-      <p class="hero__summary">
-        Geospatial AI systems architect. Building production-grade,
-        constraint-aware systems that transform complex spatial data into
-        reliable operational outcomes.
+      <h1 class="hero__headline">I build systems that last.</h1>
+      <p class="hero__subtext">
+        Not systems that impress at first glance, but systems that remain
+        quiet, stable, and correct after the novelty fades. I work where
+        data meets uncertainty, and where the real test is not performance
+        in isolation, but behavior over time.
       </p>
-      <div class="hero__links">
-        <a class="hero__link" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
+      <div class="hero__meta">
+        <span class="hero__name">Nan Shang, Ph.D.</span>
+        <span class="hero__role">Chief Scientist & Founding Engineer</span>
+        <span class="hero__org">Drone Institute</span>
+      </div>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#overview">Read more</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
-        <a class="hero__link" href="https://github.com/leibowivz"
+        <a class="btn" href="https://github.com/leibowivz"
            target="_blank" rel="noopener">GitHub</a>
-        <a class="hero__link" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
+        <a class="btn" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
       </div>
     </header>
   </div>
@@ -32,204 +33,265 @@ import Base from "../layouts/Base.astro";
   <nav class="nav" aria-label="Primary">
     <div class="nav__inner">
       <a class="nav__link" href="#overview">Overview</a>
-      <a class="nav__link" href="#philosophy">Philosophy</a>
+      <a class="nav__link" href="#approach">Approach</a>
       <a class="nav__link" href="#systems">Systems</a>
+      <a class="nav__link" href="#work">Work</a>
       <a class="nav__link" href="#research">Research</a>
-      <a class="nav__link" href="#engineering">Engineering</a>
       <a class="nav__link" href="#contact">Contact</a>
     </div>
   </nav>
 
-  <main class="site-container">
+  <main class="container">
 
     <!-- ─── Overview ─── -->
     <section id="overview">
       <h2>Overview</h2>
+      <p class="quote-block">
+        I design and operate production-grade geospatial and AI systems.
+      </p>
       <p>
-        Work spans remote sensing research, large-scale geospatial pipelines,
-        and AI systems engineering — with an emphasis on translating academic
-        methods into deployable, auditable, and maintainable infrastructure.
+        My work sits at the intersection of remote sensing research, geospatial
+        analytics, and system architecture. I focus on building systems that take
+        spatial data — often noisy, incomplete, and operationally constrained — and
+        turn it into outputs that can be trusted in real decision-making contexts.
       </p>
       <p style="margin-top: 1rem;">
-        Rather than optimizing isolated model performance, the focus is on
-        system behavior under real-world constraints: runtime, cost envelopes,
-        data drift, verification, and long-term iteration.
+        What matters to me is not isolated model performance, but how a system
+        behaves end to end: how data enters, how assumptions propagate, how errors
+        surface, and how the system evolves under continuous use.
       </p>
+    </section>
 
-      <div class="responsibilities">
-        <div class="kv-item__key">Responsibilities</div>
-        <ul class="subsection__list">
-          <li>Defining technical direction grounded in research rigor</li>
-          <li>Architecting end-to-end geospatial and AI systems</li>
-          <li>Owning system-level trade-offs across accuracy, performance, cost, and reliability</li>
-          <li>Bridging research outputs with production deployment</li>
-        </ul>
+    <!-- ─── My Role ─── -->
+    <section>
+      <h2>My Role</h2>
+      <p style="margin-bottom: 1.25rem;">
+        As a founding engineer, I designed the core architectures from first
+        principles. As chief scientist, I ensure that deployed systems remain
+        scientifically grounded as they scale, evolve, and are exposed to real
+        operational pressure.
+      </p>
+      <ul class="feature-list">
+        <li>Define system-level evaluation criteria beyond accuracy alone</li>
+        <li>Architect end-to-end geospatial and AI pipelines</li>
+        <li>Translate research methods into deployable, auditable systems</li>
+        <li>Own trade-offs across accuracy, latency, cost, and reliability</li>
+      </ul>
+    </section>
+
+    <!-- ─── Approach ─── -->
+    <section id="approach">
+      <h2>How I Build Systems</h2>
+
+      <div class="grid-2">
+        <div class="glass-card">
+          <div class="card__num">01</div>
+          <div class="card__title">Production is the benchmark</div>
+          <p class="card__text">
+            A system is only meaningful if it continues to behave correctly
+            after deployment. I design systems to fail visibly rather than
+            silently, to support iteration without destabilization, and to
+            remain interpretable to engineers and operators.
+          </p>
+        </div>
+        <div class="glass-card">
+          <div class="card__num">02</div>
+          <div class="card__title">Constraints shape architecture</div>
+          <p class="card__text">
+            Latency, throughput, cost envelopes, and operational friction are
+            architectural facts. I treat these constraints as inputs to design
+            decisions, making trade-offs explicit so systems can be reasoned
+            about and maintained over time.
+          </p>
+        </div>
+        <div class="glass-card">
+          <div class="card__num">03</div>
+          <div class="card__title">Deployment reveals assumptions</div>
+          <p class="card__text">
+            Research does not end at deployment. I design feedback loops that
+            surface failure modes, quantify drift, and allow systems to improve
+            without eroding trust or stability.
+          </p>
+        </div>
+        <div class="glass-card">
+          <div class="card__num">04</div>
+          <div class="card__title">Data quality compounds</div>
+          <p class="card__text">
+            Long-term system advantage comes from disciplined data practices.
+            I build pipelines where ingestion, annotation, quality control,
+            monitoring, retraining, and rollback strategies reinforce one another.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- ─── Philosophy ─── -->
-    <section id="philosophy">
-      <h2>Philosophy</h2>
-
-      <div class="philosophy-grid">
-        <div class="philosophy-card">
-          <div class="philosophy-card__num">01</div>
-          <div class="philosophy-card__title">Production over prototypes</div>
-          <p class="philosophy-card__text">
-            High-performing models are not products. Systems are products.
-            They must tolerate imperfect data, fail visibly,
-            support iteration without destabilization, and remain interpretable.
-          </p>
-        </div>
-        <div class="philosophy-card">
-          <div class="philosophy-card__num">02</div>
-          <div class="philosophy-card__title">Explicit constraints</div>
-          <p class="philosophy-card__text">
-            Latency vs. accuracy. Automation vs. quality control.
-            Throughput vs. cost. Scalability vs. interpretability.
-            Trade-offs are engineered deliberately rather than deferred.
-          </p>
-        </div>
-        <div class="philosophy-card">
-          <div class="philosophy-card__num">03</div>
-          <div class="philosophy-card__title">Research to deployment</div>
-          <p class="philosophy-card__text">
-            Academic results are starting points, not endpoints.
-            Bridging to production requires clarifying assumptions,
-            identifying failure modes, and designing operational feedback loops.
-          </p>
-        </div>
-        <div class="philosophy-card">
-          <div class="philosophy-card__num">04</div>
-          <div class="philosophy-card__title">Data-centric AI</div>
-          <p class="philosophy-card__text">
-            Long-term system advantage emerges from data quality, not model novelty.
-            Structured ingestion, annotation pipelines, automated QC,
-            retraining triggers, and rollback strategies.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ─── Systems & Capabilities ─── -->
+    <!-- ─── Systems I Build ─── -->
     <section id="systems">
-      <h2>Systems & Capabilities</h2>
+      <h2>Systems I Build</h2>
 
-      <div class="card-grid card-grid--2">
-        <div class="card">
+      <div class="grid-2">
+        <div class="glass-card">
           <div class="card__label">Pipelines</div>
           <div class="card__title">End-to-End Geospatial</div>
           <p class="card__text">
-            Raw data ingestion, spatial processing and normalization,
-            analytics and inference, quality control and validation,
-            reporting and delivery. Designed for repeatability,
-            auditability, and scale.
+            Pipelines covering the full lifecycle of spatial data — from
+            ingestion and normalization to processing, verification, reporting,
+            and delivery. Designed to be repeatable, auditable, and resilient
+            under scale.
           </p>
         </div>
-        <div class="card">
+        <div class="glass-card">
           <div class="card__label">Sensing</div>
           <div class="card__title">Multimodal Remote Sensing</div>
           <p class="card__text">
-            Workflows across RGB imagery, thermal and infrared data,
-            and derived spatial layers. Focus on extracting actionable
-            signals while controlling false positives and uncertainty.
+            Workflows across RGB imagery, thermal and infrared data, and
+            derived spatial layers. Focus on extracting actionable signals
+            while controlling uncertainty and false positives in operational
+            environments.
           </p>
         </div>
-        <div class="card">
+        <div class="glass-card">
           <div class="card__label">Quality</div>
           <div class="card__title">Verification & QC</div>
           <p class="card__text">
-            Spatial data often fails silently. QC is a first-class
-            system component: automated checks, spatial sanity validation,
-            human-in-the-loop review, reproducible metrics.
+            Spatial systems often fail quietly through projection errors,
+            unit mismatches, alignment drift, or metadata assumptions.
+            Verification layers — automated and human-in-the-loop — that
+            make failures observable and traceable.
           </p>
         </div>
-        <div class="card">
+        <div class="glass-card">
           <div class="card__label">Delivery</div>
           <div class="card__title">Secure Data Delivery</div>
           <p class="card__text">
-            Multi-tenant access control, lifecycle and retention policies,
-            auditability and permission boundaries. Architectures designed
-            for operational trust.
+            Delivery systems with clear permission boundaries, multi-tenant
+            access control, lifecycle management, and audit-friendly
+            access patterns.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Selected Work ─── -->
+    <section id="work">
+      <h2>Selected Work</h2>
+      <blockquote>
+        Public descriptions focus on architectural patterns and operational
+        behavior, not on clients, locations, or proprietary metrics.
+      </blockquote>
+
+      <div class="grid-1">
+        <div class="glass-card">
+          <h3>Production Geospatial Intelligence Platforms</h3>
+          <p class="card__text" style="margin-bottom: 0.75rem;">
+            Large-scale geospatial processing platforms built to support
+            continuous operation, repeatable results, and controlled iteration
+            under real-world constraints.
+          </p>
+          <ul class="feature-list">
+            <li>Ingest high-volume spatial data from heterogeneous sources</li>
+            <li>Normalize and align data across coordinate systems and resolutions</li>
+            <li>Execute analytics and inference at scale</li>
+            <li>Embed verification and QC as part of the execution path</li>
+          </ul>
+        </div>
+
+        <div class="glass-card">
+          <h3>Multisensor Analysis and Decision Pipelines</h3>
+          <p class="card__text" style="margin-bottom: 0.75rem;">
+            Pipelines that combine RGB imagery, thermal and infrared signals,
+            and derived spatial features. Emphasis on extracting decision-relevant
+            signals and minimizing false positives where ground truth is incomplete.
+          </p>
+        </div>
+
+        <div class="glass-card">
+          <h3>Verification-Centric System Design</h3>
+          <ul class="feature-list">
+            <li>Surface spatial inconsistencies — alignment, scale, unit errors</li>
+            <li>Detect silent failure modes before downstream impact</li>
+            <li>Integrate automated checks with human-in-the-loop review</li>
+            <li>Verification artifacts treated as first-class outputs</li>
+          </ul>
+        </div>
+
+        <div class="grid-2">
+          <div class="glass-card">
+            <h3>Data-Centric AI Production Loops</h3>
+            <ul class="feature-list">
+              <li>Continuously measured and corrected data quality</li>
+              <li>Structured annotation and re-annotation pipelines</li>
+              <li>Retraining driven by observed failure modes</li>
+              <li>Rollback and comparison as operational controls</li>
+            </ul>
+          </div>
+          <div class="glass-card">
+            <h3>Secure Multi-Tenant Delivery</h3>
+            <ul class="feature-list">
+              <li>Strict tenant isolation</li>
+              <li>Granular access control</li>
+              <li>Data lifecycle and retention management</li>
+              <li>Audit-friendly access patterns</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ─── Research ─── -->
     <section id="research">
-      <h2>Research & Scholarly Work</h2>
+      <h2>Research & Its Connection to Production</h2>
       <p>
-        Academic work focuses on remote sensing and geospatial analysis,
-        with peer-reviewed publications in journals and conferences.
-        Research contributes methods and insights in GIS and spatial
-        analytics, LiDAR and 3D data processing, and remote sensing
-        methodologies.
+        My research background is in remote sensing and geospatial analysis,
+        and it directly informs the systems I build today. My peer-reviewed
+        work addresses questions that recur in production systems:
+      </p>
+      <ul class="feature-list" style="margin-top: 1rem; margin-bottom: 1.5rem;">
+        <li>How spatial measurements behave under noise and scale</li>
+        <li>How resolution, alignment, and representation affect downstream inference</li>
+        <li>How to reason about uncertainty in derived spatial products</li>
+      </ul>
+      <p>
+        These research insights shape practical decisions in system design,
+        including data preprocessing, model selection, validation strategies,
+        and quality control thresholds.
       </p>
 
-      <div style="margin-top: 1.75rem;">
-        <div class="kv-item__key">Domains</div>
-        <ul class="inline-list" style="margin-top: 0.65rem;">
+      <div style="margin-top: 2rem;">
+        <div class="kv-item__key" style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.65rem;">Domains</div>
+        <ul class="tags">
           <li>GIS & Spatial Analytics</li>
           <li>LiDAR & 3D Processing</li>
           <li>Remote Sensing</li>
           <li>Geospatial AI</li>
+          <li>Production ML Systems</li>
         </ul>
       </div>
 
-      <div class="links-row" style="margin-top: 1.75rem;">
+      <div class="link-row" style="margin-top: 2rem;">
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
 
-    <!-- ─── Engineering (Abstracted) ─── -->
-    <section id="engineering">
-      <h2>Selected Engineering Work</h2>
-      <blockquote>
-        Descriptions are intentionally generalized and omit sensitive or
-        proprietary information.
-      </blockquote>
-
-      <div class="subsection">
-        <h3 class="subsection__title">Large-Scale Imagery Processing Systems</h3>
-        <ul class="subsection__list">
-          <li>Automated processing of high-resolution spatial data</li>
-          <li>Built-in verification and QC layers</li>
-          <li>Emphasis on repeatability and operational robustness</li>
-        </ul>
-      </div>
-
-      <div class="subsection">
-        <h3 class="subsection__title">Multisensor Analysis Workflows</h3>
-        <ul class="subsection__list">
-          <li>Integration of RGB, thermal, and derived spatial data</li>
-          <li>Signal extraction under uncertainty and operational constraints</li>
-        </ul>
-      </div>
-
-      <div class="subsection">
-        <h3 class="subsection__title">Secure Delivery Architectures</h3>
-        <ul class="subsection__list">
-          <li>Multi-tenant delivery patterns</li>
-          <li>Strict access control and lifecycle management</li>
-          <li>Audit-friendly system design</li>
-        </ul>
-      </div>
+    <!-- ─── Writing ─── -->
+    <section>
+      <h2>Writing</h2>
+      <p>
+        Technical notes on production AI systems, geospatial data failure modes,
+        and system-level decision-making under constraints. Focused on what holds,
+        what fails, and how to design systems that remain reliable as they evolve.
+      </p>
     </section>
 
     <!-- ─── Contact ─── -->
     <section id="contact">
       <h2>Contact</h2>
       <ul class="contact-list">
-        <li>
-          <a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a>
-        </li>
-        <li>
-          <a href="mailto:sn1514826@gmail.com">sn1514826@gmail.com</a>
-        </li>
+        <li><a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a></li>
+        <li><a href="mailto:sn1514826@gmail.com">sn1514826@gmail.com</a></li>
       </ul>
-      <div class="links-row">
+      <div class="link-row">
         <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
@@ -238,9 +300,8 @@ import Base from "../layouts/Base.astro";
 
     <hr class="divider" />
 
-    <!-- ─── Footer ─── -->
     <footer>
-      <p>Dr. Nan Shang — Built with Astro</p>
+      <p>Nan Shang, Ph.D.</p>
     </footer>
   </main>
 </Base>
