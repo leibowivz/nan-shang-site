@@ -6,6 +6,10 @@ import Base from "../layouts/Base.astro";
   <!-- ─── Hero ─── -->
   <div class="site-container">
     <header class="hero">
+      <div class="hero__status">
+        <span class="hero__status-dot"></span>
+        Building production AI systems
+      </div>
       <div class="hero__name">Dr. Nan Shang</div>
       <div class="hero__title">Chief Scientist & Founding Engineer</div>
       <div class="hero__org">Drone Institute</div>
@@ -14,6 +18,13 @@ import Base from "../layouts/Base.astro";
         constraint-aware systems that transform complex spatial data into
         reliable operational outcomes.
       </p>
+      <div class="hero__links">
+        <a class="hero__link" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
+           target="_blank" rel="noopener">Google Scholar</a>
+        <a class="hero__link" href="https://github.com/leibowivz"
+           target="_blank" rel="noopener">GitHub</a>
+        <a class="hero__link" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
+      </div>
     </header>
   </div>
 
@@ -33,22 +44,21 @@ import Base from "../layouts/Base.astro";
 
     <!-- ─── Overview ─── -->
     <section id="overview">
-      <h2>01 — Overview</h2>
+      <h2>Overview</h2>
       <p>
         Work spans remote sensing research, large-scale geospatial pipelines,
         and AI systems engineering — with an emphasis on translating academic
         methods into deployable, auditable, and maintainable infrastructure.
       </p>
-      <br />
-      <p>
+      <p style="margin-top: 1rem;">
         Rather than optimizing isolated model performance, the focus is on
         system behavior under real-world constraints: runtime, cost envelopes,
         data drift, verification, and long-term iteration.
       </p>
 
-      <div style="margin-top: 2rem;">
+      <div class="responsibilities">
         <div class="kv-item__key">Responsibilities</div>
-        <ul class="subsection__list" style="margin-top: 0.5rem;">
+        <ul class="subsection__list">
           <li>Defining technical direction grounded in research rigor</li>
           <li>Architecting end-to-end geospatial and AI systems</li>
           <li>Owning system-level trade-offs across accuracy, performance, cost, and reliability</li>
@@ -59,42 +69,51 @@ import Base from "../layouts/Base.astro";
 
     <!-- ─── Philosophy ─── -->
     <section id="philosophy">
-      <h2>02 — Philosophy</h2>
+      <h2>Philosophy</h2>
 
-      <ul class="principles">
-        <li>
-          <strong>Production over prototypes.</strong>
-          High-performing models are not products. Systems are products.
-          Production systems must tolerate imperfect data, fail visibly,
-          support iteration without destabilization, and remain interpretable.
-        </li>
-        <li>
-          <strong>Explicit constraints.</strong>
-          Every system operates under constraints — latency vs. accuracy,
-          automation vs. quality control, throughput vs. cost, scalability
-          vs. interpretability. Trade-offs are engineered deliberately rather
-          than deferred.
-        </li>
-        <li>
-          <strong>Research → deployment continuity.</strong>
-          Academic results are starting points, not endpoints. Bridging
-          research to production requires clarifying assumptions, identifying
-          failure modes, defining verification criteria, and designing
-          operational feedback loops.
-        </li>
-        <li>
-          <strong>Data-centric AI.</strong>
-          Long-term system advantage emerges from data quality, not model
-          novelty. Key mechanisms: structured data ingestion, annotation
-          pipelines, automated and human-in-the-loop QC, retraining triggers
-          and rollback strategies.
-        </li>
-      </ul>
+      <div class="philosophy-grid">
+        <div class="philosophy-card">
+          <div class="philosophy-card__num">01</div>
+          <div class="philosophy-card__title">Production over prototypes</div>
+          <p class="philosophy-card__text">
+            High-performing models are not products. Systems are products.
+            They must tolerate imperfect data, fail visibly,
+            support iteration without destabilization, and remain interpretable.
+          </p>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-card__num">02</div>
+          <div class="philosophy-card__title">Explicit constraints</div>
+          <p class="philosophy-card__text">
+            Latency vs. accuracy. Automation vs. quality control.
+            Throughput vs. cost. Scalability vs. interpretability.
+            Trade-offs are engineered deliberately rather than deferred.
+          </p>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-card__num">03</div>
+          <div class="philosophy-card__title">Research to deployment</div>
+          <p class="philosophy-card__text">
+            Academic results are starting points, not endpoints.
+            Bridging to production requires clarifying assumptions,
+            identifying failure modes, and designing operational feedback loops.
+          </p>
+        </div>
+        <div class="philosophy-card">
+          <div class="philosophy-card__num">04</div>
+          <div class="philosophy-card__title">Data-centric AI</div>
+          <p class="philosophy-card__text">
+            Long-term system advantage emerges from data quality, not model novelty.
+            Structured ingestion, annotation pipelines, automated QC,
+            retraining triggers, and rollback strategies.
+          </p>
+        </div>
+      </div>
     </section>
 
     <!-- ─── Systems & Capabilities ─── -->
     <section id="systems">
-      <h2>03 — Systems & Capabilities</h2>
+      <h2>Systems & Capabilities</h2>
 
       <div class="card-grid card-grid--2">
         <div class="card">
@@ -139,7 +158,7 @@ import Base from "../layouts/Base.astro";
 
     <!-- ─── Research ─── -->
     <section id="research">
-      <h2>04 — Research & Scholarly Work</h2>
+      <h2>Research & Scholarly Work</h2>
       <p>
         Academic work focuses on remote sensing and geospatial analysis,
         with peer-reviewed publications in journals and conferences.
@@ -148,9 +167,9 @@ import Base from "../layouts/Base.astro";
         methodologies.
       </p>
 
-      <div style="margin-top: 1.5rem;">
+      <div style="margin-top: 1.75rem;">
         <div class="kv-item__key">Domains</div>
-        <ul class="inline-list" style="margin-top: 0.5rem;">
+        <ul class="inline-list" style="margin-top: 0.65rem;">
           <li>GIS & Spatial Analytics</li>
           <li>LiDAR & 3D Processing</li>
           <li>Remote Sensing</li>
@@ -158,52 +177,50 @@ import Base from "../layouts/Base.astro";
         </ul>
       </div>
 
-      <div class="links-row" style="margin-top: 1.5rem;">
+      <div class="links-row" style="margin-top: 1.75rem;">
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-           target="_blank" rel="noopener">Google Scholar ↗</a>
+           target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
 
     <!-- ─── Engineering (Abstracted) ─── -->
     <section id="engineering">
-      <h2>05 — Selected Engineering Work</h2>
+      <h2>Selected Engineering Work</h2>
       <blockquote>
         Descriptions are intentionally generalized and omit sensitive or
         proprietary information.
       </blockquote>
 
-      <div style="margin-top: 1.5rem;">
-        <div class="subsection">
-          <h3 class="subsection__title">Large-Scale Imagery Processing Systems</h3>
-          <ul class="subsection__list">
-            <li>Automated processing of high-resolution spatial data</li>
-            <li>Built-in verification and QC layers</li>
-            <li>Emphasis on repeatability and operational robustness</li>
-          </ul>
-        </div>
+      <div class="subsection">
+        <h3 class="subsection__title">Large-Scale Imagery Processing Systems</h3>
+        <ul class="subsection__list">
+          <li>Automated processing of high-resolution spatial data</li>
+          <li>Built-in verification and QC layers</li>
+          <li>Emphasis on repeatability and operational robustness</li>
+        </ul>
+      </div>
 
-        <div class="subsection">
-          <h3 class="subsection__title">Multisensor Analysis Workflows</h3>
-          <ul class="subsection__list">
-            <li>Integration of RGB, thermal, and derived spatial data</li>
-            <li>Signal extraction under uncertainty and operational constraints</li>
-          </ul>
-        </div>
+      <div class="subsection">
+        <h3 class="subsection__title">Multisensor Analysis Workflows</h3>
+        <ul class="subsection__list">
+          <li>Integration of RGB, thermal, and derived spatial data</li>
+          <li>Signal extraction under uncertainty and operational constraints</li>
+        </ul>
+      </div>
 
-        <div class="subsection">
-          <h3 class="subsection__title">Secure Delivery Architectures</h3>
-          <ul class="subsection__list">
-            <li>Multi-tenant delivery patterns</li>
-            <li>Strict access control and lifecycle management</li>
-            <li>Audit-friendly system design</li>
-          </ul>
-        </div>
+      <div class="subsection">
+        <h3 class="subsection__title">Secure Delivery Architectures</h3>
+        <ul class="subsection__list">
+          <li>Multi-tenant delivery patterns</li>
+          <li>Strict access control and lifecycle management</li>
+          <li>Audit-friendly system design</li>
+        </ul>
       </div>
     </section>
 
     <!-- ─── Contact ─── -->
     <section id="contact">
-      <h2>06 — Contact</h2>
+      <h2>Contact</h2>
       <ul class="contact-list">
         <li>
           <a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a>
@@ -213,9 +230,9 @@ import Base from "../layouts/Base.astro";
         </li>
       </ul>
       <div class="links-row">
-        <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-           target="_blank" rel="noopener">Google Scholar ↗</a>
+           target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
 
