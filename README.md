@@ -123,7 +123,6 @@ Architectures include:
 * lifecycle and retention policies
 * auditability and permission boundaries
 
-Descriptions intentionally omit client identifiers, locations, and proprietary metrics.
 
 ---
 
