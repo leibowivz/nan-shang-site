@@ -3,9 +3,20 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
+  <!-- Ambient glow orbs -->
+  <div class="bg-glow" aria-hidden="true">
+    <div class="bg-glow__orb bg-glow__orb--teal"></div>
+    <div class="bg-glow__orb bg-glow__orb--blue"></div>
+    <div class="bg-glow__orb bg-glow__orb--purple"></div>
+  </div>
+
   <!-- ─── Hero ─── -->
   <div class="container">
     <header class="hero">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Remote Sensing & Geospatial AI
+      </div>
       <h1 class="hero__headline">I build systems that last.</h1>
       <p class="hero__subtext">
         Not systems that impress at first glance, but systems that remain
@@ -13,13 +24,13 @@ import Base from "../layouts/Base.astro";
         data meets uncertainty, and where the real test is not performance
         in isolation, but behavior over time.
       </p>
-      <div class="hero__meta">
+      <div class="hero__identity">
         <span class="hero__name">Nan Shang, Ph.D.</span>
-        <span class="hero__role">Chief Scientist & Founding Engineer</span>
+        <span class="hero__title">Chief Scientist & Founding Engineer</span>
         <span class="hero__org">Drone Institute</span>
       </div>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#overview">Read more</a>
+        <a class="btn btn--accent" href="#overview">Read more</a>
         <a class="btn" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
         <a class="btn" href="https://github.com/leibowivz"
@@ -84,7 +95,7 @@ import Base from "../layouts/Base.astro";
       <h2>How I Build Systems</h2>
 
       <div class="grid-2">
-        <div class="glass-card">
+        <div class="card">
           <div class="card__num">01</div>
           <div class="card__title">Production is the benchmark</div>
           <p class="card__text">
@@ -94,7 +105,7 @@ import Base from "../layouts/Base.astro";
             remain interpretable to engineers and operators.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__num">02</div>
           <div class="card__title">Constraints shape architecture</div>
           <p class="card__text">
@@ -104,7 +115,7 @@ import Base from "../layouts/Base.astro";
             about and maintained over time.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__num">03</div>
           <div class="card__title">Deployment reveals assumptions</div>
           <p class="card__text">
@@ -113,7 +124,7 @@ import Base from "../layouts/Base.astro";
             without eroding trust or stability.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__num">04</div>
           <div class="card__title">Data quality compounds</div>
           <p class="card__text">
@@ -130,7 +141,7 @@ import Base from "../layouts/Base.astro";
       <h2>Systems I Build</h2>
 
       <div class="grid-2">
-        <div class="glass-card">
+        <div class="card">
           <div class="card__label">Pipelines</div>
           <div class="card__title">End-to-End Geospatial</div>
           <p class="card__text">
@@ -140,7 +151,7 @@ import Base from "../layouts/Base.astro";
             under scale.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__label">Sensing</div>
           <div class="card__title">Multimodal Remote Sensing</div>
           <p class="card__text">
@@ -150,7 +161,7 @@ import Base from "../layouts/Base.astro";
             environments.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__label">Quality</div>
           <div class="card__title">Verification & QC</div>
           <p class="card__text">
@@ -160,7 +171,7 @@ import Base from "../layouts/Base.astro";
             make failures observable and traceable.
           </p>
         </div>
-        <div class="glass-card">
+        <div class="card">
           <div class="card__label">Delivery</div>
           <div class="card__title">Secure Data Delivery</div>
           <p class="card__text">
@@ -171,6 +182,33 @@ import Base from "../layouts/Base.astro";
         </div>
       </div>
     </section>
+  </main>
+
+  <!-- ─── Geospatial Identity Strip ─── -->
+  <div class="geo-strip">
+    <div class="container">
+      <div class="geo-strip__inner">
+        <div class="geo-strip__label">Research Background</div>
+        <div class="geo-strip__title">Remote Sensing & Geospatial Information</div>
+        <p class="geo-strip__text">
+          My research background is in remote sensing and geospatial analysis,
+          and it directly informs the systems I build today. These insights shape
+          practical decisions in system design — data preprocessing, model selection,
+          validation strategies, and quality control thresholds.
+        </p>
+        <ul class="tags" style="margin-top: 1.5rem;">
+          <li>GIS & Spatial Analytics</li>
+          <li>LiDAR & 3D Processing</li>
+          <li>Remote Sensing</li>
+          <li>Geospatial AI</li>
+          <li>Production ML Systems</li>
+          <li>Earth Observation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
 
     <!-- ─── Selected Work ─── -->
     <section id="work">
@@ -181,7 +219,7 @@ import Base from "../layouts/Base.astro";
       </blockquote>
 
       <div class="grid-1">
-        <div class="glass-card">
+        <div class="card">
           <h3>Production Geospatial Intelligence Platforms</h3>
           <p class="card__text" style="margin-bottom: 0.75rem;">
             Large-scale geospatial processing platforms built to support
@@ -196,16 +234,16 @@ import Base from "../layouts/Base.astro";
           </ul>
         </div>
 
-        <div class="glass-card">
+        <div class="card">
           <h3>Multisensor Analysis and Decision Pipelines</h3>
-          <p class="card__text" style="margin-bottom: 0.75rem;">
+          <p class="card__text">
             Pipelines that combine RGB imagery, thermal and infrared signals,
             and derived spatial features. Emphasis on extracting decision-relevant
             signals and minimizing false positives where ground truth is incomplete.
           </p>
         </div>
 
-        <div class="glass-card">
+        <div class="card">
           <h3>Verification-Centric System Design</h3>
           <ul class="feature-list">
             <li>Surface spatial inconsistencies — alignment, scale, unit errors</li>
@@ -216,7 +254,7 @@ import Base from "../layouts/Base.astro";
         </div>
 
         <div class="grid-2">
-          <div class="glass-card">
+          <div class="card">
             <h3>Data-Centric AI Production Loops</h3>
             <ul class="feature-list">
               <li>Continuously measured and corrected data quality</li>
@@ -225,7 +263,7 @@ import Base from "../layouts/Base.astro";
               <li>Rollback and comparison as operational controls</li>
             </ul>
           </div>
-          <div class="glass-card">
+          <div class="card">
             <h3>Secure Multi-Tenant Delivery</h3>
             <ul class="feature-list">
               <li>Strict tenant isolation</li>
@@ -240,11 +278,9 @@ import Base from "../layouts/Base.astro";
 
     <!-- ─── Research ─── -->
     <section id="research">
-      <h2>Research & Its Connection to Production</h2>
+      <h2>Research & Production</h2>
       <p>
-        My research background is in remote sensing and geospatial analysis,
-        and it directly informs the systems I build today. My peer-reviewed
-        work addresses questions that recur in production systems:
+        My peer-reviewed work addresses questions that recur in production systems:
       </p>
       <ul class="feature-list" style="margin-top: 1rem; margin-bottom: 1.5rem;">
         <li>How spatial measurements behave under noise and scale</li>
@@ -252,22 +288,11 @@ import Base from "../layouts/Base.astro";
         <li>How to reason about uncertainty in derived spatial products</li>
       </ul>
       <p>
-        These research insights shape practical decisions in system design,
-        including data preprocessing, model selection, validation strategies,
-        and quality control thresholds.
+        I have authored and co-authored publications in journals and conferences,
+        contributing methods and analytical frameworks that are now embedded in
+        production pipelines. I present research selectively, emphasizing work
+        that has informed real system behavior.
       </p>
-
-      <div style="margin-top: 2rem;">
-        <div class="kv-item__key" style="font-family: var(--mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.65rem;">Domains</div>
-        <ul class="tags">
-          <li>GIS & Spatial Analytics</li>
-          <li>LiDAR & 3D Processing</li>
-          <li>Remote Sensing</li>
-          <li>Geospatial AI</li>
-          <li>Production ML Systems</li>
-        </ul>
-      </div>
-
       <div class="link-row" style="margin-top: 2rem;">
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
