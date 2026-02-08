@@ -1,210 +1,195 @@
-# nan-shang-site
-Dr. Nan Shang's Personal Website
+# I build systems that last.
 
-# Dr. Nan Shang — Systems, Research, and Production AI
+Not systems that impress at first glance,
+but systems that remain quiet, stable, and correct
+after the novelty fades.
 
+I work where data meets uncertainty,
+and where the real test is not performance in isolation,
+but behavior over time.
+
+**Nan Shang, Ph.D.**  
 **Chief Scientist & Founding Engineer, Drone Institute**
 
 ---
 
-## 1. Overview
+## Overview
 
-Dr. Nan Shang is a geospatial AI systems architect and applied researcher focused on building **production-grade, constraint-aware systems** that transform complex spatial data into reliable operational outcomes.
+I design and operate production-grade geospatial and AI systems.
 
-His work spans **remote sensing research**, **large-scale geospatial pipelines**, and **AI systems engineering**, with an emphasis on translating academic methods into deployable, auditable, and maintainable infrastructure.
+My work sits at the intersection of **remote sensing research**, **geospatial analytics**, and **system architecture**. I focus on building systems that take spatial data—often noisy, incomplete, and operationally constrained—and turn it into outputs that can be trusted in real decision-making contexts.
 
-Rather than optimizing isolated model performance, his work centers on **system behavior under real-world constraints**: runtime, cost envelopes, data drift, verification, and long-term iteration.
+What matters to me is not isolated model performance, but how a system behaves end to end: how data enters, how assumptions propagate, how errors surface, and how the system evolves under continuous use.
 
 ---
 
-## 2. Professional Role
+## My Role
 
 **Chief Scientist & Founding Engineer — Drone Institute**
 
-In this role, Dr. Shang is responsible for:
+I am responsible for both technical direction and system integrity.
 
-* Defining technical direction grounded in research rigor
-* Architecting end-to-end geospatial and AI systems
-* Owning system-level trade-offs across accuracy, performance, cost, and reliability
-* Bridging research outputs with production deployment
+As a founding engineer, I designed the core architectures from first principles. As chief scientist, I ensure that deployed systems remain scientifically grounded as they scale, evolve, and are exposed to real operational pressure.
 
-As a founding engineer, he has led system design from first principles. As chief scientist, he ensures that deployed systems remain methodologically sound, verifiable, and extensible.
+In practice, I:
 
----
-
-## 3. Core Philosophy
-
-### 3.1 Production Over Prototypes
-
-High-performing models are not products. **Systems are products**.
-
-Production systems must:
-
-* tolerate imperfect data
-* fail visibly rather than silently
-* support iteration without destabilization
-* remain interpretable to operators and stakeholders
-
-### 3.2 Explicit Constraints
-
-Every system operates under constraints. Dr. Shang’s approach makes these explicit:
-
-* latency vs. accuracy
-* automation vs. quality control
-* throughput vs. cost
-* scalability vs. interpretability
-
-Trade-offs are engineered deliberately rather than deferred.
-
-### 3.3 Research → Deployment Continuity
-
-Academic results are starting points, not endpoints.
-
-Bridging research to production requires:
-
-* clarifying assumptions
-* identifying failure modes
-* defining verification criteria
-* designing operational feedback loops
-
-### 3.4 Data-Centric AI
-
-Long-term system advantage emerges from data quality, not model novelty.
-
-Key mechanisms:
-
-* structured data ingestion
-* annotation and re-annotation pipelines
-* automated and human-in-the-loop QC
-* retraining triggers and rollback strategies
+* define system-level evaluation criteria beyond accuracy alone
+* architect end-to-end geospatial and AI pipelines
+* translate research methods into deployable, auditable systems
+* own trade-offs across accuracy, latency, cost, and reliability
 
 ---
 
-## 4. Systems & Engineering Capabilities
+## How I Build Systems
 
-### 4.1 End-to-End Geospatial Pipelines
+### Production is the benchmark
 
-Design and ownership of pipelines covering:
+A system is only meaningful if it continues to behave correctly after deployment.
 
-* raw data ingestion
-* spatial processing and normalization
-* analytics and inference
-* quality control and validation
-* reporting and delivery
+I design systems to fail visibly rather than silently, to support iteration without destabilization, and to remain interpretable to engineers and operators.
 
-These systems are designed for repeatability, auditability, and scale.
+### Constraints shape architecture
 
-### 4.2 Multimodal Remote Sensing
+Latency, throughput, cost envelopes, and operational friction are architectural facts.
 
-Robust workflows across:
+I treat these constraints as inputs to design decisions, making trade-offs explicit so systems can be reasoned about and maintained over time.
 
-* RGB imagery
-* thermal and infrared data
-* derived spatial layers
+### Deployment reveals assumptions
 
-Focus is placed on extracting actionable signals while controlling false positives and uncertainty.
+Research does not end at deployment.
 
-### 4.3 Verification and Quality Control
+I design feedback loops that surface failure modes, quantify drift, and allow systems to improve without eroding trust or stability.
 
-Spatial data often fails silently.
+### Data quality compounds
 
-QC is treated as a **first-class system component**, incorporating:
+Long-term system advantage comes from disciplined data practices.
 
-* automated checks
-* spatial sanity validation (CRS, units, alignment)
-* human-in-the-loop review
-* reproducible metrics
-
-### 4.4 Secure Data Delivery
-
-Architectures include:
-
-* multi-tenant access control
-* lifecycle and retention policies
-* auditability and permission boundaries
-
+I build pipelines where ingestion, annotation, quality control, monitoring, retraining, and rollback strategies reinforce one another.
 
 ---
 
-## 5. Research & Scholarly Impact
+## Systems I Build
 
-Dr. Shang’s academic work focuses on **remote sensing and geospatial analysis**, with peer-reviewed publications in journals and conferences.
+### End-to-end geospatial pipelines
 
-His research contributes methods and insights in:
+I build pipelines that cover the full lifecycle of spatial data, from ingestion and normalization to processing, verification, reporting, and delivery.
 
-* GIS and spatial analytics
-* LiDAR and 3D data processing
-* remote sensing methodologies
+These systems are designed to be repeatable, auditable, and resilient under scale.
 
-Public citation history is maintained via Google Scholar.
+### Multimodal remote sensing workflows
 
-**Google Scholar:**
+I work across RGB imagery, thermal and infrared data, and derived spatial layers.
+
+The focus is on extracting actionable signals while controlling uncertainty and false positives in operational environments.
+
+### Verification and quality control systems
+
+Spatial systems often fail quietly through projection errors, unit mismatches, alignment drift, or metadata assumptions.
+
+I build verification layers—automated and human-in-the-loop—that make these failures observable and traceable.
+
+### Secure data delivery architectures
+
+I design delivery systems with clear permission boundaries, multi-tenant access control, and lifecycle management.
+
+---
+
+## Research and Its Connection to Production
+
+My research background is in **remote sensing and geospatial analysis**, and it directly informs the systems I build today.
+
+My peer-reviewed work addresses questions that recur in production systems:
+
+* how spatial measurements behave under noise and scale
+* how resolution, alignment, and representation affect downstream inference
+* how to reason about uncertainty in derived spatial products
+
+These research insights shape practical decisions in system design, including data preprocessing, model selection, validation strategies, and quality control thresholds.
+
+I have authored and co-authored publications in journals and conferences, contributing methods and analytical frameworks that are now embedded in production pipelines.
+
+My public citation record is available via Google Scholar:
 [https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en](https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en)
 
-Representative publications may be listed selectively for context, rather than exhaustively.
+I present research selectively, emphasizing work that has informed real system behavior rather than purely theoretical results.
 
 ---
 
-## 6. Selected Engineering Work (Abstracted)
+## Selected Work
 
-> The following descriptions are intentionally generalized and omit sensitive or proprietary information.
+The work I lead and build is system-oriented rather than project-oriented. Public descriptions focus on **architectural patterns and operational behavior**, not on clients, locations, or proprietary metrics.
 
-### Large-Scale Imagery Processing Systems
+### Production Geospatial Intelligence Platforms
 
-* Automated processing of high-resolution spatial data
-* Built-in verification and QC layers
-* Emphasis on repeatability and operational robustness
+I have designed and operated large-scale geospatial processing platforms that:
 
-### Multisensor Analysis Workflows
+* ingest high-volume spatial data from heterogeneous sources
+* normalize and align data across coordinate systems and resolutions
+* execute analytics and inference at scale
+* embed verification and QC as part of the execution path, not post-processing
 
-* Integration of RGB, thermal, and derived spatial data
-* Signal extraction under uncertainty and operational constraints
+These platforms are built to support continuous operation, repeatable results, and controlled iteration under real-world constraints.
 
-### Secure Delivery Architectures
+### Multisensor Analysis and Decision Pipelines
 
-* Multi-tenant delivery patterns
-* Strict access control and lifecycle management
-* Audit-friendly system design
+I have built multisensor pipelines that combine:
+
+* RGB imagery
+* thermal and infrared signals
+* derived spatial features and contextual layers
+
+The emphasis is on extracting **decision-relevant signals**, managing uncertainty, and minimizing false positives in operational environments where ground truth is incomplete.
+
+### Verification-Centric System Design
+
+Across systems, I have led the design of verification frameworks that:
+
+* surface spatial inconsistencies (alignment, scale, unit errors)
+* detect silent failure modes before downstream impact
+* integrate automated checks with human-in-the-loop review
+
+Verification artifacts are treated as first-class outputs, enabling traceability and auditability.
+
+### Data-Centric AI Production Loops
+
+I have built data-centric AI workflows where:
+
+* data quality is continuously measured and corrected
+* annotation, re-annotation, and QC are structured processes
+* retraining is driven by observed failure modes rather than fixed schedules
+* rollback and comparison are supported as operational controls
+
+These loops allow systems to improve over time without destabilizing production behavior.
+
+### Secure, Multi-Tenant Delivery Architectures
+
+I have architected delivery systems that:
+
+* enforce strict tenant isolation
+* support granular access control
+* manage data lifecycle and retention
+* provide audit-friendly access patterns
+
+Public descriptions intentionally omit sensitive operational details.
 
 ---
 
-## 7. Writing & Technical Notes
+## Writing
 
-Dr. Shang maintains technical notes focused on:
+I write technical notes on production AI systems, geospatial data failure modes, and system-level decision-making under constraints.
 
-* production AI systems
-* geospatial data failure modes
-* engineering decisions under real-world constraints
-
-These writings emphasize generalizable patterns and reproducible reasoning rather than anecdotal case studies.
+These notes focus on what holds, what fails, and how to design systems that remain reliable as they evolve.
 
 ---
 
-## 8. Tone and Usage Guidelines
-
-This document is designed to be:
-
-* **system-oriented**, not promotional
-* **precise**, not verbose
-* **public-safe**, avoiding confidential details
-
-It is suitable for:
-
-* personal websites
-* GitHub READMEs
-* academic or professional profiles
-* generative design tools as structured input
-
----
-
-## 9. Public Links
+## Public Links
 
 * Google Scholar: [https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en](https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en)
 * GitHub: [https://github.com/leibowivz](https://github.com/leibowivz)
 
 ---
 
-## 10. Contact
+## Contact
 
 * [nan.shang@droneinstitute.ai](mailto:nan.shang@droneinstitute.ai)
 * [sn1514826@gmail.com](mailto:sn1514826@gmail.com)
