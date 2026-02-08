@@ -3,11 +3,11 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-  <!-- ─── SVG Scene: satellites, orbits, drone scan, spectral bands, topo grid ─── -->
+  <!-- ═══ SVG Scene ═══ -->
   <div class="scene" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 900">
       <defs>
-        <linearGradient id="specG" x1="0" y1="0" x2="1" y2="0">
+        <linearGradient id="sg" x1="0" y1="0" x2="1" y2="0">
           <stop offset="0%"   stop-color="#f87171" stop-opacity="0.3"/>
           <stop offset="17%"  stop-color="#fb923c" stop-opacity="0.25"/>
           <stop offset="33%"  stop-color="#facc15" stop-opacity="0.2"/>
@@ -16,27 +16,27 @@ import Base from "../layouts/Base.astro";
           <stop offset="83%"  stop-color="#60a5fa" stop-opacity="0.25"/>
           <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.2"/>
         </linearGradient>
-        <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"  stop-color="#22d3ee" stop-opacity="0.14"/>
+        <radialGradient id="gc" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#22d3ee" stop-opacity="0.12"/>
           <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
         </radialGradient>
-        <radialGradient id="glowPurple" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"  stop-color="#a78bfa" stop-opacity="0.1"/>
+        <radialGradient id="gp" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#a78bfa" stop-opacity="0.08"/>
           <stop offset="100%" stop-color="#a78bfa" stop-opacity="0"/>
         </radialGradient>
-        <radialGradient id="glowGreen" cx="50%" cy="50%" r="50%">
-          <stop offset="0%"  stop-color="#34d399" stop-opacity="0.08"/>
+        <radialGradient id="gg" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"  stop-color="#34d399" stop-opacity="0.06"/>
           <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
         </radialGradient>
       </defs>
 
-      <!-- Ambient glow orbs -->
-      <ellipse cx="300" cy="240" rx="440" ry="320" fill="url(#glowCyan)"/>
-      <ellipse cx="1120" cy="500" rx="380" ry="300" fill="url(#glowPurple)"/>
-      <ellipse cx="700" cy="700" rx="300" ry="200" fill="url(#glowGreen)"/>
+      <!-- Glow -->
+      <ellipse cx="280" cy="220" rx="460" ry="340" fill="url(#gc)"/>
+      <ellipse cx="1140" cy="480" rx="400" ry="300" fill="url(#gp)"/>
+      <ellipse cx="680" cy="720" rx="320" ry="200" fill="url(#gg)"/>
 
-      <!-- Coordinate grid (geospatial reference) -->
-      <g stroke="rgba(34,211,238,0.04)" stroke-width="0.5" fill="none">
+      <!-- Grid -->
+      <g stroke="rgba(34,211,238,0.035)" stroke-width="0.5" fill="none">
         <line x1="0" y1="150" x2="1440" y2="150"/>
         <line x1="0" y1="300" x2="1440" y2="300"/>
         <line x1="0" y1="450" x2="1440" y2="450"/>
@@ -48,206 +48,201 @@ import Base from "../layouts/Base.astro";
         <line x1="1152" y1="0" x2="1152" y2="900"/>
       </g>
 
-      <!-- Satellite orbit arcs (3 orbital paths) -->
+      <!-- Orbits -->
       <g fill="none" stroke-linecap="round">
-        <!-- Primary orbit — spectral gradient, animated -->
-        <ellipse cx="720" cy="300" rx="650" ry="200"
-                 stroke="url(#specG)" stroke-width="1.2" stroke-dasharray="8 16"
-                 transform="rotate(-10 720 300)" opacity="0.5">
+        <ellipse cx="720" cy="300" rx="660" ry="210"
+                 stroke="url(#sg)" stroke-width="1.2" stroke-dasharray="8 16"
+                 transform="rotate(-10 720 300)" opacity="0.45">
           <animateTransform attributeName="transform" type="rotate"
-            values="-10 720 300;-10.8 720 300;-10 720 300" dur="30s" repeatCount="indefinite"/>
+            values="-10 720 300;-10.8 720 300;-10 720 300" dur="32s" repeatCount="indefinite"/>
         </ellipse>
-        <!-- Secondary orbit — blue -->
-        <ellipse cx="720" cy="400" rx="520" ry="160"
-                 stroke="rgba(96,165,250,0.18)" stroke-width="0.8" stroke-dasharray="5 20"
-                 transform="rotate(7 720 400)" opacity="0.6">
+        <ellipse cx="720" cy="380" rx="520" ry="155"
+                 stroke="rgba(96,165,250,0.16)" stroke-width="0.8" stroke-dasharray="5 22"
+                 transform="rotate(7 720 380)" opacity="0.55">
           <animateTransform attributeName="transform" type="rotate"
-            values="7 720 400;7.6 720 400;7 720 400" dur="40s" repeatCount="indefinite"/>
+            values="7 720 380;7.6 720 380;7 720 380" dur="42s" repeatCount="indefinite"/>
         </ellipse>
-        <!-- Tertiary orbit — cyan, wide -->
-        <ellipse cx="720" cy="240" rx="720" ry="250"
-                 stroke="rgba(34,211,238,0.1)" stroke-width="0.5" stroke-dasharray="3 28"
-                 transform="rotate(-4 720 240)" opacity="0.4"/>
+        <ellipse cx="720" cy="240" rx="740" ry="260"
+                 stroke="rgba(34,211,238,0.08)" stroke-width="0.5" stroke-dasharray="3 30"
+                 transform="rotate(-4 720 240)" opacity="0.35"/>
       </g>
 
-      <!-- ★ Satellite #1 (on primary orbit, top-right) -->
-      <g transform="translate(1020,175)" opacity="0.5">
-        <!-- Body -->
+      <!-- Satellite 1 -->
+      <g transform="translate(1040,170)" opacity="0.5">
         <rect x="-5" y="-5" width="10" height="10" fill="#22d3ee" rx="2"/>
-        <!-- Solar panels -->
-        <rect x="-22" y="-2.5" width="15" height="5" fill="#60a5fa" rx="1" opacity="0.8"/>
-        <rect x="7"  y="-2.5" width="15" height="5" fill="#60a5fa" rx="1" opacity="0.8"/>
-        <!-- Signal lines -->
-        <line x1="0" y1="7" x2="-12" y2="35" stroke="#22d3ee" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.4"/>
-        <line x1="0" y1="7" x2="12" y2="35" stroke="#22d3ee" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.4"/>
-        <!-- Signal cone (ground footprint) -->
-        <path d="M-12,35 L12,35" stroke="#22d3ee" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.3"/>
+        <rect x="-23" y="-2.5" width="16" height="5" fill="#60a5fa" rx="1" opacity="0.8"/>
+        <rect x="7"  y="-2.5" width="16" height="5" fill="#60a5fa" rx="1" opacity="0.8"/>
+        <line x1="0" y1="7" x2="-14" y2="40" stroke="#22d3ee" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.35"/>
+        <line x1="0" y1="7" x2="14" y2="40" stroke="#22d3ee" stroke-width="0.4" stroke-dasharray="2 4" opacity="0.35"/>
+        <path d="M-14,40 L14,40" stroke="#22d3ee" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.25"/>
       </g>
 
-      <!-- ★ Satellite #2 (on secondary orbit, left side) -->
-      <g transform="translate(260,350) rotate(-15)" opacity="0.35">
+      <!-- Satellite 2 -->
+      <g transform="translate(250,340) rotate(-15)" opacity="0.3">
         <rect x="-4" y="-4" width="8" height="8" fill="#a78bfa" rx="1.5"/>
-        <rect x="-18" y="-2" width="12" height="4" fill="#a78bfa" rx="1" opacity="0.7"/>
-        <rect x="5"  y="-2" width="12" height="4" fill="#a78bfa" rx="1" opacity="0.7"/>
+        <rect x="-18" y="-2" width="12" height="4" fill="#a78bfa" rx="1" opacity="0.65"/>
+        <rect x="6"  y="-2" width="12" height="4" fill="#a78bfa" rx="1" opacity="0.65"/>
       </g>
 
-      <!-- ★ Satellite #3 (small, on tertiary orbit) -->
-      <g transform="translate(1300,140)" opacity="0.25">
+      <!-- Satellite 3 -->
+      <g transform="translate(1320,135)" opacity="0.22">
         <rect x="-3" y="-3" width="6" height="6" fill="#34d399" rx="1"/>
-        <rect x="-12" y="-1.5" width="8" height="3" fill="#34d399" rx="0.5" opacity="0.6"/>
-        <rect x="4"  y="-1.5" width="8" height="3" fill="#34d399" rx="0.5" opacity="0.6"/>
+        <rect x="-13" y="-1.5" width="8" height="3" fill="#34d399" rx="0.5" opacity="0.55"/>
+        <rect x="5"  y="-1.5" width="8" height="3" fill="#34d399" rx="0.5" opacity="0.55"/>
       </g>
 
-      <!-- ★ Drone (quadcopter, bottom-right with scan pattern) -->
-      <g transform="translate(1160,580)" opacity="0.4">
-        <!-- Arms -->
-        <line x1="-12" y1="-12" x2="12" y2="12" stroke="#34d399" stroke-width="1.2"/>
-        <line x1="12" y1="-12" x2="-12" y2="12" stroke="#34d399" stroke-width="1.2"/>
-        <!-- Rotors -->
-        <circle cx="-12" cy="-12" r="5" stroke="#34d399" stroke-width="0.8" fill="none" opacity="0.6"/>
-        <circle cx="12"  cy="-12" r="5" stroke="#34d399" stroke-width="0.8" fill="none" opacity="0.6"/>
-        <circle cx="-12" cy="12"  r="5" stroke="#34d399" stroke-width="0.8" fill="none" opacity="0.6"/>
-        <circle cx="12"  cy="12"  r="5" stroke="#34d399" stroke-width="0.8" fill="none" opacity="0.6"/>
-        <!-- Center body -->
-        <circle cx="0" cy="0" r="3" fill="#34d399"/>
-        <!-- Camera indicator -->
-        <circle cx="0" cy="0" r="1.2" fill="#080d1a"/>
+      <!-- Drone 1 -->
+      <g transform="translate(1160,560)" opacity="0.38">
+        <line x1="-14" y1="-14" x2="14" y2="14" stroke="#34d399" stroke-width="1.2"/>
+        <line x1="14" y1="-14" x2="-14" y2="14" stroke="#34d399" stroke-width="1.2"/>
+        <circle cx="-14" cy="-14" r="5.5" stroke="#34d399" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <circle cx="14"  cy="-14" r="5.5" stroke="#34d399" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <circle cx="-14" cy="14"  r="5.5" stroke="#34d399" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <circle cx="14"  cy="14"  r="5.5" stroke="#34d399" stroke-width="0.7" fill="none" opacity="0.55"/>
+        <circle cx="0" cy="0" r="3.5" fill="#34d399"/>
+        <circle cx="0" cy="0" r="1.5" fill="#060a14"/>
       </g>
 
-      <!-- Drone scan pattern (lawnmower flight path) -->
-      <g opacity="0.15" stroke="#34d399" stroke-width="0.6" fill="none" stroke-dasharray="3 6">
-        <polyline points="1100,620 1220,620 1220,645 1100,645 1100,670 1220,670 1220,695 1100,695"/>
+      <!-- Drone scan pattern -->
+      <g opacity="0.14" stroke="#34d399" stroke-width="0.6" fill="none" stroke-dasharray="3 6">
+        <polyline points="1095,600 1225,600 1225,628 1095,628 1095,656 1225,656 1225,684 1095,684"/>
       </g>
 
-      <!-- ★ Second drone (smaller, mapping a different area) -->
-      <g transform="translate(380,640) scale(0.7)" opacity="0.25">
-        <line x1="-10" y1="-10" x2="10" y2="10" stroke="#22d3ee" stroke-width="1"/>
-        <line x1="10" y1="-10" x2="-10" y2="10" stroke="#22d3ee" stroke-width="1"/>
-        <circle cx="-10" cy="-10" r="4" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
-        <circle cx="10"  cy="-10" r="4" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
-        <circle cx="-10" cy="10"  r="4" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
-        <circle cx="10"  cy="10"  r="4" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
+      <!-- Drone 2 -->
+      <g transform="translate(360,650) scale(0.65)" opacity="0.2">
+        <line x1="-12" y1="-12" x2="12" y2="12" stroke="#22d3ee" stroke-width="1"/>
+        <line x1="12" y1="-12" x2="-12" y2="12" stroke="#22d3ee" stroke-width="1"/>
+        <circle cx="-12" cy="-12" r="4.5" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
+        <circle cx="12"  cy="-12" r="4.5" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
+        <circle cx="-12" cy="12"  r="4.5" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
+        <circle cx="12"  cy="12"  r="4.5" stroke="#22d3ee" stroke-width="0.6" fill="none"/>
         <circle cx="0" cy="0" r="2.5" fill="#22d3ee"/>
       </g>
 
-      <!-- Topographic contour lines -->
-      <g fill="none" stroke="rgba(34,211,238,0.03)" stroke-width="0.6">
+      <!-- Contour lines -->
+      <g fill="none" stroke="rgba(34,211,238,0.025)" stroke-width="0.6">
         <path d="M0,720 Q180,690 360,710 Q540,730 720,700 Q900,670 1080,690 Q1260,710 1440,680"/>
-        <path d="M0,745 Q180,715 360,738 Q540,758 720,728 Q900,698 1080,718 Q1260,738 1440,708"/>
-        <path d="M0,770 Q180,740 360,765 Q540,785 720,755 Q900,725 1080,745 Q1260,765 1440,735"/>
-        <path d="M0,795 Q180,765 360,790 Q540,810 720,780 Q900,750 1080,770 Q1260,790 1440,760"/>
+        <path d="M0,750 Q180,720 360,742 Q540,762 720,732 Q900,702 1080,722 Q1260,742 1440,712"/>
+        <path d="M0,780 Q180,750 360,774 Q540,794 720,764 Q900,734 1080,754 Q1260,774 1440,744"/>
       </g>
 
-      <!-- Spectral band column (electromagnetic spectrum indicator, right edge) -->
-      <g transform="translate(1400,240)" opacity="0.25">
-        <rect y="0"  width="16" height="50" rx="2" fill="#f87171"/>
-        <rect y="54" width="16" height="50" rx="2" fill="#fb923c"/>
-        <rect y="108" width="16" height="50" rx="2" fill="#facc15"/>
-        <rect y="162" width="16" height="50" rx="2" fill="#34d399"/>
-        <rect y="216" width="16" height="50" rx="2" fill="#22d3ee"/>
-        <rect y="270" width="16" height="50" rx="2" fill="#60a5fa"/>
-        <rect y="324" width="16" height="50" rx="2" fill="#a78bfa"/>
+      <!-- Spectral column -->
+      <g transform="translate(1406,220)" opacity="0.22">
+        <rect y="0"  width="14" height="48" rx="2" fill="#f87171"/>
+        <rect y="52" width="14" height="48" rx="2" fill="#fb923c"/>
+        <rect y="104" width="14" height="48" rx="2" fill="#facc15"/>
+        <rect y="156" width="14" height="48" rx="2" fill="#34d399"/>
+        <rect y="208" width="14" height="48" rx="2" fill="#22d3ee"/>
+        <rect y="260" width="14" height="48" rx="2" fill="#60a5fa"/>
+        <rect y="312" width="14" height="48" rx="2" fill="#a78bfa"/>
       </g>
 
-      <!-- Spectral band labels -->
-      <g fill="rgba(255,255,255,0.04)" font-family="JetBrains Mono, monospace" font-size="6" text-anchor="end">
-        <text x="1396" y="30">RED</text>
-        <text x="1396" y="84">NIR</text>
-        <text x="1396" y="138">SWIR</text>
-        <text x="1396" y="192">VIS</text>
-        <text x="1396" y="246">TIR</text>
-        <text x="1396" y="300">SAR</text>
-        <text x="1396" y="354">UV</text>
+      <!-- Band labels -->
+      <g fill="rgba(255,255,255,0.035)" font-family="JetBrains Mono, monospace" font-size="6" text-anchor="end">
+        <text x="1402" y="248">RED</text>
+        <text x="1402" y="300">NIR</text>
+        <text x="1402" y="352">SWIR</text>
+        <text x="1402" y="404">TIR</text>
       </g>
 
-      <!-- Coordinate markers -->
-      <g fill="rgba(34,211,238,0.06)" font-family="JetBrains Mono, monospace" font-size="8">
-        <text x="293" y="146">40°N 116°E</text>
-        <text x="869" y="446">0°0′</text>
-        <text x="581" y="596">20°S 47°W</text>
+      <!-- Coords -->
+      <g fill="rgba(34,211,238,0.05)" font-family="JetBrains Mono, monospace" font-size="7.5">
+        <text x="293" y="146">40.0°N 116.4°E</text>
+        <text x="869" y="446">0°0′0″</text>
       </g>
 
-      <!-- Ground track line (satellite nadir trace) -->
-      <path d="M100,200 Q400,380 720,320 Q1040,260 1340,400"
-            stroke="rgba(34,211,238,0.06)" stroke-width="0.8" fill="none"
-            stroke-dasharray="4 8"/>
+      <!-- Nadir trace -->
+      <path d="M80,210 Q380,390 720,320 Q1060,250 1360,410"
+            stroke="rgba(34,211,238,0.05)" stroke-width="0.7" fill="none"
+            stroke-dasharray="4 10"/>
     </svg>
   </div>
 
-  <!-- ─── Hero ─── -->
-  <div class="container">
+  <!-- ═══ Nav ═══ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#">
+        <div class="nav__logo">NS</div>
+        <span class="nav__name">Nan Shang</span>
+      </a>
+      <div class="nav__links">
+        <a class="nav__link" href="#overview">Overview</a>
+        <a class="nav__link" href="#approach">Approach</a>
+        <a class="nav__link" href="#systems">Systems</a>
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#research">Research</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <div class="wrap">
     <header class="hero">
-      <div class="hero__badge">
-        <span class="hero__badge-dot"></span>
-        Remote Sensing & Geospatial AI
-      </div>
-      <h1 class="hero__headline">I build systems<br/>that last.</h1>
-      <p class="hero__sub">
-        Not systems that impress at first glance, but systems that remain
-        quiet, stable, and correct after the novelty fades. I work where
-        data meets uncertainty, and where the real test is not performance
-        in isolation, but behavior over time.
+      <div class="hero__kicker">Chief Scientist & Founding Engineer</div>
+
+      <h1 class="hero__h1">
+        <span class="hero__h1-top">I build systems</span>
+        <span class="hero__h1-bot">that last.</span>
+      </h1>
+
+      <p class="hero__desc">
+        Where data meets uncertainty, and where the real test is not performance
+        in isolation — but behavior over time. I design geospatial and AI systems
+        that stay quiet, stable, and correct long after the novelty fades.
       </p>
-      <div class="hero__identity">
-        <span class="hero__name">Nan Shang, Ph.D.</span>
-        <span class="hero__role">Chief Scientist & Founding Engineer</span>
-        <span class="hero__org">Drone Institute</span>
+
+      <div class="hero__meta">
+        <span class="hero__meta-name">Nan Shang, Ph.D.</span>
+        <span class="hero__meta-role">Chief Scientist & Founding Engineer</span>
+        <span class="hero__meta-org">Drone Institute</span>
       </div>
-      <div class="hero__actions">
-        <a class="btn btn--accent" href="#overview">Read more</a>
+
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#overview">Read more</a>
         <a class="btn" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-           target="_blank" rel="noopener">Google Scholar</a>
+           target="_blank" rel="noopener">Scholar</a>
         <a class="btn" href="https://github.com/leibowivz"
            target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
       </div>
+
+      <div class="hero__line"></div>
     </header>
   </div>
 
-  <!-- ─── Navigation ─── -->
-  <nav class="nav" aria-label="Primary">
-    <div class="nav__inner">
-      <a class="nav__link" href="#overview">Overview</a>
-      <a class="nav__link" href="#role">Role</a>
-      <a class="nav__link" href="#approach">Approach</a>
-      <a class="nav__link" href="#systems">Systems</a>
-      <a class="nav__link" href="#work">Work</a>
-      <a class="nav__link" href="#research">Research</a>
-      <a class="nav__link" href="#contact">Contact</a>
-    </div>
-  </nav>
+  <main class="wrap">
 
-  <main class="container">
-
-    <!-- ─── Overview ─── -->
+    <!-- ═══ Overview ═══ -->
     <section id="overview">
-      <h2>Overview</h2>
-      <p class="quote-block">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Overview</span></div>
+
+      <p class="pull">
         I design and operate production-grade geospatial and AI systems.
       </p>
       <p>
         My work sits at the intersection of remote sensing research, geospatial
-        analytics, and system architecture. I focus on building systems that take
-        spatial data — often noisy, incomplete, and operationally constrained — and
-        turn it into outputs that can be trusted in real decision-making contexts.
+        analytics, and system architecture. I build systems that take spatial
+        data — often noisy, incomplete, and operationally constrained — and turn
+        it into outputs that can be trusted in real decision-making contexts.
       </p>
       <p style="margin-top: 1.25rem;">
-        What matters to me is not isolated model performance, but how a system
-        behaves end to end: how data enters, how assumptions propagate, how errors
-        surface, and how the system evolves under continuous use.
+        What matters is not isolated model performance, but how a system behaves
+        end to end: how data enters, how assumptions propagate, how errors surface,
+        and how the system evolves under continuous use.
       </p>
     </section>
 
-    <!-- ─── My Role ─── -->
+    <!-- ═══ Role ═══ -->
     <section id="role">
-      <h2>My Role</h2>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">My Role</span></div>
+
       <p style="margin-bottom: 1.5rem;">
         As a founding engineer, I designed the core architectures from first
         principles. As chief scientist, I ensure that deployed systems remain
-        scientifically grounded as they scale, evolve, and are exposed to real
-        operational pressure.
+        scientifically grounded as they scale and face real operational pressure.
       </p>
-      <ul class="feature-list">
+      <ul class="fl">
         <li>Define system-level evaluation criteria beyond accuracy alone</li>
         <li>Architect end-to-end geospatial and AI pipelines</li>
         <li>Translate research methods into deployable, auditable systems</li>
@@ -255,35 +250,33 @@ import Base from "../layouts/Base.astro";
       </ul>
     </section>
 
-    <!-- ─── Approach ─── -->
+    <!-- ═══ Approach ═══ -->
     <section id="approach">
-      <h2>How I Build Systems</h2>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">How I Build Systems</span></div>
 
-      <div class="grid-2">
+      <div class="g2">
         <div class="card">
           <div class="card__num">01</div>
           <div class="card__title">Production is the benchmark</div>
-          <p class="card__text">
-            A system is only meaningful if it continues to behave correctly
-            after deployment. I design systems to fail visibly rather than
-            silently, to support iteration without destabilization, and to
-            remain interpretable to engineers and operators.
+          <p class="card__body">
+            A system is only meaningful if it continues to behave correctly after
+            deployment. I design systems to fail visibly, support iteration without
+            destabilization, and remain interpretable to operators.
           </p>
         </div>
         <div class="card">
           <div class="card__num">02</div>
           <div class="card__title">Constraints shape architecture</div>
-          <p class="card__text">
+          <p class="card__body">
             Latency, throughput, cost envelopes, and operational friction are
-            architectural facts. I treat these constraints as inputs to design
-            decisions, making trade-offs explicit so systems can be reasoned
-            about and maintained over time.
+            architectural facts. I make trade-offs explicit so systems can be
+            reasoned about and maintained over time.
           </p>
         </div>
         <div class="card">
           <div class="card__num">03</div>
           <div class="card__title">Deployment reveals assumptions</div>
-          <p class="card__text">
+          <p class="card__body">
             Research does not end at deployment. I design feedback loops that
             surface failure modes, quantify drift, and allow systems to improve
             without eroding trust or stability.
@@ -292,146 +285,141 @@ import Base from "../layouts/Base.astro";
         <div class="card">
           <div class="card__num">04</div>
           <div class="card__title">Data quality compounds</div>
-          <p class="card__text">
-            Long-term system advantage comes from disciplined data practices.
-            I build pipelines where ingestion, annotation, quality control,
-            monitoring, retraining, and rollback strategies reinforce one another.
+          <p class="card__body">
+            Long-term advantage comes from disciplined data practices. I build
+            pipelines where ingestion, annotation, quality control, monitoring,
+            retraining, and rollback reinforce one another.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- ─── Systems I Build ─── -->
+    <!-- ═══ Systems ═══ -->
     <section id="systems">
-      <h2>Systems I Build</h2>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Systems I Build</span></div>
 
-      <div class="grid-2">
-        <div class="system-card">
-          <div class="system-card__icon">Pipeline</div>
-          <div class="system-card__title">End-to-End Geospatial</div>
-          <p class="system-card__text">
-            Pipelines covering the full lifecycle of spatial data — from
-            ingestion and normalization to processing, verification, reporting,
-            and delivery. Repeatable, auditable, resilient under scale.
+      <div class="g2">
+        <div class="sys sys--pipe">
+          <div class="sys__status"><span class="sys__dot"></span>Pipeline</div>
+          <div class="sys__title">End-to-End Geospatial</div>
+          <p class="sys__body">
+            Full lifecycle — ingestion, normalization, processing, verification,
+            reporting, delivery. Repeatable, auditable, resilient under scale.
           </p>
         </div>
-        <div class="system-card">
-          <div class="system-card__icon">Sensing</div>
-          <div class="system-card__title">Multimodal Remote Sensing</div>
-          <p class="system-card__text">
-            Workflows across RGB imagery, thermal and infrared data, and
-            derived spatial layers. Extracting actionable signals while
-            controlling uncertainty and false positives.
+        <div class="sys sys--sense">
+          <div class="sys__status"><span class="sys__dot"></span>Sensing</div>
+          <div class="sys__title">Multimodal Remote Sensing</div>
+          <p class="sys__body">
+            RGB imagery, thermal and infrared data, derived spatial layers.
+            Extracting actionable signals while controlling uncertainty.
           </p>
         </div>
-        <div class="system-card">
-          <div class="system-card__icon">Quality</div>
-          <div class="system-card__title">Verification & QC</div>
-          <p class="system-card__text">
-            Verification layers — automated and human-in-the-loop — that
-            surface projection errors, unit mismatches, alignment drift,
-            and metadata assumptions. Making failures observable.
+        <div class="sys sys--qc">
+          <div class="sys__status"><span class="sys__dot"></span>Quality</div>
+          <div class="sys__title">Verification & QC</div>
+          <p class="sys__body">
+            Automated and human-in-the-loop layers that surface projection
+            errors, alignment drift, and metadata assumptions.
           </p>
         </div>
-        <div class="system-card">
-          <div class="system-card__icon">Delivery</div>
-          <div class="system-card__title">Secure Data Delivery</div>
-          <p class="system-card__text">
-            Delivery systems with clear permission boundaries, multi-tenant
-            access control, lifecycle management, and audit-friendly
-            access patterns.
+        <div class="sys sys--ship">
+          <div class="sys__status"><span class="sys__dot"></span>Delivery</div>
+          <div class="sys__title">Secure Data Delivery</div>
+          <p class="sys__body">
+            Multi-tenant access control, lifecycle management, permission
+            boundaries, and audit-friendly access patterns.
           </p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ─── Geospatial Identity Strip ─── -->
-  <div class="geo-strip">
-    <div class="container">
-      <div class="geo-strip__inner">
-        <div class="geo-strip__spectral"></div>
-        <div class="geo-strip__label">Research Background</div>
-        <div class="geo-strip__title">Remote Sensing & Geospatial Information</div>
-        <p class="geo-strip__text">
-          My research background is in remote sensing and geospatial analysis,
-          and it directly informs the systems I build today. These insights shape
-          practical decisions in system design — data preprocessing, model selection,
-          validation strategies, and quality control thresholds.
+  <!-- ═══ Spectral Strip ═══ -->
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip__inner">
+        <div class="strip__band"></div>
+        <div class="strip__label">Research Background</div>
+        <div class="strip__title">Remote Sensing &<br/>Geospatial Information</div>
+        <p class="strip__body">
+          My research directly informs the systems I build. These insights shape
+          practical decisions — data preprocessing, model selection, validation
+          strategies, and quality control thresholds.
         </p>
-        <ul class="tags" style="margin-top: 1.75rem;">
+        <ul class="tags">
           <li>GIS & Spatial Analytics</li>
-          <li>LiDAR & 3D Processing</li>
+          <li>LiDAR & Point Clouds</li>
           <li>Remote Sensing</li>
           <li>Geospatial AI</li>
-          <li>Production ML Systems</li>
+          <li>Production ML</li>
           <li>Earth Observation</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <main class="container">
+  <main class="wrap">
 
-    <!-- ─── Selected Work ─── -->
+    <!-- ═══ Selected Work ═══ -->
     <section id="work">
-      <h2>Selected Work</h2>
-      <blockquote>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Selected Work</span></div>
+
+      <p class="aside">
         Public descriptions focus on architectural patterns and operational
         behavior, not on clients, locations, or proprietary metrics.
-      </blockquote>
+      </p>
 
-      <div class="grid-1">
+      <div class="g1">
         <div class="card">
           <h3>Production Geospatial Intelligence Platforms</h3>
-          <p class="card__text" style="margin-bottom: 1rem;">
-            Large-scale geospatial processing platforms built to support
-            continuous operation, repeatable results, and controlled iteration
-            under real-world constraints.
+          <p class="card__body" style="margin-bottom: 1rem;">
+            Large-scale platforms built to support continuous operation, repeatable
+            results, and controlled iteration under real-world constraints.
           </p>
-          <ul class="feature-list">
+          <ul class="fl">
             <li>Ingest high-volume spatial data from heterogeneous sources</li>
-            <li>Normalize and align data across coordinate systems and resolutions</li>
+            <li>Normalize and align across coordinate systems and resolutions</li>
             <li>Execute analytics and inference at scale</li>
-            <li>Embed verification and QC as part of the execution path</li>
+            <li>Verification and QC embedded in the execution path</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Multisensor Analysis and Decision Pipelines</h3>
-          <p class="card__text">
-            Pipelines that combine RGB imagery, thermal and infrared signals,
-            and derived spatial features. Emphasis on extracting decision-relevant
-            signals and minimizing false positives where ground truth is incomplete.
+          <h3>Multisensor Analysis & Decision Pipelines</h3>
+          <p class="card__body">
+            Combining RGB imagery, thermal and infrared signals, and derived
+            spatial features. Emphasis on extracting decision-relevant signals
+            and minimizing false positives where ground truth is incomplete.
           </p>
         </div>
 
         <div class="card">
           <h3>Verification-Centric System Design</h3>
-          <ul class="feature-list">
+          <ul class="fl">
             <li>Surface spatial inconsistencies — alignment, scale, unit errors</li>
             <li>Detect silent failure modes before downstream impact</li>
-            <li>Integrate automated checks with human-in-the-loop review</li>
+            <li>Automated checks integrated with human-in-the-loop review</li>
             <li>Verification artifacts treated as first-class outputs</li>
           </ul>
         </div>
 
-        <div class="grid-2">
+        <div class="g2">
           <div class="card">
-            <h3>Data-Centric AI Production Loops</h3>
-            <ul class="feature-list">
-              <li>Continuously measured and corrected data quality</li>
-              <li>Structured annotation and re-annotation pipelines</li>
-              <li>Retraining driven by observed failure modes</li>
-              <li>Rollback and comparison as operational controls</li>
+            <h3>Data-Centric AI Loops</h3>
+            <ul class="fl">
+              <li>Continuously measured data quality</li>
+              <li>Structured annotation pipelines</li>
+              <li>Failure-driven retraining</li>
+              <li>Rollback as operational control</li>
             </ul>
           </div>
           <div class="card">
             <h3>Secure Multi-Tenant Delivery</h3>
-            <ul class="feature-list">
+            <ul class="fl">
               <li>Strict tenant isolation</li>
               <li>Granular access control</li>
-              <li>Data lifecycle and retention management</li>
+              <li>Lifecycle & retention management</li>
               <li>Audit-friendly access patterns</li>
             </ul>
           </div>
@@ -439,55 +427,61 @@ import Base from "../layouts/Base.astro";
       </div>
     </section>
 
-    <!-- ─── Research ─── -->
+    <!-- ═══ Research ═══ -->
     <section id="research">
-      <h2>Research & Production</h2>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Research & Production</span></div>
+
       <p>
-        My peer-reviewed work addresses questions that recur in production systems:
+        My peer-reviewed work addresses questions that recur in production:
       </p>
-      <ul class="feature-list" style="margin-top: 1rem; margin-bottom: 1.75rem;">
+      <ul class="fl" style="margin-top: 1rem; margin-bottom: 1.75rem;">
         <li>How spatial measurements behave under noise and scale</li>
-        <li>How resolution, alignment, and representation affect downstream inference</li>
+        <li>How resolution and alignment affect downstream inference</li>
         <li>How to reason about uncertainty in derived spatial products</li>
       </ul>
       <p>
         I have authored and co-authored publications in journals and conferences,
-        contributing methods and analytical frameworks that are now embedded in
-        production pipelines. I present research selectively, emphasizing work
-        that has informed real system behavior.
+        contributing methods and frameworks now embedded in production pipelines.
       </p>
-      <div class="link-row" style="margin-top: 2rem;">
+      <div class="links" style="margin-top: 2rem;">
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
 
-    <!-- ─── Writing ─── -->
+    <!-- ═══ Writing ═══ -->
     <section>
-      <h2>Writing</h2>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Writing</span></div>
       <p>
         Technical notes on production AI systems, geospatial data failure modes,
-        and system-level decision-making under constraints. Focused on what holds,
-        what fails, and how to design systems that remain reliable as they evolve.
+        and system-level decision-making under constraints. What holds, what fails,
+        and how to design systems that remain reliable as they evolve.
       </p>
     </section>
 
-    <!-- ─── Contact ─── -->
+    <!-- ═══ Contact ═══ -->
     <section id="contact">
-      <h2>Contact</h2>
-      <ul class="contact-list">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Contact</span></div>
+      <ul class="contact">
         <li><a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a></li>
         <li><a href="mailto:sn1514826@gmail.com">sn1514826@gmail.com</a></li>
       </ul>
-      <div class="link-row">
+      <div class="links">
         <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
            target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </section>
 
-    <footer>
-      <p>Nan Shang, Ph.D.</p>
+    <!-- ═══ Footer ═══ -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="footer__logo">NS</div>
+          <span class="footer__copy">Nan Shang, Ph.D.</span>
+        </div>
+        <span class="footer__copy">Chief Scientist & Founding Engineer</span>
+      </div>
     </footer>
   </main>
 </Base>
