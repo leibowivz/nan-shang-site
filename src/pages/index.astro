@@ -17,12 +17,7 @@ import Base from "../layouts/Base.astro";
     <div class="nav-container">
       <a href="/" class="logo">
         <!-- 篆刻印章 -->
-        <svg class="seal" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1" y="1" width="98" height="98" fill="white" stroke="black" stroke-width="5"/>
-          <rect x="8" y="8" width="84" height="84" fill="none" stroke="black" stroke-width="2.5"/>
-          <text x="50" y="54" font-size="46" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.5">尚</text>
-          <text x="50" y="94" font-size="46" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.5">南</text>
-        </svg>
+        <img src="/seal-bw.png" alt="尚南" class="seal" width="40" height="40" />
         <span class="glitch" data-text="NAN SHANG">NAN SHANG</span>
       </a>
       <div class="nav-links">
@@ -265,12 +260,7 @@ import Base from "../layouts/Base.astro";
           <div class="footer-name">
             NAN SHANG
             <!-- 篆刻印章 -->
-            <svg class="seal seal-footer" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="98" height="98" fill="white" stroke="black" stroke-width="5"/>
-              <rect x="8" y="8" width="84" height="84" fill="none" stroke="black" stroke-width="2.5"/>
-              <text x="50" y="54" font-size="46" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.5">尚</text>
-              <text x="50" y="94" font-size="46" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.5">南</text>
-            </svg>
+            <img src="/seal-bw.png" alt="尚南" class="seal seal-footer" width="32" height="32" />
           </div>
           <div class="footer-role">CHIEF SCIENTIST & FOUNDING ENGINEER</div>
         </div>
@@ -529,6 +519,8 @@ import Base from "../layouts/Base.astro";
     .seal {
       flex-shrink: 0;
       filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.25));
+      image-rendering: crisp-edges;
+      image-rendering: -webkit-optimize-contrast;
     }
 
     .seal-footer {
@@ -910,7 +902,7 @@ import Base from "../layouts/Base.astro";
       position: relative;
       z-index: 10;
       padding: 3rem 0;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      border-top: 2px solid var(--black);
       margin-top: 6rem;
     }
 
