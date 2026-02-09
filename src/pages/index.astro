@@ -16,6 +16,13 @@ import Base from "../layouts/Base.astro";
   <nav class="nav">
     <div class="nav-container">
       <a href="/" class="logo">
+        <!-- 篆刻印章 -->
+        <svg class="seal" width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="96" height="96" fill="white" stroke="black" stroke-width="3"/>
+          <rect x="8" y="8" width="84" height="84" fill="none" stroke="black" stroke-width="2"/>
+          <text x="50" y="42" font-size="28" font-weight="900" text-anchor="middle" fill="black" font-family="'Noto Serif SC', serif">尚</text>
+          <text x="50" y="75" font-size="28" font-weight="900" text-anchor="middle" fill="black" font-family="'Noto Serif SC', serif">南</text>
+        </svg>
         <span class="glitch" data-text="NAN SHANG">NAN SHANG</span>
       </a>
       <div class="nav-links">
@@ -255,7 +262,16 @@ import Base from "../layouts/Base.astro";
     <div class="container">
       <div class="footer-content">
         <div class="footer-left">
-          <div class="footer-name">NAN SHANG</div>
+          <div class="footer-name">
+            NAN SHANG
+            <!-- 篆刻印章 -->
+            <svg class="seal seal-footer" width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="96" height="96" fill="white" stroke="black" stroke-width="3"/>
+              <rect x="8" y="8" width="84" height="84" fill="none" stroke="black" stroke-width="2"/>
+              <text x="50" y="42" font-size="28" font-weight="900" text-anchor="middle" fill="black" font-family="'Noto Serif SC', serif">尚</text>
+              <text x="50" y="75" font-size="28" font-weight="900" text-anchor="middle" fill="black" font-family="'Noto Serif SC', serif">南</text>
+            </svg>
+          </div>
           <div class="footer-role">CHIEF SCIENTIST & FOUNDING ENGINEER</div>
         </div>
         <div class="footer-right">
@@ -369,6 +385,7 @@ import Base from "../layouts/Base.astro";
     /* Import Cyberpunk-style fonts */
     @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&display=swap');
 
     body {
       background: var(--white);
@@ -498,12 +515,31 @@ import Base from "../layouts/Base.astro";
       text-decoration: none;
       letter-spacing: 0.25em;
       transform: skewX(-3deg);
-      text-shadow: 2px 2px 0px rgba(0, 136, 255, 0.2);
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .glitch {
       position: relative;
       display: inline-block;
+    }
+
+    /* 篆刻印章 */
+    .seal {
+      flex-shrink: 0;
+      filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
+      transition: transform 0.3s;
+    }
+
+    .seal:hover {
+      transform: rotate(-5deg);
+    }
+
+    .seal-footer {
+      width: 32px;
+      height: 32px;
     }
 
     .nav-links {
@@ -895,6 +931,9 @@ import Base from "../layouts/Base.astro";
       font-weight: 400;
       margin-bottom: 0.5rem;
       color: var(--black);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
     }
 
     .footer-role {
@@ -909,11 +948,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a {
-      color: rgba(0, 0, 0, 0.6);
+      color: rgba(0, 0, 0, 0.8);
       text-decoration: none;
       font-size: 0.7rem;
       transition: all 0.2s;
-      font-weight: 400;
+      font-weight: 700;
     }
 
     .footer-right a:hover {
@@ -977,6 +1016,10 @@ import Base from "../layouts/Base.astro";
         flex-direction: column;
         gap: 2rem;
         text-align: center;
+      }
+
+      .footer-name {
+        justify-content: center;
       }
 
       .footer-right {
