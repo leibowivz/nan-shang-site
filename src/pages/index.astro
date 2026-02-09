@@ -428,24 +428,28 @@ import Base from "../layouts/Base.astro";
 
     :root {
       --black: #000000;
+      --white: #ffffff;
       --cyan: #00f0ff;
       --orange: #ff6b00;
       --red: #ff0055;
       --blue: #0066ff;
       --green: #00ff88;
       --yellow: #ffcc00;
+      --gray: #888888;
       
+      --font-main: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
       --font-mono: "SF Mono", "Monaco", "Courier New", monospace;
     }
 
     body {
       background: var(--black);
-      color: var(--cyan);
-      font-family: var(--font-mono);
+      color: var(--white);
+      font-family: var(--font-main);
+      font-weight: 300;
       line-height: 1.6;
       overflow-x: hidden;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.1em;
     }
 
     /* Canvas */
@@ -456,6 +460,7 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
+      opacity: 0.3;
     }
 
     /* Scanlines */
@@ -511,9 +516,8 @@ import Base from "../layouts/Base.astro";
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(0, 0, 0, 0.9);
-      border-bottom: 2px solid var(--cyan);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      background: rgba(0, 0, 0, 0.95);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .nav-container {
@@ -526,11 +530,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .logo {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--cyan);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--white);
       text-decoration: none;
-      text-shadow: 0 0 10px var(--cyan);
+      letter-spacing: 0.2em;
     }
 
     .glitch {
@@ -544,15 +548,15 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-links a {
-      color: var(--cyan);
+      color: var(--gray);
       text-decoration: none;
-      font-size: 0.875rem;
+      font-size: 0.75rem;
+      font-weight: 300;
       transition: all 0.2s;
     }
 
     .nav-links a:hover {
-      text-shadow: 0 0 10px var(--cyan);
-      color: var(--yellow);
+      color: var(--white);
     }
 
     .nav-bracket {
@@ -579,10 +583,11 @@ import Base from "../layouts/Base.astro";
 
     .hero-title {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 900;
+      font-weight: 200;
       line-height: 1.1;
       margin-bottom: 2rem;
-      text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+      color: var(--white);
+      letter-spacing: 0.15em;
     }
 
     .glitch-text {
@@ -612,11 +617,12 @@ import Base from "../layouts/Base.astro";
     }
 
     .hero-subtitle {
-      font-size: 1.125rem;
+      font-size: 1rem;
       line-height: 2;
-      color: var(--cyan);
+      color: var(--gray);
       margin-bottom: 2.5rem;
-      opacity: 0.8;
+      font-weight: 300;
+      letter-spacing: 0.05em;
     }
 
     .hero-actions {
@@ -638,28 +644,25 @@ import Base from "../layouts/Base.astro";
     }
 
     .btn-primary {
-      background: var(--cyan);
+      background: var(--white);
       color: var(--black);
-      border-color: var(--cyan);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      border-color: var(--white);
     }
 
     .btn-primary:hover {
       background: transparent;
-      color: var(--cyan);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
+      color: var(--white);
     }
 
     .btn-secondary {
       background: transparent;
-      color: var(--cyan);
-      border-color: var(--cyan);
+      color: var(--white);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .btn-secondary:hover {
-      background: var(--cyan);
+      background: var(--white);
       color: var(--black);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
     }
 
     .btn-bracket {
@@ -678,9 +681,8 @@ import Base from "../layouts/Base.astro";
       justify-content: space-around;
       align-items: center;
       padding: 2rem;
-      border: 2px solid var(--cyan);
-      background: rgba(0, 240, 255, 0.05);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(0, 0, 0, 0.5);
     }
 
     .status-item {
@@ -699,8 +701,8 @@ import Base from "../layouts/Base.astro";
     }
 
     .cyber-number {
-      color: var(--cyan);
-      text-shadow: 0 0 15px var(--cyan);
+      color: var(--white);
+      font-weight: 200;
     }
 
     .cyber-plus, .cyber-slash, .cyber-percent {
@@ -724,11 +726,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .section-title {
-      font-size: 1.75rem;
-      font-weight: 900;
+      font-size: 1.5rem;
+      font-weight: 300;
       margin-bottom: 3rem;
-      color: var(--cyan);
-      text-shadow: 0 0 15px var(--cyan);
+      color: var(--white);
+      letter-spacing: 0.15em;
     }
 
     .section-marker {
@@ -746,8 +748,8 @@ import Base from "../layouts/Base.astro";
     /* Cyber Card */
     .cyber-card {
       padding: 2rem;
-      border: 2px solid var(--cyan);
-      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(0, 0, 0, 0.5);
       position: relative;
       transition: all 0.3s;
     }
@@ -755,22 +757,22 @@ import Base from "../layouts/Base.astro";
     .cyber-card::before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: linear-gradient(45deg, var(--cyan), var(--blue), var(--cyan));
+      top: -1px;
+      left: -1px;
+      right: -1px;
+      bottom: -1px;
+      background: rgba(255, 255, 255, 0.1);
       opacity: 0;
       transition: opacity 0.3s;
       z-index: -1;
     }
 
     .cyber-card:hover {
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .cyber-card:hover::before {
-      opacity: 0.3;
+      opacity: 1;
     }
 
     .card-header {
@@ -791,17 +793,20 @@ import Base from "../layouts/Base.astro";
     }
 
     .card-title {
-      font-size: 1.125rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 400;
       margin-bottom: 1rem;
-      color: var(--cyan);
+      color: var(--white);
+      letter-spacing: 0.1em;
     }
 
     .card-text {
-      color: rgba(0, 240, 255, 0.7);
+      color: var(--gray);
       line-height: 1.7;
       text-transform: none;
       letter-spacing: 0;
+      font-weight: 300;
+      font-size: 0.9rem;
     }
 
     /* Systems */
@@ -841,10 +846,11 @@ import Base from "../layouts/Base.astro";
 
     .tech-tag {
       padding: 0.5rem 1rem;
-      border: 1px solid var(--cyan);
-      background: rgba(0, 240, 255, 0.1);
-      font-size: 0.75rem;
-      color: var(--cyan);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      font-size: 0.65rem;
+      color: var(--gray);
+      font-weight: 300;
     }
 
     /* Research */
@@ -916,16 +922,16 @@ import Base from "../layouts/Base.astro";
     }
 
     .contact-value {
-      color: var(--cyan);
+      color: var(--white);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 300;
       display: block;
       transition: all 0.2s;
+      font-size: 0.9rem;
     }
 
     .contact-value:hover {
-      color: var(--yellow);
-      text-shadow: 0 0 10px var(--yellow);
+      color: var(--gray);
     }
 
     /* Footer */
@@ -933,7 +939,7 @@ import Base from "../layouts/Base.astro";
       position: relative;
       z-index: 10;
       padding: 3rem 0;
-      border-top: 2px solid var(--cyan);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       margin-top: 6rem;
     }
 
@@ -945,14 +951,15 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-name {
-      font-weight: 900;
+      font-weight: 300;
       margin-bottom: 0.5rem;
-      color: var(--cyan);
+      color: var(--white);
     }
 
     .footer-role {
-      font-size: 0.75rem;
-      color: var(--green);
+      font-size: 0.7rem;
+      color: var(--gray);
+      font-weight: 300;
     }
 
     .footer-right {
@@ -961,15 +968,15 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a {
-      color: var(--cyan);
+      color: var(--gray);
       text-decoration: none;
-      font-size: 0.875rem;
+      font-size: 0.7rem;
       transition: all 0.2s;
+      font-weight: 300;
     }
 
     .footer-right a:hover {
-      color: var(--yellow);
-      text-shadow: 0 0 5px var(--yellow);
+      color: var(--white);
     }
 
     .footer-timestamp {
