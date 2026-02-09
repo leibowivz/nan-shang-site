@@ -460,7 +460,7 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.3;
+      opacity: 0.5;
     }
 
     /* Scanlines */
@@ -560,7 +560,8 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-bracket {
-      color: var(--orange);
+      color: var(--cyan);
+      opacity: 0.6;
     }
 
     /* Hero */
@@ -572,13 +573,15 @@ import Base from "../layouts/Base.astro";
 
     .hero-badge {
       font-size: 0.875rem;
-      color: var(--green);
+      color: var(--cyan);
       margin-bottom: 2rem;
-      text-shadow: 0 0 5px var(--green);
+      text-shadow: 0 0 10px var(--cyan);
+      font-weight: 300;
     }
 
     .terminal-prompt {
-      color: var(--orange);
+      color: var(--cyan);
+      text-shadow: 0 0 10px var(--cyan);
     }
 
     .hero-title {
@@ -666,7 +669,8 @@ import Base from "../layouts/Base.astro";
     }
 
     .btn-bracket {
-      color: var(--orange);
+      color: var(--cyan);
+      text-shadow: 0 0 5px var(--cyan);
     }
 
     /* Status Bar */
@@ -691,8 +695,9 @@ import Base from "../layouts/Base.astro";
 
     .status-label {
       font-size: 0.75rem;
-      color: var(--green);
+      color: var(--cyan);
       margin-bottom: 0.5rem;
+      opacity: 0.7;
     }
 
     .status-value {
@@ -734,8 +739,9 @@ import Base from "../layouts/Base.astro";
     }
 
     .section-marker {
-      color: var(--orange);
+      color: var(--cyan);
       margin-right: 1rem;
+      text-shadow: 0 0 10px var(--cyan);
     }
 
     /* Grid */
@@ -768,11 +774,12 @@ import Base from "../layouts/Base.astro";
     }
 
     .cyber-card:hover {
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: var(--cyan);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
     }
 
     .cyber-card:hover::before {
-      opacity: 1;
+      opacity: 0.5;
     }
 
     .card-header {
@@ -784,12 +791,14 @@ import Base from "../layouts/Base.astro";
 
     .card-id {
       font-size: 0.75rem;
-      color: var(--orange);
+      color: var(--cyan);
+      text-shadow: 0 0 5px var(--cyan);
     }
 
     .card-status {
       font-size: 0.75rem;
       color: var(--green);
+      text-shadow: 0 0 5px var(--green);
     }
 
     .card-title {
@@ -821,6 +830,7 @@ import Base from "../layouts/Base.astro";
       gap: 0.5rem;
       font-size: 0.75rem;
       color: var(--green);
+      text-shadow: 0 0 5px var(--green);
     }
 
     .status-pulse {
@@ -828,13 +838,14 @@ import Base from "../layouts/Base.astro";
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; text-shadow: 0 0 5px var(--green); }
-      50% { opacity: 0.5; text-shadow: 0 0 10px var(--green); }
+      0%, 100% { opacity: 1; text-shadow: 0 0 8px var(--green); }
+      50% { opacity: 0.5; text-shadow: 0 0 15px var(--green); }
     }
 
     .system-type {
       font-size: 0.75rem;
-      color: var(--orange);
+      color: var(--cyan);
+      opacity: 0.7;
     }
 
     .tech-grid {
@@ -859,10 +870,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .text-cyber {
-      font-size: 1.25rem;
+      font-size: 1rem;
       line-height: 2;
-      color: var(--cyan);
+      color: var(--white);
       margin-bottom: 2rem;
+      font-weight: 300;
     }
 
     .cyber-list {
@@ -873,39 +885,45 @@ import Base from "../layouts/Base.astro";
     .cyber-list li {
       padding-left: 2rem;
       margin-bottom: 1rem;
-      color: rgba(0, 240, 255, 0.8);
+      color: var(--gray);
       position: relative;
       text-transform: none;
       letter-spacing: 0;
+      font-weight: 300;
+      font-size: 0.9rem;
     }
 
     .list-marker {
       position: absolute;
       left: 0;
-      color: var(--orange);
+      color: var(--cyan);
     }
 
     .text-muted {
-      color: rgba(0, 240, 255, 0.6);
+      color: var(--gray);
       margin-bottom: 2rem;
       text-transform: none;
       letter-spacing: 0;
+      font-weight: 300;
+      font-size: 0.9rem;
     }
 
     .cyber-link {
-      color: var(--cyan);
+      color: var(--white);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 400;
       display: inline-block;
-      border: 2px solid var(--cyan);
+      border: 1px solid var(--cyan);
       padding: 0.75rem 1.5rem;
       transition: all 0.3s;
+      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
     .cyber-link:hover {
       background: var(--cyan);
       color: var(--black);
       box-shadow: 0 0 20px var(--cyan);
+      text-shadow: none;
     }
 
     /* Contact */
@@ -917,8 +935,9 @@ import Base from "../layouts/Base.astro";
 
     .contact-label {
       font-size: 0.75rem;
-      color: var(--orange);
+      color: var(--cyan);
       margin-bottom: 1rem;
+      opacity: 0.7;
     }
 
     .contact-value {
@@ -981,9 +1000,9 @@ import Base from "../layouts/Base.astro";
 
     .footer-timestamp {
       font-size: 0.75rem;
-      color: var(--orange);
+      color: var(--cyan);
       text-align: center;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     /* Responsive */
