@@ -3,335 +3,198 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-  <!-- Fluid Gradient Background (like Klyro) -->
-  <div class="fluid-bg">
-    <div class="gradient-orb gradient-orb-1"></div>
-    <div class="gradient-orb gradient-orb-2"></div>
-    <div class="gradient-orb gradient-orb-3"></div>
-  </div>
-
-  <!-- Noise Texture Overlay -->
-  <div class="noise-overlay"></div>
+  <!-- Subtle grid background -->
+  <div class="grid-bg"></div>
 
   <!-- Navigation -->
-  <nav class="nav-modern">
-    <div class="nav-content">
-      <a href="#" class="nav-brand">
-        <span class="brand-bracket">[</span>
-        <span class="brand-text">NS</span>
-        <span class="brand-bracket">]</span>
-      </a>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="brand">Nan Shang</a>
       <div class="nav-links">
-        <a href="#work">Work</a>
+        <a href="#systems">Systems</a>
         <a href="#research">Research</a>
-        <a href="#contact" class="nav-cta">Contact</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-modern">
-    <div class="hero-content">
-      <div class="hero-kicker">
-        <span class="blink">▮</span> Chief Scientist & Founding Engineer
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="h1">
+          I build systems<br/>
+          that last.
+        </h1>
+        <p class="lead">
+          Chief Scientist & Founding Engineer at Drone Institute.
+          <br/>Designing geospatial and AI systems that remain stable,
+          <br/>correct, and maintainable under real operational pressure.
+        </p>
       </div>
-      
-      <h1 class="hero-title">
-        <span class="title-line">I build systems</span>
-        <span class="title-line title-gradient">that last.</span>
-      </h1>
-
-      <p class="hero-desc">
-        Where data meets uncertainty. Where the real test is not performance in isolation,
-        but <span class="highlight">behavior over time</span>. I design geospatial and AI
-        systems that stay quiet, stable, and correct.
-      </p>
-
-      <div class="hero-meta">
-        <div class="meta-item">
-          <span class="meta-label">NAME</span>
-          <span class="meta-value">Nan Shang, Ph.D.</span>
-        </div>
-        <div class="meta-divider"></div>
-        <div class="meta-item">
-          <span class="meta-label">ROLE</span>
-          <span class="meta-value">Chief Scientist</span>
-        </div>
-        <div class="meta-divider"></div>
-        <div class="meta-item">
-          <span class="meta-label">ORG</span>
-          <span class="meta-value">Drone Institute</span>
-        </div>
-      </div>
-
-      <div class="hero-cta">
-        <a href="#work" class="btn-primary">
-          <span>Explore Work</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </a>
-        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-           target="_blank" class="btn-secondary">Google Scholar</a>
-        <a href="https://github.com/leibowivz" 
-           target="_blank" class="btn-secondary">GitHub</a>
-      </div>
-    </div>
-
-    <!-- ASCII Art Visualization -->
-    <div class="ascii-viz">
-      <pre class="ascii-scene">
-╔════════════════════════════════════╗
-║  GEOSPATIAL SYSTEM ARCHITECTURE   ║
-╠════════════════════════════════════╣
-║                                    ║
-║     ┌─────────┐    ┌──────────┐  ║
-║     │ SENSORS │───▶│ PIPELINE │  ║
-║     └─────────┘    └──────────┘  ║
-║          │              │         ║
-║          ▼              ▼         ║
-║     ┌─────────┐    ┌──────────┐  ║
-║     │  DATA   │───▶│   AI     │  ║
-║     └─────────┘    └──────────┘  ║
-║          │              │         ║
-║          ▼              ▼         ║
-║     ┌─────────┐    ┌──────────┐  ║
-║     │   QC    │───▶│ DELIVERY │  ║
-║     └─────────┘    └──────────┘  ║
-║                                    ║
-╚════════════════════════════════════╝
-      </pre>
     </div>
   </section>
 
-  <!-- Stats Bar -->
-  <div class="stats-bar">
-    <div class="stat">
-      <span class="stat-value">10+</span>
-      <span class="stat-label">Production Systems</span>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <span class="stat-value">24/7</span>
-      <span class="stat-label">Uptime Monitor</span>
-    </div>
-    <div class="stat-divider"></div>
-    <div class="stat">
-      <span class="stat-value">99.9%</span>
-      <span class="stat-label">Reliability</span>
-    </div>
-  </div>
+  <!-- Divider -->
+  <div class="divider"></div>
 
-  <main class="main-content">
-    
-    <!-- Philosophy Section -->
-    <section class="section" id="philosophy">
-      <div class="section-header">
-        <span class="section-number">01</span>
-        <h2 class="section-title">How I Build Systems</h2>
-      </div>
+  <!-- Main Content -->
+  <main class="container">
 
-      <div class="cards-grid">
-        <div class="card-modern">
-          <div class="card-icon">🎯</div>
-          <h3 class="card-title">Production is the benchmark</h3>
-          <p class="card-desc">
+    <!-- Overview -->
+    <section class="section">
+      <p class="body-large">
+        My work sits at the intersection of remote sensing research, geospatial analytics,
+        and system architecture. I focus on building systems that take spatial data—often
+        noisy, incomplete, and operationally constrained—and turn it into outputs that can
+        be trusted in real decision-making contexts.
+      </p>
+      <p class="body-large">
+        What matters is not isolated model performance, but how a system behaves end to end:
+        how data enters, how assumptions propagate, how errors surface, and how the system
+        evolves under continuous use.
+      </p>
+    </section>
+
+    <!-- Principles -->
+    <section class="section">
+      <h2 class="h2">Principles</h2>
+      
+      <div class="principles">
+        <div class="principle">
+          <h3 class="h3">Production is the benchmark</h3>
+          <p class="body">
             A system is only meaningful if it continues to behave correctly after deployment.
-            I design systems to fail visibly, support iteration, and remain interpretable.
+            I design systems to fail visibly rather than silently, to support iteration without
+            destabilization, and to remain interpretable to engineers and operators.
           </p>
         </div>
 
-        <div class="card-modern">
-          <div class="card-icon">⚡</div>
-          <h3 class="card-title">Constraints shape architecture</h3>
-          <p class="card-desc">
-            Latency, throughput, cost, and operational friction are architectural facts.
-            I make trade-offs explicit so systems can be maintained over time.
+        <div class="principle">
+          <h3 class="h3">Constraints shape architecture</h3>
+          <p class="body">
+            Latency, throughput, cost envelopes, and operational friction are architectural facts.
+            I treat these constraints as inputs to design decisions, making trade-offs explicit
+            so systems can be reasoned about and maintained over time.
           </p>
         </div>
 
-        <div class="card-modern">
-          <div class="card-icon">🔄</div>
-          <h3 class="card-title">Deployment reveals assumptions</h3>
-          <p class="card-desc">
-            Research doesn't end at deployment. I design feedback loops that surface
-            failure modes and allow systems to improve without eroding stability.
+        <div class="principle">
+          <h3 class="h3">Deployment reveals assumptions</h3>
+          <p class="body">
+            Research does not end at deployment. I design feedback loops that surface failure modes,
+            quantify drift, and allow systems to improve without eroding trust or stability.
           </p>
         </div>
 
-        <div class="card-modern">
-          <div class="card-icon">📊</div>
-          <h3 class="card-title">Data quality compounds</h3>
-          <p class="card-desc">
-            Long-term advantage comes from disciplined data practices. Ingestion,
-            annotation, QC, monitoring, and rollback reinforce one another.
+        <div class="principle">
+          <h3 class="h3">Data quality compounds</h3>
+          <p class="body">
+            Long-term system advantage comes from disciplined data practices. I build pipelines
+            where ingestion, annotation, quality control, monitoring, retraining, and rollback
+            strategies reinforce one another.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Systems Section -->
-    <section class="section" id="work">
-      <div class="section-header">
-        <span class="section-number">02</span>
-        <h2 class="section-title">Systems I Build</h2>
-      </div>
+    <!-- Systems -->
+    <section class="section" id="systems">
+      <h2 class="h2">Systems</h2>
 
-      <div class="systems-list">
-        <div class="system-item">
-          <div class="system-header">
-            <div class="system-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ACTIVE</span>
-            </div>
-            <span class="system-tag">PIPELINE</span>
+      <div class="systems">
+        <div class="system">
+          <div class="system-meta">
+            <span class="system-type">Pipeline</span>
+            <span class="system-status">Active</span>
           </div>
-          <h3 class="system-name">End-to-End Geospatial Pipelines</h3>
-          <p class="system-desc">
-            Full lifecycle — ingestion, normalization, processing, verification, reporting,
-            delivery. Repeatable, auditable, resilient under scale.
+          <h3 class="h3">End-to-End Geospatial Pipelines</h3>
+          <p class="body">
+            Full lifecycle—ingestion, normalization, processing, verification, reporting, delivery.
+            Designed to be repeatable, auditable, and resilient under scale.
           </p>
-          <div class="system-tech">
-            <span class="tech-tag">GIS</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">S3</span>
-          </div>
         </div>
 
-        <div class="system-item">
-          <div class="system-header">
-            <div class="system-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ACTIVE</span>
-            </div>
-            <span class="system-tag">SENSING</span>
+        <div class="system">
+          <div class="system-meta">
+            <span class="system-type">Sensing</span>
+            <span class="system-status">Active</span>
           </div>
-          <h3 class="system-name">Multimodal Remote Sensing Workflows</h3>
-          <p class="system-desc">
-            RGB imagery, thermal and infrared data, derived spatial layers. Extracting
-            actionable signals while controlling uncertainty and false positives.
+          <h3 class="h3">Multimodal Remote Sensing Workflows</h3>
+          <p class="body">
+            RGB imagery, thermal and infrared data, derived spatial layers. Extracting actionable
+            signals while controlling uncertainty and false positives in operational environments.
           </p>
-          <div class="system-tech">
-            <span class="tech-tag">LiDAR</span>
-            <span class="tech-tag">Thermal</span>
-            <span class="tech-tag">RGB</span>
-            <span class="tech-tag">Multispectral</span>
-          </div>
         </div>
 
-        <div class="system-item">
-          <div class="system-header">
-            <div class="system-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ACTIVE</span>
-            </div>
-            <span class="system-tag">QUALITY</span>
+        <div class="system">
+          <div class="system-meta">
+            <span class="system-type">Quality</span>
+            <span class="system-status">Active</span>
           </div>
-          <h3 class="system-name">Verification & Quality Control Systems</h3>
-          <p class="system-desc">
-            Automated and human-in-the-loop layers that surface projection errors,
-            alignment drift, and metadata assumptions before downstream impact.
+          <h3 class="h3">Verification & Quality Control Systems</h3>
+          <p class="body">
+            Automated and human-in-the-loop verification layers that make spatial failures—projection
+            errors, alignment drift, metadata assumptions—observable and traceable.
           </p>
-          <div class="system-tech">
-            <span class="tech-tag">QC Pipelines</span>
-            <span class="tech-tag">Monitoring</span>
-            <span class="tech-tag">Validation</span>
-          </div>
         </div>
 
-        <div class="system-item">
-          <div class="system-header">
-            <div class="system-status">
-              <span class="status-dot"></span>
-              <span class="status-text">ACTIVE</span>
-            </div>
-            <span class="system-tag">DELIVERY</span>
+        <div class="system">
+          <div class="system-meta">
+            <span class="system-type">Delivery</span>
+            <span class="system-status">Active</span>
           </div>
-          <h3 class="system-name">Secure Data Delivery Architectures</h3>
-          <p class="system-desc">
-            Multi-tenant access control, lifecycle management, permission boundaries,
-            and audit-friendly access patterns with strict tenant isolation.
+          <h3 class="h3">Secure Data Delivery Architectures</h3>
+          <p class="body">
+            Multi-tenant access control, lifecycle management, permission boundaries, and audit-friendly
+            access patterns with strict tenant isolation.
           </p>
-          <div class="system-tech">
-            <span class="tech-tag">Auth</span>
-            <span class="tech-tag">Multi-Tenant</span>
-            <span class="tech-tag">API Gateway</span>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Research Section -->
+    <!-- Research -->
     <section class="section" id="research">
-      <div class="section-header">
-        <span class="section-number">03</span>
-        <h2 class="section-title">Research & Production</h2>
-      </div>
-
-      <div class="research-content">
-        <p class="lead-text">
-          My research background in <strong>remote sensing and geospatial analysis</strong>
-          directly informs the systems I build today.
-        </p>
-
-        <div class="research-grid">
-          <div class="research-item">
-            <div class="research-icon">📡</div>
-            <h4>Spatial Measurements Under Scale</h4>
-            <p>How spatial measurements behave under noise, resolution changes, and scale transitions</p>
-          </div>
-          <div class="research-item">
-            <div class="research-icon">🎯</div>
-            <h4>Alignment & Downstream Inference</h4>
-            <p>How resolution and alignment affect model performance and decision quality</p>
-          </div>
-          <div class="research-item">
-            <div class="research-icon">📈</div>
-            <h4>Uncertainty Quantification</h4>
-            <p>How to reason about and propagate uncertainty in derived spatial products</p>
-          </div>
-        </div>
-
-        <div class="cta-box">
-          <p>Peer-reviewed publications in journals and conferences</p>
-          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-             target="_blank" class="link-arrow">
-            View Google Scholar
-            <svg width="16" height="16" viewBox="0 0 16 16">
-              <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
-            </svg>
-          </a>
-        </div>
+      <h2 class="h2">Research</h2>
+      <p class="body-large">
+        My research background is in remote sensing and geospatial analysis, and it directly
+        informs the systems I build today. My peer-reviewed work addresses questions that recur
+        in production systems:
+      </p>
+      <ul class="list">
+        <li>How spatial measurements behave under noise and scale</li>
+        <li>How resolution, alignment, and representation affect downstream inference</li>
+        <li>How to reason about uncertainty in derived spatial products</li>
+      </ul>
+      <p class="body">
+        I have authored and co-authored publications in journals and conferences, contributing
+        methods and analytical frameworks that are now embedded in production pipelines.
+      </p>
+      <div class="link-row">
+        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
+           target="_blank" rel="noopener" class="link">Google Scholar →</a>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section class="section" id="contact">
-      <div class="section-header">
-        <span class="section-number">04</span>
-        <h2 class="section-title">Get in Touch</h2>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <div class="contact-icon">✉️</div>
-          <h4>Primary</h4>
+      <h2 class="h2">Contact</h2>
+      <div class="contact">
+        <div class="contact-item">
+          <span class="contact-label">Primary</span>
           <a href="mailto:nan.shang@droneinstitute.ai" class="contact-link">
             nan.shang@droneinstitute.ai
           </a>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon">📧</div>
-          <h4>Personal</h4>
+        <div class="contact-item">
+          <span class="contact-label">Personal</span>
           <a href="mailto:sn1514826@gmail.com" class="contact-link">
             sn1514826@gmail.com
           </a>
         </div>
-        <div class="contact-card">
-          <div class="contact-icon">💻</div>
-          <h4>GitHub</h4>
-          <a href="https://github.com/leibowivz" target="_blank" class="contact-link">
+        <div class="contact-item">
+          <span class="contact-label">GitHub</span>
+          <a href="https://github.com/leibowivz" target="_blank" rel="noopener" class="contact-link">
             github.com/leibowivz
           </a>
         </div>
@@ -341,33 +204,26 @@ import Base from "../layouts/Base.astro";
   </main>
 
   <!-- Footer -->
-  <footer class="footer-modern">
-    <div class="footer-content">
-      <div class="footer-left">
-        <div class="footer-brand">
-          <span class="brand-bracket">[</span>
-          <span class="brand-text">NS</span>
-          <span class="brand-bracket">]</span>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-name">Nan Shang, Ph.D.</div>
+          <div class="footer-role">Chief Scientist & Founding Engineer, Drone Institute</div>
         </div>
-        <span class="footer-text">Nan Shang, Ph.D.</span>
-      </div>
-      <div class="footer-right">
-        <span class="footer-text">Chief Scientist & Founding Engineer</span>
-        <span class="footer-text">Drone Institute</span>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">© 2026 All rights reserved</span>
-      <div class="footer-links">
-        <a href="https://github.com/leibowivz" target="_blank">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" target="_blank">Scholar</a>
+        <div class="footer-links">
+          <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
+             target="_blank" rel="noopener">Scholar</a>
+        </div>
       </div>
     </div>
   </footer>
 
   <style>
     /* ═══════════════════════════════════════════════════════════════
-       MODERN DARK THEME WITH FLUID GRADIENTS
+       PROFESSIONAL MINIMALIST DESIGN
+       Inspired by: Apple, Linear, Stripe leadership pages
        ═══════════════════════════════════════════════════════════════ */
 
     * {
@@ -377,708 +233,324 @@ import Base from "../layouts/Base.astro";
     }
 
     :root {
-      --bg-primary: #000000;
-      --bg-secondary: #0a0a0a;
-      --bg-tertiary: #141414;
+      --black: #000000;
+      --gray-900: #0a0a0a;
+      --gray-800: #1a1a1a;
+      --gray-700: #2a2a2a;
+      --gray-500: #737373;
+      --gray-400: #a3a3a3;
+      --gray-300: #d4d4d4;
+      --white: #ffffff;
       
-      --text-primary: #ffffff;
-      --text-secondary: #a0a0a0;
-      --text-muted: #606060;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.12);
       
-      --accent-cyan: #00f0ff;
-      --accent-purple: #a855f7;
-      --accent-pink: #ec4899;
-      --accent-orange: #f97316;
-      --accent-blue: #3b82f6;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-mono: "SF Mono", "Monaco", "Inconsolata", "Fira Code", monospace;
       
-      --border: rgba(255, 255, 255, 0.1);
-      
-      --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-      --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
+      background: var(--black);
+      color: var(--white);
       font-family: var(--font-sans);
       line-height: 1.6;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    /* ═══ FLUID GRADIENT BACKGROUND ═══ */
-    .fluid-bg {
+    /* ═══ GRID BACKGROUND ═══ */
+    .grid-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+      background-image: 
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 100px 100px;
+      opacity: 0.3;
+      pointer-events: none;
       z-index: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .gradient-orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(120px);
-      opacity: 0.6;
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .gradient-orb-1 {
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, var(--accent-cyan) 0%, transparent 70%);
-      top: -10%;
-      left: -10%;
-      animation-delay: 0s;
-    }
-
-    .gradient-orb-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
-      top: 40%;
-      right: -5%;
-      animation-delay: 5s;
-    }
-
-    .gradient-orb-3 {
-      width: 550px;
-      height: 550px;
-      background: radial-gradient(circle, var(--accent-pink) 0%, transparent 70%);
-      bottom: -10%;
-      left: 30%;
-      animation-delay: 10s;
-    }
-
-    @keyframes float {
-      0%, 100% {
-        transform: translate(0, 0) scale(1);
-      }
-      25% {
-        transform: translate(50px, -50px) scale(1.1);
-      }
-      50% {
-        transform: translate(-30px, 50px) scale(0.9);
-      }
-      75% {
-        transform: translate(70px, 30px) scale(1.05);
-      }
-    }
-
-    /* ═══ NOISE OVERLAY ═══ */
-    .noise-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0.03;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' /%3E%3C/svg%3E");
     }
 
     /* ═══ NAVIGATION ═══ */
-    .nav-modern {
+    .nav {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
       z-index: 100;
       background: rgba(0, 0, 0, 0.8);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
 
-    .nav-content {
-      max-width: 1400px;
+    .nav-inner {
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 1.5rem 2rem;
+      padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .nav-brand {
-      font-family: var(--font-mono);
-      font-size: 1.25rem;
-      font-weight: 700;
+    .brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
       text-decoration: none;
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .brand-bracket {
-      color: var(--accent-cyan);
+      letter-spacing: -0.01em;
     }
 
     .nav-links {
       display: flex;
       gap: 2rem;
-      align-items: center;
     }
 
     .nav-links a {
-      color: var(--text-secondary);
+      color: var(--gray-400);
       text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s;
+      font-size: 0.9375rem;
+      transition: color 0.2s var(--ease);
     }
 
     .nav-links a:hover {
-      color: var(--text-primary);
+      color: var(--white);
     }
 
-    .nav-cta {
-      padding: 0.5rem 1.25rem;
-      background: var(--text-primary);
-      color: var(--bg-primary) !important;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .nav-cta:hover {
-      background: var(--accent-cyan);
-    }
-
-    /* ═══ HERO SECTION ═══ */
-    .hero-modern {
+    /* ═══ CONTAINER ═══ */
+    .container {
       position: relative;
       z-index: 10;
-      min-height: 100vh;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      min-height: 85vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      padding: 8rem 2rem 4rem;
+      padding-top: 6rem;
     }
 
     .hero-content {
-      max-width: 1200px;
-      text-align: center;
-    }
-
-    .hero-kicker {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--accent-cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-bottom: 2rem;
-    }
-
-    .blink {
-      animation: blink 1s step-start infinite;
-    }
-
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
-
-    .hero-title {
-      font-size: clamp(3rem, 8vw, 6rem);
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 2rem;
-      letter-spacing: -0.02em;
-    }
-
-    .title-line {
-      display: block;
-    }
-
-    .title-gradient {
-      background: linear-gradient(135deg, 
-        var(--accent-cyan) 0%,
-        var(--accent-purple) 50%,
-        var(--accent-pink) 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-desc {
-      font-size: 1.25rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
       max-width: 800px;
-      margin: 0 auto 3rem;
     }
 
-    .highlight {
-      color: var(--accent-cyan);
+    .h1 {
+      font-size: 4.5rem;
       font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
     }
 
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+    .lead {
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--gray-400);
+      font-weight: 400;
     }
 
-    .meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-    }
-
-    .meta-label {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .meta-value {
-      font-size: 1rem;
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .meta-divider {
-      width: 1px;
-      height: 40px;
+    /* ═══ DIVIDER ═══ */
+    .divider {
+      position: relative;
+      z-index: 10;
+      max-width: 900px;
+      margin: 0 auto 8rem;
+      height: 1px;
       background: var(--border);
     }
 
-    .hero-cta {
+    /* ═══ SECTIONS ═══ */
+    .section {
+      position: relative;
+      margin-bottom: 8rem;
+    }
+
+    .h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    .h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .body-large {
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--gray-400);
+      margin-bottom: 1.5rem;
+    }
+
+    .body {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray-400);
+    }
+
+    .list {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .list li {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--gray-400);
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      position: relative;
+    }
+
+    .list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--gray-500);
+    }
+
+    /* ═══ PRINCIPLES ═══ */
+    .principles {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .principle {
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .principle:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    /* ═══ SYSTEMS ═══ */
+    .systems {
+      display: grid;
+      gap: 3rem;
+    }
+
+    .system {
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .system:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .system-meta {
       display: flex;
       gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-      color: var(--text-primary);
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
-    }
-
-    .btn-secondary {
-      padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-primary);
-      text-decoration: none;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      font-weight: 600;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--accent-cyan);
-    }
-
-    /* ═══ ASCII VISUALIZATION ═══ */
-    .ascii-viz {
-      margin-top: 6rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .ascii-scene {
+      margin-bottom: 1rem;
+      font-size: 0.8125rem;
       font-family: var(--font-mono);
-      font-size: 0.75rem;
-      line-height: 1.4;
-      color: var(--accent-cyan);
-      background: rgba(0, 240, 255, 0.05);
-      border: 1px solid var(--accent-cyan);
-      border-radius: 8px;
-      padding: 1.5rem;
-      overflow-x: auto;
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
-    }
-
-    /* ═══ STATS BAR ═══ */
-    .stats-bar {
-      position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      margin: 0 auto 8rem;
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      backdrop-filter: blur(10px);
-    }
-
-    .stat {
-      text-align: center;
-    }
-
-    .stat-value {
-      display: block;
-      font-size: 2.5rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 0.875rem;
-      color: var(--text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
 
-    .stat-divider {
-      width: 1px;
-      height: 60px;
-      background: var(--border);
-    }
-
-    /* ═══ MAIN CONTENT ═══ */
-    .main-content {
-      position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem 8rem;
-    }
-
-    .section {
-      margin-bottom: 8rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .section-number {
-      font-family: var(--font-mono);
-      font-size: 3rem;
-      font-weight: 900;
-      color: var(--accent-cyan);
-      opacity: 0.3;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      font-weight: 900;
-    }
-
-    /* ═══ CARDS GRID ═══ */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .card-modern {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .card-modern:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent-cyan);
-    }
-
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .card-desc {
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-
-    /* ═══ SYSTEMS LIST ═══ */
-    .systems-list {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .system-item {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: border-color 0.2s;
-    }
-
-    .system-item:hover {
-      border-color: var(--accent-purple);
-    }
-
-    .system-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
+    .system-type {
+      color: var(--gray-500);
     }
 
     .system-status {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--gray-400);
     }
 
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent-cyan);
-      box-shadow: 0 0 10px var(--accent-cyan);
-      animation: pulse 2s ease-in-out infinite;
+    /* ═══ LINKS ═══ */
+    .link-row {
+      margin-top: 2rem;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    .status-text {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent-cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .system-tag {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .system-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .system-desc {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .system-tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .tech-tag {
-      padding: 0.5rem 1rem;
-      background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      border-radius: 6px;
-      font-size: 0.75rem;
-      color: var(--accent-cyan);
-      font-family: var(--font-mono);
-    }
-
-    /* ═══ RESEARCH SECTION ═══ */
-    .research-content {
-      max-width: 900px;
-    }
-
-    .lead-text {
-      font-size: 1.5rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 3rem;
-    }
-
-    .research-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .research-item {
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-    }
-
-    .research-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .research-item h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .research-item p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .cta-box {
-      padding: 2rem;
-      background: linear-gradient(135deg, 
-        rgba(0, 240, 255, 0.1) 0%,
-        rgba(168, 85, 247, 0.1) 100%
-      );
-      border: 1px solid var(--accent-cyan);
-      border-radius: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .link-arrow {
+    .link {
+      color: var(--white);
+      text-decoration: none;
+      font-size: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      color: var(--accent-cyan);
-      text-decoration: none;
-      font-weight: 600;
-      transition: gap 0.2s;
+      transition: opacity 0.2s var(--ease);
     }
 
-    .link-arrow:hover {
-      gap: 1rem;
+    .link:hover {
+      opacity: 0.7;
     }
 
-    /* ═══ CONTACT SECTION ═══ */
-    .contact-grid {
+    /* ═══ CONTACT ═══ */
+    .contact {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
-    .contact-card {
-      padding: 2rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-align: center;
-      transition: border-color 0.2s;
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
     }
 
-    .contact-card:hover {
-      border-color: var(--accent-purple);
+    .contact-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .contact-icon {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .contact-card h4 {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+    .contact-label {
+      font-size: 0.8125rem;
+      font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
+      color: var(--gray-500);
     }
 
     .contact-link {
-      color: var(--text-primary);
+      font-size: 1.125rem;
+      color: var(--white);
       text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 600;
-      transition: color 0.2s;
+      transition: opacity 0.2s var(--ease);
     }
 
     .contact-link:hover {
-      color: var(--accent-cyan);
+      opacity: 0.7;
     }
 
     /* ═══ FOOTER ═══ */
-    .footer-modern {
+    .footer {
       position: relative;
       z-index: 10;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3rem 2rem;
+      margin-top: 12rem;
+      padding: 4rem 0;
       border-top: 1px solid var(--border);
     }
 
     .footer-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 2rem;
+      align-items: flex-start;
     }
 
-    .footer-left {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
+    .footer-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
-    .footer-brand {
-      font-family: var(--font-mono);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.5rem;
-    }
-
-    .footer-text {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-copy {
-      color: var(--text-muted);
-      font-size: 0.875rem;
+    .footer-role {
+      font-size: 0.9375rem;
+      color: var(--gray-400);
     }
 
     .footer-links {
@@ -1087,62 +559,61 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-links a {
-      color: var(--text-secondary);
+      color: var(--gray-400);
       text-decoration: none;
-      font-size: 0.875rem;
-      transition: color 0.2s;
+      font-size: 0.9375rem;
+      transition: color 0.2s var(--ease);
     }
 
     .footer-links a:hover {
-      color: var(--accent-cyan);
+      color: var(--white);
     }
 
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.5rem;
+      .container {
+        padding: 0 1.5rem;
       }
 
-      .hero-desc {
-        font-size: 1.1rem;
-      }
-
-      .stats-bar {
-        flex-direction: column;
-        gap: 2rem;
-      }
-
-      .stat-divider {
-        width: 100px;
-        height: 1px;
-      }
-
-      .section-number {
-        font-size: 2rem;
-      }
-
-      .section-title {
-        font-size: 1.75rem;
+      .nav-inner {
+        padding: 1.5rem 1.5rem;
       }
 
       .nav-links {
-        gap: 1rem;
-        font-size: 0.875rem;
+        gap: 1.5rem;
+      }
+
+      .h1 {
+        font-size: 2.5rem;
+      }
+
+      .lead {
+        font-size: 1.125rem;
+      }
+
+      .h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        min-height: 70vh;
       }
 
       .footer-content {
         flex-direction: column;
         gap: 2rem;
-        text-align: center;
       }
 
-      .footer-right {
-        align-items: center;
-      }
-
-      .footer-bottom {
+      .footer-links {
         flex-direction: column;
         gap: 1rem;
+      }
+    }
+
+    /* ═══ SUBTLE ANIMATIONS ═══ */
+    @media (prefers-reduced-motion: no-preference) {
+      a, .link, .contact-link {
+        transition: opacity 0.2s var(--ease);
       }
     }
   </style>
