@@ -16,8 +16,21 @@ import Base from "../layouts/Base.astro";
   <nav class="nav">
     <div class="nav-container">
       <div class="logo">
-        <!-- 篆刻印章 -->
-        <img src="/seal-bw.png" alt="尚南" class="seal" />
+        <!-- 篆刻印章：尚南之印 -->
+        <svg class="seal" width="36" height="36" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <!-- 外框 -->
+          <rect x="2" y="2" width="116" height="116" fill="white" stroke="black" stroke-width="6"/>
+          <!-- 内框 -->
+          <rect x="10" y="10" width="100" height="100" fill="none" stroke="black" stroke-width="2.5"/>
+          
+          <!-- 右列：尚（上）之（下） -->
+          <text x="85" y="48" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">尚</text>
+          <text x="85" y="95" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">之</text>
+          
+          <!-- 左列：南（上）印（下） -->
+          <text x="35" y="48" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">南</text>
+          <text x="35" y="95" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">印</text>
+        </svg>
         <span class="glitch" data-text="NAN SHANG">NAN SHANG</span>
       </div>
       <div class="nav-links">
@@ -259,8 +272,21 @@ import Base from "../layouts/Base.astro";
         <div class="footer-left">
           <div class="footer-name">
             NAN SHANG
-            <!-- 篆刻印章 -->
-            <img src="/seal-bw.png" alt="尚南" class="seal seal-footer" width="32" height="32" />
+            <!-- 篆刻印章：尚南之印 -->
+            <svg class="seal seal-footer" width="28" height="28" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+              <!-- 外框 -->
+              <rect x="2" y="2" width="116" height="116" fill="white" stroke="black" stroke-width="6"/>
+              <!-- 内框 -->
+              <rect x="10" y="10" width="100" height="100" fill="none" stroke="black" stroke-width="2.5"/>
+              
+              <!-- 右列：尚（上）之（下） -->
+              <text x="85" y="48" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">尚</text>
+              <text x="85" y="95" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">之</text>
+              
+              <!-- 左列：南（上）印（下） -->
+              <text x="35" y="48" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">南</text>
+              <text x="35" y="95" font-size="38" font-weight="900" text-anchor="middle" fill="black" font-family="'STKaiti', 'KaiTi', 'Noto Serif SC', 'SimSun', serif" stroke="black" stroke-width="0.8">印</text>
+            </svg>
           </div>
           <div class="footer-role">CHIEF SCIENTIST & FOUNDING ENGINEER</div>
         </div>
@@ -518,16 +544,11 @@ import Base from "../layouts/Base.astro";
     /* 篆刻印章 */
     .seal {
       flex-shrink: 0;
-      filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.25));
-      image-rendering: crisp-edges;
-      image-rendering: -webkit-optimize-contrast;
-      width: 36px;
-      height: 36px;
+      filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.2));
     }
 
     .seal-footer {
-      width: 28px;
-      height: 28px;
+      filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.2));
     }
 
     .nav-links {
