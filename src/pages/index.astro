@@ -956,22 +956,34 @@ import Base from "../layouts/Base.astro";
     const inkDrops = [];
     
     class InkDrop {
-      constructor(x, y) {
+      constructor(x, targetY) {
+        this.startX = x;
         this.x = x;
-        this.y = y;
+        this.y = -50; // 从顶部开始
+        this.targetY = targetY;
         this.particles = [];
         this.age = 0;
-        this.maxAge = 300;
+        this.maxAge = 200;
+        this.state = 'falling'; // falling -> impact -> spreading
+        this.fallSpeed = 0;
+        this.gravity = 0.5;
         
-        // 创建初始粒子
-        for (let i = 0; i < 150; i++) {
+        // 移动端检测，调整尺寸
+        const isMobile = width < 768;
+        const sizeScale = isMobile ? 0.5 : 1;
+        
+        // 创建初始粒子（晕染时使用）
+        const particleCount = isMobile ? 80 : 120;
+        for (let i = 0; i < particleCount; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 1.5 + 0.5;
           this.particles.push({
             x: 0,
             y: 0,
-            vx: (Math.random() - 0.5) * 2,
-            vy: (Math.random() - 0.5) * 2,
-            size: Math.random() * 15 + 5,
-            opacity: Math.random() * 0.8 + 0.2
+            vx: Math.cos(angle) * speed,
+            vy: Math.sin(angle) * speed,
+            size: (Math.random() * 8 + 3) * sizeScale,
+            opacity: Math.random() * 0.6 + 0.3
           });
         }
       }
@@ -979,36 +991,78 @@ import Base from "../layouts/Base.astro";
       update() {
         this.age++;
         
-        // 更新粒子
-        this.particles.forEach(p => {
-          p.x += p.vx;
-          p.y += p.vy;
-          p.vx *= 0.98; // 摩擦力
-          p.vy *= 0.98;
-          p.size *= 1.02; // 扩散
-        });
+        if (this.state === 'falling') {
+          // 滴落阶段
+          this.fallSpeed += this.gravity;
+          this.y += this.fallSpeed;
+          
+          // 接触到目标位置
+          if (this.y >= this.targetY) {
+            this.y = this.targetY;
+            this.state = 'impact';
+          }
+        } else if (this.state === 'impact') {
+          // 冲击瞬间
+          if (this.age < 10) {
+            // 短暂停留
+          } else {
+            this.state = 'spreading';
+          }
+        } else if (this.state === 'spreading') {
+          // 晕染扩散
+          this.particles.forEach(p => {
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vx *= 0.96; // 摩擦力
+            p.vy *= 0.96;
+            p.size *= 1.015; // 缓慢扩散
+          });
+        }
       }
       
       draw() {
-        const fadeRatio = this.age / this.maxAge;
-        
-        this.particles.forEach(p => {
-          const alpha = (1 - fadeRatio) * p.opacity;
-          const x = this.x + p.x;
-          const y = this.y + p.y;
-          
-          // 深黑到淡灰渐变
-          const grayValue = Math.floor(fadeRatio * 150);
-          
+        if (this.state === 'falling') {
+          // 滴落的小墨点
           ctx.beginPath();
-          ctx.arc(x, y, p.size, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
+          ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
           ctx.fill();
-        });
+          
+          // 拖尾
+          ctx.beginPath();
+          ctx.arc(this.x, this.y - 10, 2, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+          ctx.fill();
+        } else if (this.state === 'impact') {
+          // 冲击波
+          const impactSize = (this.age - 10) * 5;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, impactSize, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0, 0, 0, ${0.5 - (this.age - 10) * 0.05})`;
+          ctx.fill();
+        } else if (this.state === 'spreading') {
+          // 晕染粒子
+          const spreadAge = this.age - 10;
+          const fadeRatio = spreadAge / this.maxAge;
+          
+          this.particles.forEach(p => {
+            const alpha = (1 - fadeRatio) * p.opacity;
+            const x = this.x + p.x;
+            const y = this.y + p.y;
+            
+            // 深黑到淡灰渐变
+            const grayValue = Math.floor(fadeRatio * 120);
+            
+            ctx.beginPath();
+            ctx.arc(x, y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
+            ctx.fill();
+          });
+        }
       }
       
       isDead() {
-        return this.age >= this.maxAge;
+        return this.age >= this.maxAge + 10;
       }
     }
     
@@ -1018,19 +1072,17 @@ import Base from "../layouts/Base.astro";
     }
     
     function createInkDrop() {
-      const positions = [
-        { x: width * 0.15, y: height * 0.2 },
-        { x: width * 0.85, y: height * 0.6 },
-        { x: width * 0.4, y: height * 0.8 }
-      ];
+      // 随机水平位置
+      const x = width * (0.1 + Math.random() * 0.8);
+      // 目标高度（落到屏幕的中上部分）
+      const targetY = height * (0.2 + Math.random() * 0.5);
       
-      const pos = positions[Math.floor(Math.random() * positions.length)];
-      inkDrops.push(new InkDrop(pos.x, pos.y));
+      inkDrops.push(new InkDrop(x, targetY));
     }
     
     function animate() {
-      // 半透明清除，形成拖尾效果
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.05)';
+      // 轻微拖尾效果
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
       ctx.fillRect(0, 0, width, height);
       
       // 更新和绘制墨汁
@@ -1049,9 +1101,12 @@ import Base from "../layouts/Base.astro";
     window.addEventListener('resize', resize);
     resize();
     
-    // 定期生成墨汁
-    setInterval(createInkDrop, 8000);
+    // 定期生成墨汁（12秒一次）
+    setInterval(createInkDrop, 12000);
     createInkDrop(); // 立即创建一个
+    
+    // 3秒后再创建一个
+    setTimeout(createInkDrop, 3000);
     
     animate();
   </script>
