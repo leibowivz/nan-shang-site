@@ -4,10 +4,29 @@ import Base from "../layouts/Base.astro";
 
 <Base>
   <!-- 墨汁晕染效果 -->
+  <svg style="position: fixed; width: 0; height: 0;">
+    <defs>
+      <filter id="ink-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="40" xChannelSelector="R" yChannelSelector="G"/>
+        <feGaussianBlur stdDeviation="8"/>
+      </filter>
+    </defs>
+  </svg>
+  
   <div class="ink-container">
-    <div class="ink-drop ink-drop-1"></div>
-    <div class="ink-drop ink-drop-2"></div>
-    <div class="ink-drop ink-drop-3"></div>
+    <div class="ink-drop ink-drop-1">
+      <div class="ink-core"></div>
+      <div class="ink-spread"></div>
+    </div>
+    <div class="ink-drop ink-drop-2">
+      <div class="ink-core"></div>
+      <div class="ink-spread"></div>
+    </div>
+    <div class="ink-drop ink-drop-3">
+      <div class="ink-core"></div>
+      <div class="ink-spread"></div>
+    </div>
   </div>
 
   <!-- Navigation -->
@@ -344,7 +363,7 @@ import Base from "../layouts/Base.astro";
     }
 
 
-    /* 墨汁滴落晕染效果 */
+    /* 墨汁晕染效果 - 不规则有机形状 */
     .ink-container {
       position: fixed;
       top: 0;
@@ -358,69 +377,148 @@ import Base from "../layouts/Base.astro";
 
     .ink-drop {
       position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
+      width: 700px;
+      height: 700px;
       pointer-events: none;
       opacity: 0;
       will-change: transform, opacity;
-      /* 真实墨汁晕染：中心纯黑，向外逐渐淡化 */
-      background: 
-        radial-gradient(circle at center, 
-          rgba(0, 0, 0, 0.9) 0%, 
-          rgba(0, 0, 0, 0.8) 5%, 
-          rgba(0, 0, 0, 0.6) 10%, 
-          rgba(0, 0, 0, 0.4) 20%, 
-          rgba(0, 0, 0, 0.25) 30%, 
-          rgba(0, 0, 0, 0.15) 45%, 
-          rgba(0, 0, 0, 0.08) 60%, 
-          rgba(0, 0, 0, 0.03) 75%, 
-          transparent 90%
-        );
+      filter: url(#ink-filter);
+    }
+
+    /* 墨汁核心 - 深黑不规则 */
+    .ink-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 40% 40%, 
+        rgba(0, 0, 0, 0.95) 0%, 
+        rgba(0, 0, 0, 0.85) 40%, 
+        rgba(0, 0, 0, 0.6) 70%, 
+        transparent 100%
+      );
+      border-radius: 45% 55% 52% 48% / 48% 45% 55% 52%;
+      filter: blur(3px);
+    }
+
+    /* 晕染扩散层 - 柔和淡化 */
+    .ink-spread {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at 45% 40%, 
+        rgba(0, 0, 0, 0.4) 0%, 
+        rgba(0, 0, 0, 0.25) 15%, 
+        rgba(0, 0, 0, 0.15) 30%, 
+        rgba(0, 0, 0, 0.08) 50%, 
+        rgba(0, 0, 0, 0.03) 70%, 
+        transparent 100%
+      );
+      border-radius: 42% 58% 55% 45% / 50% 42% 58% 50%;
+      filter: blur(20px);
     }
 
     .ink-drop-1 {
-      top: 10%;
-      left: 8%;
-      animation: inkDrop 20s ease-out infinite;
+      top: 12%;
+      left: 10%;
+      animation: inkDrop1 22s ease-out infinite;
     }
 
     .ink-drop-2 {
-      top: 50%;
-      right: 10%;
-      animation: inkDrop 25s ease-out infinite 7s;
+      top: 55%;
+      right: 8%;
+      animation: inkDrop2 28s ease-out infinite 8s;
     }
 
     .ink-drop-3 {
-      bottom: 20%;
-      left: 40%;
-      animation: inkDrop 30s ease-out infinite 15s;
+      bottom: 18%;
+      left: 35%;
+      animation: inkDrop3 35s ease-out infinite 18s;
     }
 
-    @keyframes inkDrop {
+    @keyframes inkDrop1 {
       0% {
         opacity: 0;
-        transform: scale(0.05);
+        transform: scale(0.03);
       }
-      5% {
+      8% {
         opacity: 1;
-        transform: scale(0.1);
+        transform: scale(0.15) rotate(5deg);
       }
-      20% {
+      25% {
         opacity: 1;
-        transform: scale(0.4);
+        transform: scale(0.6) rotate(12deg);
       }
-      50% {
-        opacity: 0.9;
-        transform: scale(1.2);
+      55% {
+        opacity: 0.85;
+        transform: scale(1.4) rotate(18deg);
       }
-      80% {
-        opacity: 0.6;
-        transform: scale(2);
+      85% {
+        opacity: 0.4;
+        transform: scale(2.2) rotate(25deg);
       }
       100% {
         opacity: 0;
-        transform: scale(3);
+        transform: scale(3) rotate(30deg);
+      }
+    }
+
+    @keyframes inkDrop2 {
+      0% {
+        opacity: 0;
+        transform: scale(0.03);
+      }
+      8% {
+        opacity: 1;
+        transform: scale(0.15) rotate(-8deg);
+      }
+      25% {
+        opacity: 1;
+        transform: scale(0.6) rotate(-15deg);
+      }
+      55% {
+        opacity: 0.85;
+        transform: scale(1.5) rotate(-22deg);
+      }
+      85% {
+        opacity: 0.4;
+        transform: scale(2.4) rotate(-30deg);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(3.2) rotate(-35deg);
+      }
+    }
+
+    @keyframes inkDrop3 {
+      0% {
+        opacity: 0;
+        transform: scale(0.03);
+      }
+      8% {
+        opacity: 1;
+        transform: scale(0.15) rotate(10deg);
+      }
+      25% {
+        opacity: 1;
+        transform: scale(0.6) rotate(20deg);
+      }
+      55% {
+        opacity: 0.85;
+        transform: scale(1.6) rotate(30deg);
+      }
+      85% {
+        opacity: 0.4;
+        transform: scale(2.6) rotate(40deg);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(3.5) rotate(45deg);
       }
     }
 
