@@ -282,14 +282,14 @@ import Base from "../layouts/Base.astro";
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       
-      // Initialize drops - 密度加倍
-      const cols = Math.floor(width / 15);
+      // Initialize drops
+      const cols = Math.floor(width / 20);
       drops = [];
       for (let i = 0; i < cols; i++) {
         drops[i] = {
           y: Math.random() * height,
-          speed: 0.5 + Math.random() * 1.5, // 速度保持不变
-          length: 15 + Math.random() * 25  // 稍微增加长度
+          speed: 0.5 + Math.random() * 1.5,
+          length: 10 + Math.random() * 20
         };
       }
     }
@@ -302,10 +302,10 @@ import Base from "../layouts/Base.astro";
       ctx.font = '16px "SF Mono", Monaco, monospace';
       ctx.textAlign = 'center';
 
-      const cols = Math.floor(width / 15);
+      const cols = Math.floor(width / 20);
 
       for (let i = 0; i < cols; i++) {
-        const x = i * 15;
+        const x = i * 20;
         const drop = drops[i];
         
         // Draw the column
