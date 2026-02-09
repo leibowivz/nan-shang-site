@@ -15,11 +15,11 @@ import Base from "../layouts/Base.astro";
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-container">
-      <a href="/" class="logo">
+      <div class="logo">
         <!-- 篆刻印章 -->
-        <img src="/seal-bw.png" alt="尚南" class="seal" width="40" height="40" />
+        <img src="/seal-bw.png" alt="尚南" class="seal" />
         <span class="glitch" data-text="NAN SHANG">NAN SHANG</span>
-      </a>
+      </div>
       <div class="nav-links">
         <a href="#work">WORK</a>
         <a href="#research">RESEARCH</a>
@@ -521,11 +521,13 @@ import Base from "../layouts/Base.astro";
       filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.25));
       image-rendering: crisp-edges;
       image-rendering: -webkit-optimize-contrast;
+      width: 36px;
+      height: 36px;
     }
 
     .seal-footer {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
     }
 
     .nav-links {
