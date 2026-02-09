@@ -282,14 +282,14 @@ import Base from "../layouts/Base.astro";
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
       
-      // Initialize drops
-      const cols = Math.floor(width / 20);
+      // Initialize drops - 密度加倍
+      const cols = Math.floor(width / 15);
       drops = [];
       for (let i = 0; i < cols; i++) {
         drops[i] = {
           y: Math.random() * height,
-          speed: 0.5 + Math.random() * 1.5,
-          length: 10 + Math.random() * 20
+          speed: 0.5 + Math.random() * 1.5, // 速度保持不变
+          length: 15 + Math.random() * 25  // 稍微增加长度
         };
       }
     }
@@ -302,10 +302,10 @@ import Base from "../layouts/Base.astro";
       ctx.font = '16px "SF Mono", Monaco, monospace';
       ctx.textAlign = 'center';
 
-      const cols = Math.floor(width / 20);
+      const cols = Math.floor(width / 15);
 
       for (let i = 0; i < cols; i++) {
-        const x = i * 20;
+        const x = i * 15;
         const drop = drops[i];
         
         // Draw the column
@@ -513,6 +513,37 @@ import Base from "../layouts/Base.astro";
       margin-bottom: 2rem;
       text-shadow: 0 0 10px var(--cyan);
       font-weight: 300;
+      position: relative;
+      display: inline-block;
+      padding-left: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: '●';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--cyan);
+      animation: badgePulse 2s ease-in-out infinite;
+      text-shadow: 
+        0 0 10px var(--cyan),
+        0 0 20px var(--cyan);
+    }
+
+    @keyframes badgePulse {
+      0%, 100% {
+        opacity: 1;
+        text-shadow: 
+          0 0 10px var(--cyan),
+          0 0 20px var(--cyan);
+      }
+      50% {
+        opacity: 0.5;
+        text-shadow: 
+          0 0 5px var(--cyan),
+          0 0 10px var(--cyan);
+      }
     }
 
     .terminal-prompt {
@@ -521,17 +552,17 @@ import Base from "../layouts/Base.astro";
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 2rem;
+      line-height: 1;
+      margin-bottom: 2.5rem;
       color: var(--black);
       font-family: var(--font-heading);
-      letter-spacing: 0.2em;
-      transform: skewX(-3deg);
+      letter-spacing: 0.25em;
+      transform: skewX(-4deg);
       text-shadow: 
-        3px 3px 0px rgba(0, 136, 255, 0.4),
-        -1px -1px 0px rgba(0, 0, 0, 0.3);
+        4px 4px 0px rgba(0, 136, 255, 0.5),
+        -2px -2px 0px rgba(0, 0, 0, 0.4);
     }
 
     .glitch-text {
@@ -551,8 +582,8 @@ import Base from "../layouts/Base.astro";
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 200% auto;
-      animation: shimmer 3s linear infinite;
-      filter: drop-shadow(0 0 20px var(--cyan));
+      animation: shimmer 4s linear infinite;
+      filter: drop-shadow(0 0 25px var(--cyan)) drop-shadow(0 0 50px rgba(0, 136, 255, 0.3));
     }
 
     @keyframes shimmer {
@@ -675,6 +706,17 @@ import Base from "../layouts/Base.astro";
       color: var(--cyan);
       margin-right: 1rem;
       text-shadow: 0 0 10px var(--cyan);
+      display: inline-block;
+      animation: markerBlink 3s ease-in-out infinite;
+    }
+
+    @keyframes markerBlink {
+      0%, 90%, 100% {
+        opacity: 1;
+      }
+      93%, 97% {
+        opacity: 0.3;
+      }
     }
 
     /* Grid */
@@ -850,6 +892,12 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .contact-label {
       font-size: 0.75rem;
       color: var(--cyan);
@@ -929,7 +977,8 @@ import Base from "../layouts/Base.astro";
       }
 
       .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        letter-spacing: 0.15em;
       }
 
       .hero-subtitle {
