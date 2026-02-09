@@ -325,34 +325,34 @@ import Base from "../layouts/Base.astro";
     }
 
     function getDawnColor(y, offset = 0) {
-      // Simulate Earth horizon at dawn from satellite - BRIGHTER VERSION
+      // Simulate Earth horizon at dawn - ORIGINAL DEEPER COLORS
       const normalizedY = y / height;
       const position = normalizedY + offset;
       
       if (position < 0.3) {
-        // Deep space - brighter blue
+        // Deep space - dark blue
         const darkness = position / 0.3;
-        return `rgba(0, 50, 100, ${darkness * 0.9})`;
+        return `rgba(0, 20, 40, ${darkness * 0.8})`;
       } else if (position < 0.5) {
-        // Upper atmosphere - brighter blue
-        return `rgb(30, 80, 150)`;
+        // Upper atmosphere - deep blue
+        return `rgb(20, 40, 80)`;
       } else if (position < 0.55) {
-        // Dawn line - BRIGHT orange/red/pink
+        // Dawn line - orange/red (original)
         const dawnProgress = (position - 0.5) / 0.05;
-        const r = Math.floor(255);
-        const g = Math.floor(80 + dawnProgress * 100);
-        const b = Math.floor(100 + dawnProgress * 100);
+        const r = Math.floor(255 - dawnProgress * 80);
+        const g = Math.floor(120 + dawnProgress * 50);
+        const b = Math.floor(40);
         return `rgb(${r}, ${g}, ${b})`;
       } else if (position < 0.6) {
-        // Transition - BRIGHT yellow to cyan
+        // Transition - yellow to cyan (original)
         const transition = (position - 0.55) / 0.05;
-        const r = Math.floor(255 - transition * 255);
-        const g = Math.floor(200 + transition * 55);
-        const b = Math.floor(100 + transition * 155);
+        const r = Math.floor(220 - transition * 220);
+        const g = Math.floor(180 + transition * 40);
+        const b = Math.floor(40 + transition * 180);
         return `rgb(${r}, ${g}, ${b})`;
       } else {
-        // Earth surface - BRIGHT cyan
-        return `rgb(0, 240, 255)`;
+        // Earth surface - cyan (original)
+        return `rgb(0, 200, 220)`;
       }
     }
 
@@ -463,7 +463,7 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.8;
+      opacity: 0.6;
     }
 
     /* Scanlines */
@@ -553,10 +553,10 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-links a {
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
       font-size: 0.75rem;
-      font-weight: 300;
+      font-weight: 400;
       transition: all 0.2s;
     }
 
@@ -631,9 +631,9 @@ import Base from "../layouts/Base.astro";
     .hero-subtitle {
       font-size: 1rem;
       line-height: 2;
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.8);
       margin-bottom: 2.5rem;
-      font-weight: 300;
+      font-weight: 400;
       letter-spacing: 0.05em;
     }
 
@@ -826,7 +826,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .card-text {
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.7);
       line-height: 1.7;
       text-transform: none;
       letter-spacing: 0.02em;
@@ -876,8 +876,8 @@ import Base from "../layouts/Base.astro";
       border: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       font-size: 0.65rem;
-      color: var(--gray);
-      font-weight: 300;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
     }
 
     /* Research */
@@ -901,11 +901,11 @@ import Base from "../layouts/Base.astro";
     .cyber-list li {
       padding-left: 2rem;
       margin-bottom: 1rem;
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.75);
       position: relative;
       text-transform: none;
       letter-spacing: 0;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.9rem;
     }
 
@@ -916,11 +916,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .text-muted {
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.7);
       margin-bottom: 2rem;
       text-transform: none;
       letter-spacing: 0;
-      font-weight: 300;
+      font-weight: 400;
       font-size: 0.9rem;
     }
 
@@ -959,14 +959,14 @@ import Base from "../layouts/Base.astro";
     .contact-value {
       color: var(--white);
       text-decoration: none;
-      font-weight: 300;
+      font-weight: 400;
       display: block;
       transition: all 0.2s;
       font-size: 0.9rem;
     }
 
     .contact-value:hover {
-      color: var(--gray);
+      color: var(--cyan);
     }
 
     /* Footer */
@@ -993,8 +993,8 @@ import Base from "../layouts/Base.astro";
 
     .footer-role {
       font-size: 0.7rem;
-      color: var(--gray);
-      font-weight: 300;
+      color: rgba(255, 255, 255, 0.6);
+      font-weight: 400;
     }
 
     .footer-right {
@@ -1003,11 +1003,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a {
-      color: var(--gray);
+      color: rgba(255, 255, 255, 0.6);
       text-decoration: none;
       font-size: 0.7rem;
       transition: all 0.2s;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .footer-right a:hover {
