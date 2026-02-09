@@ -3,17 +3,25 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-  <!-- ASCII Horizon Animation -->
-  <canvas id="ascii-canvas"></canvas>
+  <!-- Satellite Earth Horizon Canvas -->
+  <canvas id="horizon-canvas"></canvas>
+  
+  <!-- Scanlines overlay -->
+  <div class="scanlines"></div>
+  
+  <!-- CRT flicker -->
+  <div class="crt-flicker"></div>
 
   <!-- Navigation -->
   <nav class="nav">
     <div class="nav-container">
-      <a href="/" class="logo">Nan Shang</a>
+      <a href="/" class="logo">
+        <span class="glitch" data-text="NAN_SHANG">NAN_SHANG</span>
+      </a>
       <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
+        <a href="#work"><span class="nav-bracket">[</span>WORK<span class="nav-bracket">]</span></a>
+        <a href="#research"><span class="nav-bracket">[</span>RESEARCH<span class="nav-bracket">]</span></a>
+        <a href="#contact"><span class="nav-bracket">[</span>CONTACT<span class="nav-bracket">]</span></a>
       </div>
     </div>
   </nav>
@@ -22,42 +30,52 @@ import Base from "../layouts/Base.astro";
   <section class="hero">
     <div class="container">
       <div class="hero-badge">
-        <span class="badge-bracket">[</span>
-        Chief Scientist & Founding Engineer
-        <span class="badge-bracket">]</span>
+        <span class="terminal-prompt">$</span> CHIEF_SCIENTIST_&_FOUNDING_ENGINEER
       </div>
       <h1 class="hero-title">
-        I build systems<br/>
-        <span class="gradient-text">that last.</span>
+        <span class="glitch-text" data-text="I BUILD SYSTEMS">I BUILD SYSTEMS</span><br/>
+        <span class="cyber-gradient">THAT LAST.</span>
       </h1>
       <p class="hero-subtitle">
-        Where data meets uncertainty. Where the real test is not performance in isolation,
-        but behavior over time. I design geospatial and AI systems that remain stable,
-        correct, and maintainable under real operational pressure.
+        &gt; WHERE DATA MEETS UNCERTAINTY_<br/>
+        &gt; WHERE THE TEST IS NOT PERFORMANCE_<br/>
+        &gt; BUT BEHAVIOR OVER TIME_
       </p>
       <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">View Work</a>
+        <a href="#work" class="btn btn-primary">
+          <span class="btn-bracket">[</span>VIEW_WORK<span class="btn-bracket">]</span>
+        </a>
         <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-           target="_blank" class="btn btn-secondary">Google Scholar</a>
+           target="_blank" class="btn btn-secondary">
+          <span class="btn-bracket">[</span>GOOGLE_SCHOLAR<span class="btn-bracket">]</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Stats -->
-  <section class="stats">
+  <!-- System Status -->
+  <section class="status-bar">
     <div class="container">
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-value">10+</div>
-          <div class="stat-label">PRODUCTION_SYSTEMS</div>
+      <div class="status-grid">
+        <div class="status-item">
+          <div class="status-label">SYSTEMS_ONLINE</div>
+          <div class="status-value">
+            <span class="cyber-number">10</span><span class="cyber-plus">+</span>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-value">24/7</div>
-          <div class="stat-label">OPERATIONAL_MONITOR</div>
+        <div class="status-divider">|</div>
+        <div class="status-item">
+          <div class="status-label">UPTIME_MONITOR</div>
+          <div class="status-value">
+            <span class="cyber-number">24</span><span class="cyber-slash">/</span><span class="cyber-number">7</span>
+          </div>
         </div>
-        <div class="stat">
-          <div class="stat-value">99.9%</div>
-          <div class="stat-label">SYSTEM_RELIABILITY</div>
+        <div class="status-divider">|</div>
+        <div class="status-item">
+          <div class="status-label">RELIABILITY_INDEX</div>
+          <div class="status-value">
+            <span class="cyber-number">99.9</span><span class="cyber-percent">%</span>
+          </div>
         </div>
       </div>
     </div>
@@ -70,37 +88,49 @@ import Base from "../layouts/Base.astro";
     <section class="section">
       <div class="container">
         <h2 class="section-title">
-          <span class="title-bracket">// </span>How I Build Systems
+          <span class="section-marker">&gt;&gt;</span> SYSTEM_ARCHITECTURE_PRINCIPLES
         </h2>
         <div class="grid-2">
-          <div class="card">
-            <div class="card-number">[01]</div>
-            <h3 class="card-title">Production is the benchmark</h3>
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="card-id">0x01</span>
+              <span class="card-status">◉ ACTIVE</span>
+            </div>
+            <h3 class="card-title">PRODUCTION_IS_THE_BENCHMARK</h3>
             <p class="card-text">
               A system is only meaningful if it continues to behave correctly after deployment.
               I design systems to fail visibly, support iteration without destabilization, and
               remain interpretable to operators.
             </p>
           </div>
-          <div class="card">
-            <div class="card-number">[02]</div>
-            <h3 class="card-title">Constraints shape architecture</h3>
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="card-id">0x02</span>
+              <span class="card-status">◉ ACTIVE</span>
+            </div>
+            <h3 class="card-title">CONSTRAINTS_SHAPE_ARCHITECTURE</h3>
             <p class="card-text">
               Latency, throughput, cost, and operational friction are architectural facts.
               I make trade-offs explicit so systems can be reasoned about and maintained over time.
             </p>
           </div>
-          <div class="card">
-            <div class="card-number">[03]</div>
-            <h3 class="card-title">Deployment reveals assumptions</h3>
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="card-id">0x03</span>
+              <span class="card-status">◉ ACTIVE</span>
+            </div>
+            <h3 class="card-title">DEPLOYMENT_REVEALS_ASSUMPTIONS</h3>
             <p class="card-text">
               Research doesn't end at deployment. I design feedback loops that surface failure modes,
               quantify drift, and allow systems to improve without eroding stability.
             </p>
           </div>
-          <div class="card">
-            <div class="card-number">[04]</div>
-            <h3 class="card-title">Data quality compounds</h3>
+          <div class="cyber-card">
+            <div class="card-header">
+              <span class="card-id">0x04</span>
+              <span class="card-status">◉ ACTIVE</span>
+            </div>
+            <h3 class="card-title">DATA_QUALITY_COMPOUNDS</h3>
             <p class="card-text">
               Long-term advantage comes from disciplined data practices. Ingestion, annotation,
               QC, monitoring, and rollback strategies reinforce one another.
@@ -114,88 +144,88 @@ import Base from "../layouts/Base.astro";
     <section class="section" id="work">
       <div class="container">
         <h2 class="section-title">
-          <span class="title-bracket">// </span>Systems I Build
+          <span class="section-marker">&gt;&gt;</span> DEPLOYED_SYSTEMS
         </h2>
         <div class="systems">
-          <div class="system-card">
-            <div class="system-header">
+          <div class="cyber-card system-card">
+            <div class="card-header">
               <div class="system-status">
-                <span class="status-indicator">●</span>
-                <span>ACTIVE</span>
+                <span class="status-pulse">●</span>
+                <span>ONLINE</span>
               </div>
-              <span class="system-tag">PIPELINE</span>
+              <span class="system-type">[PIPELINE]</span>
             </div>
-            <h3 class="system-title">End-to-End Geospatial Pipelines</h3>
-            <p class="system-desc">
+            <h3 class="card-title">END_TO_END_GEOSPATIAL_PIPELINES</h3>
+            <p class="card-text">
               Full lifecycle—ingestion, normalization, processing, verification, reporting, delivery.
               Designed to be repeatable, auditable, and resilient under scale.
             </p>
-            <div class="tech-stack">
-              <span class="tech">PostgreSQL</span>
-              <span class="tech">PostGIS</span>
-              <span class="tech">Python</span>
-              <span class="tech">Docker</span>
+            <div class="tech-grid">
+              <span class="tech-tag">POSTGRESQL</span>
+              <span class="tech-tag">POSTGIS</span>
+              <span class="tech-tag">PYTHON</span>
+              <span class="tech-tag">DOCKER</span>
             </div>
           </div>
 
-          <div class="system-card">
-            <div class="system-header">
+          <div class="cyber-card system-card">
+            <div class="card-header">
               <div class="system-status">
-                <span class="status-indicator">●</span>
-                <span>ACTIVE</span>
+                <span class="status-pulse">●</span>
+                <span>ONLINE</span>
               </div>
-              <span class="system-tag">SENSING</span>
+              <span class="system-type">[SENSING]</span>
             </div>
-            <h3 class="system-title">Multimodal Remote Sensing Workflows</h3>
-            <p class="system-desc">
+            <h3 class="card-title">MULTIMODAL_REMOTE_SENSING</h3>
+            <p class="card-text">
               RGB imagery, thermal and infrared data, derived spatial layers. Extracting actionable
               signals while controlling uncertainty in operational environments.
             </p>
-            <div class="tech-stack">
-              <span class="tech">LiDAR</span>
-              <span class="tech">Thermal</span>
-              <span class="tech">Multispectral</span>
-              <span class="tech">Point Clouds</span>
+            <div class="tech-grid">
+              <span class="tech-tag">LIDAR</span>
+              <span class="tech-tag">THERMAL</span>
+              <span class="tech-tag">MULTISPECTRAL</span>
+              <span class="tech-tag">POINT_CLOUDS</span>
             </div>
           </div>
 
-          <div class="system-card">
-            <div class="system-header">
+          <div class="cyber-card system-card">
+            <div class="card-header">
               <div class="system-status">
-                <span class="status-indicator">●</span>
-                <span>ACTIVE</span>
+                <span class="status-pulse">●</span>
+                <span>ONLINE</span>
               </div>
-              <span class="system-tag">QUALITY</span>
+              <span class="system-type">[QUALITY]</span>
             </div>
-            <h3 class="system-title">Verification & Quality Control</h3>
-            <p class="system-desc">
+            <h3 class="card-title">VERIFICATION_&_QC_SYSTEMS</h3>
+            <p class="card-text">
               Automated and human-in-the-loop verification layers that surface projection errors,
               alignment drift, and metadata assumptions before downstream impact.
             </p>
-            <div class="tech-stack">
-              <span class="tech">Validation</span>
-              <span class="tech">QC Pipelines</span>
-              <span class="tech">Monitoring</span>
+            <div class="tech-grid">
+              <span class="tech-tag">VALIDATION</span>
+              <span class="tech-tag">QC_PIPELINES</span>
+              <span class="tech-tag">MONITORING</span>
             </div>
           </div>
 
-          <div class="system-card">
-            <div class="system-header">
+          <div class="cyber-card system-card">
+            <div class="card-header">
               <div class="system-status">
-                <span class="status-indicator">●</span>
-                <span>ACTIVE</span>
+                <span class="status-pulse">●</span>
+                <span>ONLINE</span>
               </div>
-              <span class="system-tag">DELIVERY</span>
+              <span class="system-type">[DELIVERY]</span>
             </div>
-            <h3 class="system-title">Secure Data Delivery Architectures</h3>
-            <p class="system-desc">
+            <h3 class="card-title">SECURE_DATA_DELIVERY</h3>
+            <p class="card-text">
               Multi-tenant access control, lifecycle management, permission boundaries, and
               audit-friendly access patterns with strict tenant isolation.
             </p>
-            <div class="tech-stack">
-              <span class="tech">API Gateway</span>
-              <span class="tech">Auth</span>
-              <span class="tech">S3</span>
+            <div class="tech-grid">
+              <span class="tech-tag">API_GATEWAY</span>
+              <span class="tech-tag">AUTH</span>
+              <span class="tech-tag">S3</span>
             </div>
           </div>
         </div>
@@ -206,25 +236,25 @@ import Base from "../layouts/Base.astro";
     <section class="section" id="research">
       <div class="container">
         <h2 class="section-title">
-          <span class="title-bracket">// </span>Research & Production
+          <span class="section-marker">&gt;&gt;</span> RESEARCH_&_PRODUCTION
         </h2>
         <div class="research-content">
-          <p class="text-large">
-            My research background in remote sensing and geospatial analysis directly informs
-            the systems I build. My peer-reviewed work addresses questions that recur in production:
+          <p class="text-cyber">
+            &gt; REMOTE_SENSING_AND_GEOSPATIAL_ANALYSIS<br/>
+            &gt; METHODS_THAT_INFORM_PRODUCTION_SYSTEMS
           </p>
-          <ul class="list-styled">
-            <li>How spatial measurements behave under noise and scale</li>
-            <li>How resolution and alignment affect downstream inference</li>
-            <li>How to reason about uncertainty in derived spatial products</li>
+          <ul class="cyber-list">
+            <li><span class="list-marker">▸</span> Spatial measurements under noise and scale</li>
+            <li><span class="list-marker">▸</span> Resolution and alignment effects on inference</li>
+            <li><span class="list-marker">▸</span> Uncertainty quantification in spatial products</li>
           </ul>
-          <p class="text-medium">
-            I have authored and co-authored publications in journals and conferences, contributing
-            methods and frameworks now embedded in production pipelines.
+          <p class="text-muted">
+            Peer-reviewed publications in journals and conferences, contributing frameworks
+            now embedded in production pipelines.
           </p>
           <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-             target="_blank" class="link-arrow">
-            View Google Scholar →
+             target="_blank" class="cyber-link">
+            [ACCESS_GOOGLE_SCHOLAR] →
           </a>
         </div>
       </div>
@@ -234,23 +264,23 @@ import Base from "../layouts/Base.astro";
     <section class="section" id="contact">
       <div class="container">
         <h2 class="section-title">
-          <span class="title-bracket">// </span>Get in Touch
+          <span class="section-marker">&gt;&gt;</span> ESTABLISH_CONNECTION
         </h2>
         <div class="contact-grid">
-          <div class="contact-card">
-            <div class="contact-label">PRIMARY_EMAIL</div>
+          <div class="cyber-card contact-card">
+            <div class="contact-label">PRIMARY_CHANNEL</div>
             <a href="mailto:nan.shang@droneinstitute.ai" class="contact-value">
               nan.shang@droneinstitute.ai
             </a>
           </div>
-          <div class="contact-card">
-            <div class="contact-label">PERSONAL_EMAIL</div>
+          <div class="cyber-card contact-card">
+            <div class="contact-label">SECONDARY_CHANNEL</div>
             <a href="mailto:sn1514826@gmail.com" class="contact-value">
               sn1514826@gmail.com
             </a>
           </div>
-          <div class="contact-card">
-            <div class="contact-label">GITHUB</div>
+          <div class="cyber-card contact-card">
+            <div class="contact-label">CODE_REPOSITORY</div>
             <a href="https://github.com/leibowivz" target="_blank" class="contact-value">
               github.com/leibowivz
             </a>
@@ -266,95 +296,127 @@ import Base from "../layouts/Base.astro";
     <div class="container">
       <div class="footer-content">
         <div class="footer-left">
-          <div class="footer-name">Nan Shang, Ph.D.</div>
-          <div class="footer-role">Chief Scientist & Founding Engineer, Drone Institute</div>
+          <div class="footer-name">NAN_SHANG_PHD</div>
+          <div class="footer-role">CHIEF_SCIENTIST_&_FOUNDING_ENGINEER :: DRONE_INSTITUTE</div>
         </div>
         <div class="footer-right">
-          <a href="https://github.com/leibowivz" target="_blank">GitHub</a>
-          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" target="_blank">Scholar</a>
+          <a href="https://github.com/leibowivz" target="_blank">[GITHUB]</a>
+          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" target="_blank">[SCHOLAR]</a>
         </div>
+      </div>
+      <div class="footer-timestamp">
+        LAST_UPDATED: 2026.02.08 :: 23:08:00 CST
       </div>
     </div>
   </footer>
 
   <script>
-    // ASCII Horizon Animation
-    const canvas = document.getElementById('ascii-canvas');
+    // Satellite Earth Horizon Animation
+    const canvas = document.getElementById('horizon-canvas');
     const ctx = canvas.getContext('2d');
 
-    let width, height, cols, rows;
-    const chars = ['░', '▒', '▓', '█', '▄', '▀', '▌', '▐', '│', '─', '┼', '┤', '├', '┴', '┬', '╱', '╲', '╳'];
-    const horizon = [];
+    let width, height;
     let time = 0;
+    const chars = ['█', '▓', '▒', '░', '▄', '▀'];
 
     function resize() {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-      cols = Math.floor(width / 12);
-      rows = Math.floor(height / 20);
+    }
+
+    function getDawnColor(y, offset = 0) {
+      // Simulate Earth horizon at dawn from satellite
+      const normalizedY = y / height;
+      const position = normalizedY + offset;
       
-      // Initialize horizon
-      for (let i = 0; i < cols; i++) {
-        horizon[i] = Math.floor(rows * 0.6) + Math.sin(i * 0.1) * 5;
+      if (position < 0.3) {
+        // Deep space - dark blue to black
+        const darkness = position / 0.3;
+        return `rgba(0, 10, 30, ${darkness * 0.8})`;
+      } else if (position < 0.5) {
+        // Upper atmosphere - deep blue
+        return `rgb(15, 25, 60)`;
+      } else if (position < 0.55) {
+        // Dawn line - orange/red
+        const dawnProgress = (position - 0.5) / 0.05;
+        const r = Math.floor(255 - dawnProgress * 100);
+        const g = Math.floor(100 + dawnProgress * 50);
+        const b = Math.floor(30);
+        return `rgb(${r}, ${g}, ${b})`;
+      } else if (position < 0.6) {
+        // Transition - yellow to cyan
+        const transition = (position - 0.55) / 0.05;
+        const r = Math.floor(200 - transition * 200);
+        const g = Math.floor(150 + transition * 50);
+        const b = Math.floor(30 + transition * 200);
+        return `rgb(${r}, ${g}, ${b})`;
+      } else {
+        // Earth surface - cyan/blue
+        return `rgb(0, 150, 180)`;
       }
     }
 
-    function getSpectralColor(x, y, t) {
-      const hue = ((x / cols) * 360 + (y / rows) * 60 + t * 20) % 360;
-      const saturation = 70;
-      const lightness = 30 + (y / rows) * 20;
-      return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-    }
-
-    function draw() {
+    function drawHorizon() {
+      // Clear with trail effect
       ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.font = '16px "SF Mono", Monaco, monospace';
+      ctx.font = '14px "SF Mono", Monaco, monospace';
       ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
 
-      time += 0.01;
+      const cols = Math.floor(width / 14);
+      const rows = Math.floor(height / 20);
+      
+      // Earth curvature center
+      const centerY = height * 0.55;
+      const curveRadius = width * 0.8;
 
-      // Update horizon
-      for (let i = 0; i < cols; i++) {
-        const wave1 = Math.sin(i * 0.05 + time * 2) * 3;
-        const wave2 = Math.sin(i * 0.03 - time * 1.5) * 2;
-        const wave3 = Math.sin(i * 0.08 + time * 3) * 1.5;
-        horizon[i] = Math.floor(rows * 0.6) + wave1 + wave2 + wave3;
-      }
+      time += 0.008;
 
-      // Draw ASCII horizon
       for (let x = 0; x < cols; x++) {
         for (let y = 0; y < rows; y++) {
-          const horizonY = horizon[x];
-          
-          if (y > horizonY - 2 && y < horizonY + 8) {
-            const density = Math.abs(y - horizonY) / 8;
-            const charIndex = Math.floor(density * chars.length);
-            const char = chars[Math.min(charIndex, chars.length - 1)];
+          const screenX = x * 14;
+          const screenY = y * 20;
+
+          // Calculate distance from horizon curve
+          const dx = screenX - width / 2;
+          const curveY = centerY + Math.sqrt(Math.max(0, curveRadius * curveRadius - dx * dx)) - curveRadius;
+          const distanceFromHorizon = screenY - curveY;
+
+          // Only draw near horizon
+          if (Math.abs(distanceFromHorizon) < 200) {
+            const density = Math.abs(distanceFromHorizon) / 200;
             
-            const color = getSpectralColor(x, y, time);
-            const alpha = 1 - density * 0.7;
-            
-            ctx.fillStyle = color;
-            ctx.globalAlpha = alpha;
-            
-            const screenX = x * 12;
-            const screenY = y * 20;
-            
-            ctx.fillText(char, screenX, screenY);
+            // Wave motion for atmosphere
+            const wave = Math.sin(x * 0.1 + time * 2) * 10 + Math.cos(x * 0.07 - time) * 5;
+            const adjustedDistance = distanceFromHorizon + wave;
+
+            if (adjustedDistance > -50 && adjustedDistance < 150) {
+              const charDensity = Math.abs(adjustedDistance) / 150;
+              const charIndex = Math.floor(charDensity * chars.length);
+              const char = chars[Math.min(charIndex, chars.length - 1)];
+
+              // Dawn gradient color
+              const yOffset = (Math.sin(x * 0.05 + time) * 0.02);
+              const color = getDawnColor(screenY, yOffset);
+              
+              const alpha = 1 - charDensity * 0.7;
+              ctx.fillStyle = color;
+              ctx.globalAlpha = alpha * 0.6;
+              
+              ctx.fillText(char, screenX, screenY);
+            }
           }
         }
       }
 
       ctx.globalAlpha = 1;
-      requestAnimationFrame(draw);
+      requestAnimationFrame(drawHorizon);
     }
 
     window.addEventListener('resize', resize);
     resize();
-    draw();
+    drawHorizon();
   </script>
 
   <style>
@@ -366,39 +428,71 @@ import Base from "../layouts/Base.astro";
 
     :root {
       --black: #000000;
-      --gray-800: #1a1a1a;
-      --gray-700: #2a2a2a;
-      --gray-500: #737373;
-      --gray-400: #a3a3a3;
-      --white: #ffffff;
-      
       --cyan: #00f0ff;
-      --purple: #a855f7;
-      --pink: #ec4899;
-      --green: #22c55e;
+      --orange: #ff6b00;
+      --red: #ff0055;
+      --blue: #0066ff;
+      --green: #00ff88;
+      --yellow: #ffcc00;
       
-      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-mono: "SF Mono", Monaco, "Cascadia Code", monospace;
+      --font-mono: "SF Mono", "Monaco", "Courier New", monospace;
     }
 
     body {
       background: var(--black);
-      color: var(--white);
-      font-family: var(--font-sans);
+      color: var(--cyan);
+      font-family: var(--font-mono);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    /* ASCII Canvas */
-    #ascii-canvas {
+    /* Canvas */
+    #horizon-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.4;
+    }
+
+    /* Scanlines */
+    .scanlines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.3;
+    }
+
+    /* CRT Flicker */
+    .crt-flicker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 240, 255, 0.03);
+      pointer-events: none;
+      z-index: 4;
+      animation: flicker 0.15s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.95; }
     }
 
     /* Container */
@@ -417,31 +511,31 @@ import Base from "../layouts/Base.astro";
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+      background: rgba(0, 0, 0, 0.9);
+      border-bottom: 2px solid var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
     }
 
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1.25rem 2rem;
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .logo {
-      font-family: var(--font-mono);
-      font-size: 1rem;
+      font-size: 1.25rem;
       font-weight: 700;
       color: var(--cyan);
       text-decoration: none;
-      transition: opacity 0.2s;
+      text-shadow: 0 0 10px var(--cyan);
     }
 
-    .logo:hover {
-      opacity: 0.7;
+    .glitch {
+      position: relative;
+      display: inline-block;
     }
 
     .nav-links {
@@ -450,73 +544,79 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-links a {
-      font-family: var(--font-mono);
-      color: var(--gray-400);
+      color: var(--cyan);
       text-decoration: none;
       font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
+      transition: all 0.2s;
     }
 
     .nav-links a:hover {
-      color: var(--cyan);
+      text-shadow: 0 0 10px var(--cyan);
+      color: var(--yellow);
+    }
+
+    .nav-bracket {
+      color: var(--orange);
     }
 
     /* Hero */
     .hero {
       position: relative;
       z-index: 10;
-      padding: 12rem 0 8rem;
+      padding: 12rem 0 6rem;
     }
 
     .hero-badge {
-      font-family: var(--font-mono);
       font-size: 0.875rem;
-      color: var(--gray-400);
+      color: var(--green);
       margin-bottom: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      text-shadow: 0 0 5px var(--green);
     }
 
-    .badge-bracket {
-      color: var(--cyan);
+    .terminal-prompt {
+      color: var(--orange);
     }
 
     .hero-title {
-      font-size: clamp(3rem, 7vw, 5rem);
-      font-weight: 700;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
       line-height: 1.1;
-      letter-spacing: -0.03em;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, 
-        #00f0ff 0%, 
-        #a855f7 25%, 
-        #ec4899 50%, 
-        #f97316 75%, 
-        #22c55e 100%
+    .glitch-text {
+      position: relative;
+      display: inline-block;
+    }
+
+    .cyber-gradient {
+      background: linear-gradient(90deg,
+        var(--orange) 0%,
+        var(--red) 25%,
+        var(--cyan) 50%,
+        var(--blue) 75%,
+        var(--green) 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 200% auto;
-      animation: spectral 3s linear infinite;
+      animation: shimmer 4s linear infinite;
+      text-shadow: none;
     }
 
-    @keyframes spectral {
+    @keyframes shimmer {
       0% { background-position: 0% center; }
       100% { background-position: 200% center; }
     }
 
     .hero-subtitle {
-      font-size: 1.25rem;
-      line-height: 1.7;
-      color: var(--gray-400);
-      max-width: 720px;
+      font-size: 1.125rem;
+      line-height: 2;
+      color: var(--cyan);
       margin-bottom: 2.5rem;
+      opacity: 0.8;
     }
 
     .hero-actions {
@@ -526,102 +626,91 @@ import Base from "../layouts/Base.astro";
     }
 
     .btn {
-      padding: 0.875rem 1.75rem;
-      border-radius: 0;
+      padding: 1rem 2rem;
+      border: 2px solid;
       font-family: var(--font-mono);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.875rem;
       text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: all 0.2s;
+      transition: all 0.3s;
       display: inline-block;
-      border: 2px solid;
+      position: relative;
     }
 
     .btn-primary {
       background: var(--cyan);
       color: var(--black);
       border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
     }
 
     .btn-primary:hover {
       background: transparent;
       color: var(--cyan);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.8);
     }
 
     .btn-secondary {
       background: transparent;
-      color: var(--white);
-      border-color: var(--gray-700);
+      color: var(--cyan);
+      border-color: var(--cyan);
     }
 
     .btn-secondary:hover {
-      border-color: var(--cyan);
-      color: var(--cyan);
+      background: var(--cyan);
+      color: var(--black);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+    }
+
+    .btn-bracket {
+      color: var(--orange);
+    }
+
+    /* Status Bar */
+    .status-bar {
+      position: relative;
+      z-index: 10;
+      padding: 3rem 0;
+    }
+
+    .status-grid {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 2rem;
+      border: 2px solid var(--cyan);
+      background: rgba(0, 240, 255, 0.05);
       box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
     }
 
-    /* Stats */
-    .stats {
-      position: relative;
-      z-index: 10;
-      padding: 4rem 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border: 1px solid var(--cyan);
-      background: rgba(0, 240, 255, 0.03);
-    }
-
-    .stat {
+    .status-item {
       text-align: center;
-      padding: 2.5rem 1.5rem;
-      border-right: 1px solid rgba(0, 240, 255, 0.2);
-      position: relative;
     }
 
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        #00f0ff 0%, 
-        #a855f7 50%, 
-        #ec4899 100%
-      );
-      opacity: 0.5;
-    }
-
-    .stat-value {
-      font-family: var(--font-mono);
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--cyan), var(--purple));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-    }
-
-    .stat-label {
-      font-family: var(--font-mono);
+    .status-label {
       font-size: 0.75rem;
-      color: var(--gray-500);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .status-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+    }
+
+    .cyber-number {
+      color: var(--cyan);
+      text-shadow: 0 0 15px var(--cyan);
+    }
+
+    .cyber-plus, .cyber-slash, .cyber-percent {
+      color: var(--orange);
+    }
+
+    .status-divider {
+      color: var(--cyan);
+      font-size: 2rem;
+      opacity: 0.3;
     }
 
     /* Main */
@@ -635,15 +724,16 @@ import Base from "../layouts/Base.astro";
     }
 
     .section-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      font-size: 1.75rem;
+      font-weight: 900;
       margin-bottom: 3rem;
+      color: var(--cyan);
+      text-shadow: 0 0 15px var(--cyan);
     }
 
-    .title-bracket {
-      font-family: var(--font-mono);
-      color: var(--cyan);
+    .section-marker {
+      color: var(--orange);
+      margin-right: 1rem;
     }
 
     /* Grid */
@@ -653,57 +743,65 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
-    /* Card */
-    .card {
+    /* Cyber Card */
+    .cyber-card {
       padding: 2rem;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--gray-700);
-      transition: all 0.3s;
+      border: 2px solid var(--cyan);
+      background: rgba(0, 0, 0, 0.7);
       position: relative;
+      transition: all 0.3s;
     }
 
-    .card::before {
+    .cyber-card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        var(--cyan) 0%, 
-        var(--purple) 50%, 
-        var(--pink) 100%
-      );
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, var(--cyan), var(--blue), var(--cyan));
       opacity: 0;
       transition: opacity 0.3s;
+      z-index: -1;
     }
 
-    .card:hover {
-      border-color: var(--cyan);
-      background: rgba(0, 240, 255, 0.05);
-      transform: translateY(-2px);
+    .cyber-card:hover {
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
     }
 
-    .card:hover::before {
-      opacity: 1;
+    .cyber-card:hover::before {
+      opacity: 0.3;
     }
 
-    .card-number {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--cyan);
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 1rem;
+    }
+
+    .card-id {
+      font-size: 0.75rem;
+      color: var(--orange);
+    }
+
+    .card-status {
+      font-size: 0.75rem;
+      color: var(--green);
     }
 
     .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
+      font-size: 1.125rem;
+      font-weight: 700;
       margin-bottom: 1rem;
+      color: var(--cyan);
     }
 
     .card-text {
-      color: var(--gray-400);
+      color: rgba(0, 240, 255, 0.7);
       line-height: 1.7;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
     /* Systems */
@@ -712,157 +810,96 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
-    .system-card {
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--gray-700);
-      transition: all 0.3s;
-      position: relative;
-    }
-
-    .system-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, 
-        var(--cyan) 0%, 
-        var(--green) 100%
-      );
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .system-card:hover {
-      border-color: var(--cyan);
-      background: rgba(0, 240, 255, 0.05);
-    }
-
-    .system-card:hover::before {
-      opacity: 1;
-    }
-
-    .system-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
     .system-status {
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: var(--font-mono);
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
       color: var(--green);
     }
 
-    .status-indicator {
+    .status-pulse {
       animation: pulse 2s ease-in-out infinite;
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+      0%, 100% { opacity: 1; text-shadow: 0 0 5px var(--green); }
+      50% { opacity: 0.5; text-shadow: 0 0 10px var(--green); }
     }
 
-    .system-tag {
-      font-family: var(--font-mono);
+    .system-type {
       font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gray-500);
+      color: var(--orange);
     }
 
-    .system-title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .system-desc {
-      color: var(--gray-400);
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
-    }
-
-    .tech-stack {
+    .tech-grid {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
+      margin-top: 1.5rem;
     }
 
-    .tech {
+    .tech-tag {
       padding: 0.5rem 1rem;
+      border: 1px solid var(--cyan);
       background: rgba(0, 240, 255, 0.1);
-      border: 1px solid rgba(0, 240, 255, 0.3);
       font-size: 0.75rem;
-      font-family: var(--font-mono);
       color: var(--cyan);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
     }
 
     /* Research */
     .research-content {
-      max-width: 800px;
+      max-width: 900px;
     }
 
-    .text-large {
+    .text-cyber {
       font-size: 1.25rem;
-      line-height: 1.7;
-      color: var(--gray-400);
+      line-height: 2;
+      color: var(--cyan);
       margin-bottom: 2rem;
     }
 
-    .list-styled {
+    .cyber-list {
       list-style: none;
       margin: 2rem 0;
     }
 
-    .list-styled li {
-      padding-left: 1.5rem;
+    .cyber-list li {
+      padding-left: 2rem;
       margin-bottom: 1rem;
-      color: var(--gray-400);
+      color: rgba(0, 240, 255, 0.8);
       position: relative;
-      font-family: var(--font-mono);
-      font-size: 0.9375rem;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
-    .list-styled li::before {
-      content: ">";
+    .list-marker {
       position: absolute;
       left: 0;
-      color: var(--cyan);
+      color: var(--orange);
     }
 
-    .text-medium {
-      color: var(--gray-400);
-      line-height: 1.7;
+    .text-muted {
+      color: rgba(0, 240, 255, 0.6);
       margin-bottom: 2rem;
+      text-transform: none;
+      letter-spacing: 0;
     }
 
-    .link-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+    .cyber-link {
       color: var(--cyan);
       text-decoration: none;
-      font-family: var(--font-mono);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      font-size: 0.875rem;
-      transition: gap 0.2s;
+      font-weight: 700;
+      display: inline-block;
+      border: 2px solid var(--cyan);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.3s;
     }
 
-    .link-arrow:hover {
-      gap: 1rem;
+    .cyber-link:hover {
+      background: var(--cyan);
+      color: var(--black);
+      box-shadow: 0 0 20px var(--cyan);
     }
 
     /* Contact */
@@ -872,65 +909,50 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
-    .contact-card {
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--gray-700);
-      transition: all 0.3s;
-    }
-
-    .contact-card:hover {
-      border-color: var(--cyan);
-      background: rgba(0, 240, 255, 0.05);
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
-    }
-
     .contact-label {
-      font-family: var(--font-mono);
       font-size: 0.75rem;
-      color: var(--gray-500);
-      margin-bottom: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      color: var(--orange);
+      margin-bottom: 1rem;
     }
 
     .contact-value {
-      color: var(--white);
+      color: var(--cyan);
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
+      font-weight: 700;
       display: block;
+      transition: all 0.2s;
     }
 
     .contact-value:hover {
-      color: var(--cyan);
+      color: var(--yellow);
+      text-shadow: 0 0 10px var(--yellow);
     }
 
     /* Footer */
     .footer {
       position: relative;
       z-index: 10;
-      padding: 4rem 0;
-      border-top: 1px solid var(--gray-800);
-      margin-top: 8rem;
+      padding: 3rem 0;
+      border-top: 2px solid var(--cyan);
+      margin-top: 6rem;
     }
 
     .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 1rem;
     }
 
     .footer-name {
-      font-family: var(--font-mono);
-      font-weight: 600;
+      font-weight: 900;
       margin-bottom: 0.5rem;
+      color: var(--cyan);
     }
 
     .footer-role {
-      font-family: var(--font-mono);
-      font-size: 0.875rem;
-      color: var(--gray-500);
+      font-size: 0.75rem;
+      color: var(--green);
     }
 
     .footer-right {
@@ -939,17 +961,22 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a {
-      font-family: var(--font-mono);
-      color: var(--gray-400);
+      color: var(--cyan);
       text-decoration: none;
       font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: color 0.2s;
+      transition: all 0.2s;
     }
 
     .footer-right a:hover {
-      color: var(--cyan);
+      color: var(--yellow);
+      text-shadow: 0 0 5px var(--yellow);
+    }
+
+    .footer-timestamp {
+      font-size: 0.75rem;
+      color: var(--orange);
+      text-align: center;
+      opacity: 0.6;
     }
 
     /* Responsive */
@@ -959,20 +986,16 @@ import Base from "../layouts/Base.astro";
       }
 
       .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
       }
 
-      .stats-grid {
-        grid-template-columns: 1fr;
+      .status-grid {
+        flex-direction: column;
+        gap: 2rem;
       }
 
-      .stat {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-      }
-
-      .stat:last-child {
-        border-bottom: none;
+      .status-divider {
+        display: none;
       }
 
       .grid-2 {
