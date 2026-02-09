@@ -4,8 +4,11 @@ import Base from "../layouts/Base.astro";
 
 <Base>
   <!-- 墨汁晕染效果 -->
-  <div class="ink-drop ink-drop-1"></div>
-  <div class="ink-drop ink-drop-2"></div>
+  <div class="ink-container">
+    <div class="ink-drop ink-drop-1"></div>
+    <div class="ink-drop ink-drop-2"></div>
+    <div class="ink-drop ink-drop-3"></div>
+  </div>
 
   <!-- Navigation -->
   <nav class="nav">
@@ -342,66 +345,82 @@ import Base from "../layouts/Base.astro";
 
 
     /* 墨汁滴落晕染效果 */
-    .ink-drop {
+    .ink-container {
       position: fixed;
-      width: 400px;
-      height: 400px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ink-drop {
+      position: absolute;
+      width: 600px;
+      height: 600px;
       border-radius: 50%;
       pointer-events: none;
       opacity: 0;
-      z-index: 1;
       will-change: transform, opacity;
+      /* 真实墨汁晕染：中心纯黑，向外逐渐淡化 */
+      background: 
+        radial-gradient(circle at center, 
+          rgba(0, 0, 0, 0.9) 0%, 
+          rgba(0, 0, 0, 0.8) 5%, 
+          rgba(0, 0, 0, 0.6) 10%, 
+          rgba(0, 0, 0, 0.4) 20%, 
+          rgba(0, 0, 0, 0.25) 30%, 
+          rgba(0, 0, 0, 0.15) 45%, 
+          rgba(0, 0, 0, 0.08) 60%, 
+          rgba(0, 0, 0, 0.03) 75%, 
+          transparent 90%
+        );
     }
 
     .ink-drop-1 {
-      top: 20%;
-      left: 15%;
-      background: radial-gradient(circle, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.15) 25%, rgba(0, 0, 0, 0.08) 50%, transparent 80%);
-      animation: inkDrop1 18s ease-in-out infinite;
+      top: 10%;
+      left: 8%;
+      animation: inkDrop 20s ease-out infinite;
     }
 
     .ink-drop-2 {
-      top: 55%;
-      right: 12%;
-      background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.12) 25%, rgba(0, 0, 0, 0.05) 50%, transparent 80%);
-      animation: inkDrop2 22s ease-in-out infinite 6s;
+      top: 50%;
+      right: 10%;
+      animation: inkDrop 25s ease-out infinite 7s;
     }
 
-    @keyframes inkDrop1 {
+    .ink-drop-3 {
+      bottom: 20%;
+      left: 40%;
+      animation: inkDrop 30s ease-out infinite 15s;
+    }
+
+    @keyframes inkDrop {
       0% {
         opacity: 0;
-        transform: scale(0.2) translateY(-80px);
+        transform: scale(0.05);
       }
-      15% {
+      5% {
         opacity: 1;
-        transform: scale(0.6) translateY(0);
+        transform: scale(0.1);
       }
-      60% {
-        opacity: 0.8;
-        transform: scale(3) translateY(30px);
+      20% {
+        opacity: 1;
+        transform: scale(0.4);
+      }
+      50% {
+        opacity: 0.9;
+        transform: scale(1.2);
+      }
+      80% {
+        opacity: 0.6;
+        transform: scale(2);
       }
       100% {
         opacity: 0;
-        transform: scale(5) translateY(50px);
-      }
-    }
-
-    @keyframes inkDrop2 {
-      0% {
-        opacity: 0;
-        transform: scale(0.2) translateY(-80px);
-      }
-      15% {
-        opacity: 1;
-        transform: scale(0.6) translateY(0);
-      }
-      60% {
-        opacity: 0.8;
-        transform: scale(3.5) translateY(30px);
-      }
-      100% {
-        opacity: 0;
-        transform: scale(5.5) translateY(50px);
+        transform: scale(3);
       }
     }
 
