@@ -137,7 +137,7 @@ import Base from "../layouts/Base.astro";
             <div class="card-header">
               <span class="card-id">01</span>
             </div>
-            <h3 class="card-title">END-TO-END GEOSPATIAL PIPELINES</h3>
+            <h3 class="card-title">END TO END GEOSPATIAL PIPELINES</h3>
             <p class="card-text">
               I build pipelines that cover the full lifecycle of spatial data, from ingestion 
               and normalization to processing, verification, reporting, and delivery. These 
@@ -318,10 +318,10 @@ import Base from "../layouts/Base.astro";
             
             // Grayscale gradient (darker at head, lighter at tail)
             const fadeRatio = j / drop.length;
-            const grayValue = Math.floor(80 + fadeRatio * 120);
+            const grayValue = Math.floor(20 + fadeRatio * 80);
             
             // Opacity (stronger at head)
-            const alpha = 1 - fadeRatio * 0.7;
+            const alpha = 1 - fadeRatio * 0.6;
             
             ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
             ctx.fillText(char, x, y);
