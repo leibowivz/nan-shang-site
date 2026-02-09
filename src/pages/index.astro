@@ -405,14 +405,14 @@ import Base from "../layouts/Base.astro";
       height: 100%;
       background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.02),
-        rgba(0, 0, 0, 0.02) 1px,
+        rgba(0, 0, 0, 0.03),
+        rgba(0, 0, 0, 0.03) 1px,
         transparent 1px,
         transparent 2px
       );
       pointer-events: none;
       z-index: 5;
-      opacity: 0.5;
+      opacity: 0.7;
     }
 
     /* CRT Flicker */
@@ -522,7 +522,7 @@ import Base from "../layouts/Base.astro";
 
     .hero-title {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 700;
+      font-weight: 900;
       line-height: 1.1;
       margin-bottom: 2rem;
       color: var(--black);
@@ -530,8 +530,8 @@ import Base from "../layouts/Base.astro";
       letter-spacing: 0.2em;
       transform: skewX(-3deg);
       text-shadow: 
-        2px 2px 0px rgba(0, 136, 255, 0.3),
-        -1px -1px 0px rgba(102, 102, 102, 0.2);
+        3px 3px 0px rgba(0, 136, 255, 0.4),
+        -1px -1px 0px rgba(0, 0, 0, 0.3);
     }
 
     .glitch-text {
@@ -578,16 +578,22 @@ import Base from "../layouts/Base.astro";
 
     .btn {
       padding: 1rem 2rem;
-      border: 2px solid;
-      font-family: var(--font-cyber);
+      border: 3px solid;
+      font-family: var(--font-body);
       font-weight: 700;
       font-size: 0.875rem;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: all 0.2s;
       display: inline-block;
       position: relative;
       transform: skewX(-2deg);
       letter-spacing: 0.15em;
+      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn:hover {
+      transform: skewX(-2deg) translateY(-2px);
+      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
     }
 
     .btn-primary {
@@ -604,7 +610,7 @@ import Base from "../layouts/Base.astro";
     .btn-secondary {
       background: transparent;
       color: var(--black);
-      border-color: rgba(0, 0, 0, 0.3);
+      border-color: var(--black);
     }
 
     .btn-secondary:hover {
@@ -656,12 +662,13 @@ import Base from "../layouts/Base.astro";
 
     .section-title {
       font-size: 1.5rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 3rem;
       color: var(--black);
       font-family: var(--font-heading);
       letter-spacing: 0.2em;
-      transform: skewX(-2deg);
+      transform: skewX(-3deg);
+      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
     }
 
     .section-marker {
@@ -680,28 +687,46 @@ import Base from "../layouts/Base.astro";
     /* Cyber Card */
     .cyber-card {
       padding: 2rem;
-      border: 1px solid rgba(0, 0, 0, 0.15);
-      background: rgba(255, 255, 255, 0.8);
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.95);
       position: relative;
       transition: all 0.3s;
+      box-shadow: 
+        3px 3px 0px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
     }
 
+    /* Corner decoration */
     .cyber-card::before {
       content: '';
       position: absolute;
-      top: -1px;
-      left: -1px;
-      right: -1px;
-      bottom: -1px;
-      background: rgba(0, 0, 0, 0.05);
-      opacity: 0;
-      transition: opacity 0.3s;
-      z-index: -1;
+      top: -2px;
+      left: -2px;
+      width: 20px;
+      height: 20px;
+      border-top: 3px solid var(--cyan);
+      border-left: 3px solid var(--cyan);
+      opacity: 0.7;
+    }
+
+    .cyber-card::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      width: 20px;
+      height: 20px;
+      border-bottom: 3px solid var(--black);
+      border-right: 3px solid var(--black);
+      opacity: 0.3;
     }
 
     .cyber-card:hover {
-      border-color: var(--cyan);
-      box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
+      border-color: var(--black);
+      box-shadow: 
+        5px 5px 0px rgba(0, 136, 255, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+      transform: translateY(-2px);
     }
 
     .cyber-card:hover::before {
@@ -729,12 +754,13 @@ import Base from "../layouts/Base.astro";
 
     .card-title {
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
       margin-bottom: 1rem;
       color: var(--black);
       font-family: var(--font-heading);
       letter-spacing: 0.15em;
-      transform: skewX(-1deg);
+      transform: skewX(-2deg);
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
     }
 
     .card-text {
