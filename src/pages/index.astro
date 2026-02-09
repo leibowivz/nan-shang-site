@@ -384,14 +384,14 @@ import Base from "../layouts/Base.astro";
     }
 
 
-    /* 墨汁Canvas - 最上层 */
+    /* 墨汁Canvas - 背景层 */
     #ink-canvas {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 999;
+      z-index: 1;
       pointer-events: none;
     }
 
@@ -1003,13 +1003,14 @@ import Base from "../layouts/Base.astro";
       constructor(x, targetY) {
         this.startX = x;
         this.x = x;
-        this.y = -50; // 从顶部开始
+        // 从屏幕上方固定距离开始（这样尾迹长度固定）
+        this.y = Math.max(0, targetY - 150); // 在目标位置上方150px
         this.targetY = targetY;
         this.particles = [];
         this.age = 0;
         this.maxAge = 200;
         this.state = 'falling'; // falling -> impact -> spreading
-        this.fallSpeed = 0;
+        this.fallSpeed = 2; // 初始速度
         this.gravity = 0.5;
         
         // 移动端检测，调整尺寸
