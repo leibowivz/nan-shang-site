@@ -325,34 +325,34 @@ import Base from "../layouts/Base.astro";
     }
 
     function getDawnColor(y, offset = 0) {
-      // Simulate Earth horizon at dawn from satellite
+      // Simulate Earth horizon at dawn from satellite - BRIGHTER VERSION
       const normalizedY = y / height;
       const position = normalizedY + offset;
       
       if (position < 0.3) {
-        // Deep space - dark blue to black
+        // Deep space - brighter blue
         const darkness = position / 0.3;
-        return `rgba(0, 10, 30, ${darkness * 0.8})`;
+        return `rgba(0, 50, 100, ${darkness * 0.9})`;
       } else if (position < 0.5) {
-        // Upper atmosphere - deep blue
-        return `rgb(15, 25, 60)`;
+        // Upper atmosphere - brighter blue
+        return `rgb(30, 80, 150)`;
       } else if (position < 0.55) {
-        // Dawn line - orange/red
+        // Dawn line - BRIGHT orange/red/pink
         const dawnProgress = (position - 0.5) / 0.05;
-        const r = Math.floor(255 - dawnProgress * 100);
-        const g = Math.floor(100 + dawnProgress * 50);
-        const b = Math.floor(30);
+        const r = Math.floor(255);
+        const g = Math.floor(80 + dawnProgress * 100);
+        const b = Math.floor(100 + dawnProgress * 100);
         return `rgb(${r}, ${g}, ${b})`;
       } else if (position < 0.6) {
-        // Transition - yellow to cyan
+        // Transition - BRIGHT yellow to cyan
         const transition = (position - 0.55) / 0.05;
-        const r = Math.floor(200 - transition * 200);
-        const g = Math.floor(150 + transition * 50);
-        const b = Math.floor(30 + transition * 200);
+        const r = Math.floor(255 - transition * 255);
+        const g = Math.floor(200 + transition * 55);
+        const b = Math.floor(100 + transition * 155);
         return `rgb(${r}, ${g}, ${b})`;
       } else {
-        // Earth surface - cyan/blue
-        return `rgb(0, 150, 180)`;
+        // Earth surface - BRIGHT cyan
+        return `rgb(0, 240, 255)`;
       }
     }
 
@@ -437,19 +437,22 @@ import Base from "../layouts/Base.astro";
       --yellow: #ffcc00;
       --gray: #888888;
       
-      --font-main: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+      --font-cyber: "Rajdhani", "Orbitron", "Exo 2", "Share Tech", -apple-system, sans-serif;
       --font-mono: "SF Mono", "Monaco", "Courier New", monospace;
     }
+
+    /* Import Cyberpunk-style font */
+    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
     body {
       background: var(--black);
       color: var(--white);
-      font-family: var(--font-main);
-      font-weight: 300;
+      font-family: var(--font-cyber);
+      font-weight: 400;
       line-height: 1.6;
       overflow-x: hidden;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
     }
 
     /* Canvas */
@@ -460,7 +463,7 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.5;
+      opacity: 0.8;
     }
 
     /* Scanlines */
@@ -531,10 +534,12 @@ import Base from "../layouts/Base.astro";
 
     .logo {
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 700;
       color: var(--white);
       text-decoration: none;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.25em;
+      transform: skewX(-3deg);
+      text-shadow: 2px 2px 0px rgba(0, 240, 255, 0.3);
     }
 
     .glitch {
@@ -586,11 +591,15 @@ import Base from "../layouts/Base.astro";
 
     .hero-title {
       font-size: clamp(2.5rem, 6vw, 4.5rem);
-      font-weight: 200;
+      font-weight: 700;
       line-height: 1.1;
       margin-bottom: 2rem;
       color: var(--white);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
+      transform: skewX(-3deg);
+      text-shadow: 
+        2px 2px 0px rgba(0, 240, 255, 0.5),
+        -1px -1px 0px rgba(255, 0, 255, 0.3);
     }
 
     .glitch-text {
@@ -600,18 +609,18 @@ import Base from "../layouts/Base.astro";
 
     .cyber-gradient {
       background: linear-gradient(90deg,
-        var(--orange) 0%,
-        var(--red) 25%,
+        var(--cyan) 0%,
+        var(--blue) 25%,
         var(--cyan) 50%,
-        var(--blue) 75%,
-        var(--green) 100%
+        var(--green) 75%,
+        var(--cyan) 100%
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       background-size: 200% auto;
-      animation: shimmer 4s linear infinite;
-      text-shadow: none;
+      animation: shimmer 3s linear infinite;
+      filter: drop-shadow(0 0 20px var(--cyan));
     }
 
     @keyframes shimmer {
@@ -637,13 +646,15 @@ import Base from "../layouts/Base.astro";
     .btn {
       padding: 1rem 2rem;
       border: 2px solid;
-      font-family: var(--font-mono);
+      font-family: var(--font-cyber);
       font-weight: 700;
       font-size: 0.875rem;
       text-decoration: none;
       transition: all 0.3s;
       display: inline-block;
       position: relative;
+      transform: skewX(-2deg);
+      letter-spacing: 0.15em;
     }
 
     .btn-primary {
@@ -707,7 +718,10 @@ import Base from "../layouts/Base.astro";
 
     .cyber-number {
       color: var(--white);
-      font-weight: 200;
+      font-weight: 700;
+      text-shadow: 
+        0 0 10px var(--cyan),
+        2px 2px 0px rgba(0, 240, 255, 0.5);
     }
 
     .cyber-plus, .cyber-slash, .cyber-percent {
@@ -732,10 +746,11 @@ import Base from "../layouts/Base.astro";
 
     .section-title {
       font-size: 1.5rem;
-      font-weight: 300;
+      font-weight: 600;
       margin-bottom: 3rem;
       color: var(--white);
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
+      transform: skewX(-2deg);
     }
 
     .section-marker {
@@ -803,18 +818,19 @@ import Base from "../layouts/Base.astro";
 
     .card-title {
       font-size: 1rem;
-      font-weight: 400;
+      font-weight: 600;
       margin-bottom: 1rem;
       color: var(--white);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.15em;
+      transform: skewX(-1deg);
     }
 
     .card-text {
       color: var(--gray);
       line-height: 1.7;
       text-transform: none;
-      letter-spacing: 0;
-      font-weight: 300;
+      letter-spacing: 0.02em;
+      font-weight: 400;
       font-size: 0.9rem;
     }
 
