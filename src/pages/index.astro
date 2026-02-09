@@ -242,6 +242,7 @@ import Base from "../layouts/Base.astro";
       <div class="container">
         <h2 class="section-title">
           <span class="section-marker">&gt;&gt;</span> CONTACT
+          <span class="section-seal">联系</span>
         </h2>
         <div class="contact-grid">
           <div class="cyber-card contact-card">
@@ -420,24 +421,6 @@ import Base from "../layouts/Base.astro";
       position: relative;
     }
 
-    /* Film Grain / Noise Texture */
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px),
-        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
-      opacity: 0.4;
-      z-index: 999;
-      pointer-events: none;
-      animation: grain 8s steps(10) infinite;
-    }
-
-    @keyframes grain {
       0%, 100% { transform: translate(0, 0); }
       10% { transform: translate(-5%, -5%); }
       20% { transform: translate(-10%, 5%); }
@@ -1076,11 +1059,22 @@ import Base from "../layouts/Base.astro";
       }
 
       .nav-links {
-        gap: 1rem;
+        gap: 1.5rem;
       }
 
       .nav-links a {
         font-size: 0.65rem;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .section-seal {
+        margin-left: 0;
       }
     }
   </style>
