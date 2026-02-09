@@ -495,7 +495,9 @@ import Base from "../layouts/Base.astro";
       font-family: var(--font-heading);
       letter-spacing: 0.3em;
       text-shadow: 
-        2px 2px 4px rgba(0, 0, 0, 0.2);
+        3px 3px 0px rgba(0, 0, 0, 0.15),
+        6px 6px 0px rgba(0, 0, 0, 0.1),
+        9px 9px 0px rgba(0, 0, 0, 0.05);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -1008,10 +1010,10 @@ import Base from "../layouts/Base.astro";
         this.targetY = targetY;
         this.particles = [];
         this.age = 0;
-        this.maxAge = 200;
+        this.maxAge = 300; // 更长的生命周期
         this.state = 'falling'; // falling -> impact -> spreading
-        this.fallSpeed = 2; // 初始速度
-        this.gravity = 0.5;
+        this.fallSpeed = 1; // 更慢的初始速度
+        this.gravity = 0.3; // 更小的重力
         
         // 移动端检测，调整尺寸
         const isMobile = width < 768;
@@ -1021,7 +1023,7 @@ import Base from "../layouts/Base.astro";
         const particleCount = isMobile ? 80 : 120;
         for (let i = 0; i < particleCount; i++) {
           const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 1.5 + 0.5;
+          const speed = Math.random() * 0.8 + 0.3; // 更慢的扩散速度
           this.particles.push({
             x: 0,
             y: 0,
@@ -1054,13 +1056,13 @@ import Base from "../layouts/Base.astro";
             this.state = 'spreading';
           }
         } else if (this.state === 'spreading') {
-          // 晕染扩散
+          // 晕染扩散（更慢）
           this.particles.forEach(p => {
             p.x += p.vx;
             p.y += p.vy;
-            p.vx *= 0.96; // 摩擦力
-            p.vy *= 0.96;
-            p.size *= 1.015; // 缓慢扩散
+            p.vx *= 0.98; // 更大的摩擦力
+            p.vy *= 0.98;
+            p.size *= 1.008; // 更慢的扩散
           });
         }
       }
@@ -1146,12 +1148,12 @@ import Base from "../layouts/Base.astro";
     window.addEventListener('resize', resize);
     resize();
     
-    // 定期生成墨汁（12秒一次）
-    setInterval(createInkDrop, 12000);
+    // 定期生成墨汁（18秒一次，更慢）
+    setInterval(createInkDrop, 18000);
     createInkDrop(); // 立即创建一个
     
-    // 3秒后再创建一个
-    setTimeout(createInkDrop, 3000);
+    // 5秒后再创建一个
+    setTimeout(createInkDrop, 5000);
     
     animate();
   </script>
