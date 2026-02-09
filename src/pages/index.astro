@@ -318,10 +318,10 @@ import Base from "../layouts/Base.astro";
             
             // Grayscale gradient (darker at head, lighter at tail)
             const fadeRatio = j / drop.length;
-            const grayValue = Math.floor(20 + fadeRatio * 80);
+            const grayValue = Math.floor(10 + fadeRatio * 50);
             
             // Opacity (stronger at head)
-            const alpha = 1 - fadeRatio * 0.6;
+            const alpha = 0.9 - fadeRatio * 0.7;
             
             ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
             ctx.fillText(char, x, y);
@@ -357,13 +357,9 @@ import Base from "../layouts/Base.astro";
     :root {
       --black: #000000;
       --white: #ffffff;
-      --cyan: #0088ff;
-      --orange: #ff6b00;
-      --red: #ff0055;
-      --blue: #0044cc;
-      --green: #00aa66;
-      --yellow: #cc9900;
-      --gray: #666666;
+      --gray-dark: #1a1a1a;
+      --gray-mid: #666666;
+      --gray-light: #cccccc;
       
       --font-heading: "Rajdhani", -apple-system, sans-serif;
       --font-body: "Orbitron", -apple-system, sans-serif;
@@ -383,6 +379,37 @@ import Base from "../layouts/Base.astro";
       overflow-x: hidden;
       text-transform: uppercase;
       letter-spacing: 0.15em;
+      position: relative;
+    }
+
+    /* Film Grain / Noise Texture */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,.03) 2px, rgba(0,0,0,.03) 4px);
+      opacity: 0.4;
+      z-index: 999;
+      pointer-events: none;
+      animation: grain 8s steps(10) infinite;
+    }
+
+    @keyframes grain {
+      0%, 100% { transform: translate(0, 0); }
+      10% { transform: translate(-5%, -5%); }
+      20% { transform: translate(-10%, 5%); }
+      30% { transform: translate(5%, -10%); }
+      40% { transform: translate(-5%, 15%); }
+      50% { transform: translate(-10%, 5%); }
+      60% { transform: translate(15%, 0); }
+      70% { transform: translate(0, 10%); }
+      80% { transform: translate(-15%, 0); }
+      90% { transform: translate(10%, 5%); }
     }
 
     /* Canvas */
@@ -393,7 +420,8 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.15;
+      opacity: 0.25;
+      mix-blend-mode: multiply;
     }
 
     /* Scanlines */
@@ -405,14 +433,14 @@ import Base from "../layouts/Base.astro";
       height: 100%;
       background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.03),
-        rgba(0, 0, 0, 0.03) 1px,
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.02) 1px,
         transparent 1px,
-        transparent 2px
+        transparent 3px
       );
       pointer-events: none;
       z-index: 5;
-      opacity: 0.7;
+      opacity: 0.5;
     }
 
     /* CRT Flicker */
@@ -449,8 +477,8 @@ import Base from "../layouts/Base.astro";
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.98);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 3px solid var(--black);
       backdrop-filter: blur(10px);
     }
 
@@ -509,41 +537,14 @@ import Base from "../layouts/Base.astro";
 
     .hero-badge {
       font-size: 0.875rem;
-      color: var(--cyan);
+      color: var(--black);
       margin-bottom: 2rem;
-      text-shadow: 0 0 10px var(--cyan);
-      font-weight: 300;
+      font-weight: 600;
       position: relative;
       display: inline-block;
       padding-left: 1.5rem;
-    }
-
-    .hero-badge::before {
-      content: '●';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--cyan);
-      animation: badgePulse 2s ease-in-out infinite;
-      text-shadow: 
-        0 0 10px var(--cyan),
-        0 0 20px var(--cyan);
-    }
-
-    @keyframes badgePulse {
-      0%, 100% {
-        opacity: 1;
-        text-shadow: 
-          0 0 10px var(--cyan),
-          0 0 20px var(--cyan);
-      }
-      50% {
-        opacity: 0.5;
-        text-shadow: 
-          0 0 5px var(--cyan),
-          0 0 10px var(--cyan);
-      }
+      border-left: 4px solid var(--black);
+      padding-left: 1rem;
     }
 
     .terminal-prompt {
@@ -554,15 +555,14 @@ import Base from "../layouts/Base.astro";
     .hero-title {
       font-size: clamp(3rem, 8vw, 6rem);
       font-weight: 900;
-      line-height: 1;
+      line-height: 0.95;
       margin-bottom: 2.5rem;
       color: var(--black);
       font-family: var(--font-heading);
-      letter-spacing: 0.25em;
-      transform: skewX(-4deg);
+      letter-spacing: 0.3em;
+      transform: skewX(-5deg);
       text-shadow: 
-        3px 3px 0px rgba(0, 136, 255, 0.6),
-        -1px -1px 0px rgba(0, 0, 0, 0.5);
+        4px 4px 0px rgba(0, 0, 0, 0.15);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
@@ -574,19 +574,10 @@ import Base from "../layouts/Base.astro";
     }
 
     .cyber-gradient {
-      background: linear-gradient(90deg,
-        var(--cyan) 0%,
-        var(--blue) 25%,
-        var(--cyan) 50%,
-        var(--green) 75%,
-        var(--cyan) 100%
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size: 200% auto;
-      animation: shimmer 4s linear infinite;
-      filter: drop-shadow(0 0 25px var(--cyan)) drop-shadow(0 0 50px rgba(0, 136, 255, 0.3));
+      color: var(--black);
+      font-weight: 900;
+      text-shadow: 
+        6px 6px 0px rgba(0, 0, 0, 0.2);
     }
 
     @keyframes shimmer {
@@ -612,39 +603,37 @@ import Base from "../layouts/Base.astro";
 
     .btn {
       padding: 1rem 2rem;
-      border: 3px solid;
+      border: 3px solid var(--black);
       font-family: var(--font-body);
       font-weight: 700;
       font-size: 0.875rem;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.15s;
       display: inline-block;
       position: relative;
-      transform: skewX(-2deg);
+      transform: skewX(-3deg);
       letter-spacing: 0.15em;
-      box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 0px var(--black);
     }
 
     .btn:hover {
-      transform: skewX(-2deg) translateY(-2px);
-      box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.3);
+      transform: skewX(-3deg) translate(-2px, -2px);
+      box-shadow: 7px 7px 0px var(--black);
     }
 
     .btn-primary {
       background: var(--black);
       color: var(--white);
-      border-color: var(--black);
     }
 
     .btn-primary:hover {
-      background: transparent;
+      background: var(--white);
       color: var(--black);
     }
 
     .btn-secondary {
-      background: transparent;
+      background: var(--white);
       color: var(--black);
-      border-color: var(--black);
     }
 
     .btn-secondary:hover {
@@ -706,20 +695,10 @@ import Base from "../layouts/Base.astro";
     }
 
     .section-marker {
-      color: var(--cyan);
+      color: var(--black);
       margin-right: 1rem;
-      text-shadow: 0 0 10px var(--cyan);
+      font-weight: 900;
       display: inline-block;
-      animation: markerBlink 3s ease-in-out infinite;
-    }
-
-    @keyframes markerBlink {
-      0%, 90%, 100% {
-        opacity: 1;
-      }
-      93%, 97% {
-        opacity: 0.3;
-      }
     }
 
     /* Grid */
@@ -729,53 +708,44 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
-    /* Cyber Card */
+    /* Cyber Card - Sharp B&W */
     .cyber-card {
       padding: 2rem;
-      border: 2px solid rgba(0, 0, 0, 0.3);
-      background: rgba(255, 255, 255, 0.95);
+      border: 3px solid var(--black);
+      background: var(--white);
       position: relative;
-      transition: all 0.3s;
+      transition: all 0.2s;
       box-shadow: 
-        3px 3px 0px rgba(0, 0, 0, 0.1),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+        6px 6px 0px var(--black);
     }
 
-    /* Corner decoration */
+    /* Corner decoration - pixel style */
     .cyber-card::before {
       content: '';
       position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 20px;
-      height: 20px;
-      border-top: 3px solid var(--cyan);
-      border-left: 3px solid var(--cyan);
-      opacity: 0.7;
+      top: -3px;
+      left: -3px;
+      width: 24px;
+      height: 24px;
+      border-top: 4px solid var(--black);
+      border-left: 4px solid var(--black);
     }
 
     .cyber-card::after {
       content: '';
       position: absolute;
-      bottom: -2px;
-      right: -2px;
-      width: 20px;
-      height: 20px;
-      border-bottom: 3px solid var(--black);
-      border-right: 3px solid var(--black);
-      opacity: 0.3;
+      bottom: -3px;
+      right: -3px;
+      width: 24px;
+      height: 24px;
+      border-bottom: 4px solid var(--black);
+      border-right: 4px solid var(--black);
     }
 
     .cyber-card:hover {
-      border-color: var(--black);
+      transform: translate(-3px, -3px);
       box-shadow: 
-        5px 5px 0px rgba(0, 136, 255, 0.2),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.9);
-      transform: translateY(-2px);
-    }
-
-    .cyber-card:hover::before {
-      opacity: 1;
+        9px 9px 0px var(--black);
     }
 
     .card-header {
@@ -787,8 +757,11 @@ import Base from "../layouts/Base.astro";
 
     .card-id {
       font-size: 0.75rem;
-      color: var(--cyan);
-      text-shadow: 0 0 5px var(--cyan);
+      color: var(--white);
+      font-weight: 900;
+      background: var(--black);
+      padding: 0.25rem 0.5rem;
+      line-height: 1;
     }
 
     .card-status {
@@ -897,9 +870,9 @@ import Base from "../layouts/Base.astro";
 
     .contact-label {
       font-size: 0.75rem;
-      color: var(--cyan);
+      color: var(--black);
       margin-bottom: 1rem;
-      opacity: 0.7;
+      font-weight: 700;
     }
 
     .contact-value {
