@@ -311,112 +311,85 @@ import Base from "../layouts/Base.astro";
   </footer>
 
   <script>
-    // Satellite Earth Horizon Animation
+    // Binary Matrix Rain Animation (Black/Gray on White)
     const canvas = document.getElementById('horizon-canvas');
     const ctx = canvas.getContext('2d');
 
     let width, height;
     let time = 0;
-    const chars = ['█', '▓', '▒', '░', '▄', '▀'];
+    const chars = ['0', '1', '0', '1', '░', '▒', '▓'];
+    let drops = [];
 
     function resize() {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-    }
-
-    function getDawnColor(y, offset = 0) {
-      // Simulate Earth horizon at dawn - ORIGINAL DEEPER COLORS
-      const normalizedY = y / height;
-      const position = normalizedY + offset;
       
-      if (position < 0.3) {
-        // Deep space - dark blue
-        const darkness = position / 0.3;
-        return `rgba(0, 20, 40, ${darkness * 0.8})`;
-      } else if (position < 0.5) {
-        // Upper atmosphere - deep blue
-        return `rgb(20, 40, 80)`;
-      } else if (position < 0.55) {
-        // Dawn line - orange/red (original)
-        const dawnProgress = (position - 0.5) / 0.05;
-        const r = Math.floor(255 - dawnProgress * 80);
-        const g = Math.floor(120 + dawnProgress * 50);
-        const b = Math.floor(40);
-        return `rgb(${r}, ${g}, ${b})`;
-      } else if (position < 0.6) {
-        // Transition - yellow to cyan (original)
-        const transition = (position - 0.55) / 0.05;
-        const r = Math.floor(220 - transition * 220);
-        const g = Math.floor(180 + transition * 40);
-        const b = Math.floor(40 + transition * 180);
-        return `rgb(${r}, ${g}, ${b})`;
-      } else {
-        // Earth surface - cyan (original)
-        return `rgb(0, 200, 220)`;
+      // Initialize drops
+      const cols = Math.floor(width / 20);
+      drops = [];
+      for (let i = 0; i < cols; i++) {
+        drops[i] = {
+          y: Math.random() * height,
+          speed: 0.5 + Math.random() * 1.5,
+          length: 10 + Math.random() * 20
+        };
       }
     }
 
-    function drawHorizon() {
-      // Clear with trail effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    function drawMatrix() {
+      // Clear with fade trail
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
       ctx.fillRect(0, 0, width, height);
 
-      ctx.font = '14px "SF Mono", Monaco, monospace';
+      ctx.font = '16px "SF Mono", Monaco, monospace';
       ctx.textAlign = 'center';
 
-      const cols = Math.floor(width / 14);
-      const rows = Math.floor(height / 20);
+      const cols = Math.floor(width / 20);
       
-      // Earth curvature center
-      const centerY = height * 0.55;
-      const curveRadius = width * 0.8;
+      time += 0.5;
 
-      time += 0.008;
-
-      for (let x = 0; x < cols; x++) {
-        for (let y = 0; y < rows; y++) {
-          const screenX = x * 14;
-          const screenY = y * 20;
-
-          // Calculate distance from horizon curve
-          const dx = screenX - width / 2;
-          const curveY = centerY + Math.sqrt(Math.max(0, curveRadius * curveRadius - dx * dx)) - curveRadius;
-          const distanceFromHorizon = screenY - curveY;
-
-          // Only draw near horizon
-          if (Math.abs(distanceFromHorizon) < 200) {
-            const density = Math.abs(distanceFromHorizon) / 200;
+      for (let i = 0; i < cols; i++) {
+        const x = i * 20;
+        const drop = drops[i];
+        
+        // Draw the column
+        for (let j = 0; j < drop.length; j++) {
+          const y = drop.y - j * 20;
+          
+          if (y > 0 && y < height) {
+            // Character selection
+            const charIndex = Math.floor(Math.random() * chars.length);
+            const char = chars[charIndex];
             
-            // Wave motion for atmosphere
-            const wave = Math.sin(x * 0.1 + time * 2) * 10 + Math.cos(x * 0.07 - time) * 5;
-            const adjustedDistance = distanceFromHorizon + wave;
-
-            if (adjustedDistance > -50 && adjustedDistance < 150) {
-              const charDensity = Math.abs(adjustedDistance) / 150;
-              const charIndex = Math.floor(charDensity * chars.length);
-              const char = chars[Math.min(charIndex, chars.length - 1)];
-
-              // Dawn gradient color
-              const yOffset = (Math.sin(x * 0.05 + time) * 0.02);
-              const color = getDawnColor(screenY, yOffset);
-              
-              const alpha = 1 - charDensity * 0.7;
-              ctx.fillStyle = color;
-              ctx.globalAlpha = alpha * 0.6;
-              
-              ctx.fillText(char, screenX, screenY);
-            }
+            // Grayscale gradient (darker at head, lighter at tail)
+            const fadeRatio = j / drop.length;
+            const grayValue = Math.floor(100 + fadeRatio * 100);
+            
+            // Opacity (stronger at head)
+            const alpha = 1 - fadeRatio * 0.7;
+            
+            ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
+            ctx.fillText(char, x, y);
           }
+        }
+        
+        // Move drop down
+        drop.y += drop.speed;
+        
+        // Reset when off screen
+        if (drop.y - drop.length * 20 > height) {
+          drop.y = -drop.length * 20;
+          drop.speed = 0.5 + Math.random() * 1.5;
+          drop.length = 10 + Math.random() * 20;
         }
       }
 
-      ctx.globalAlpha = 1;
-      requestAnimationFrame(drawHorizon);
+      requestAnimationFrame(drawMatrix);
     }
 
     window.addEventListener('resize', resize);
     resize();
-    drawHorizon();
+    drawMatrix();
   </script>
 
   <style>
@@ -429,13 +402,13 @@ import Base from "../layouts/Base.astro";
     :root {
       --black: #000000;
       --white: #ffffff;
-      --cyan: #00f0ff;
+      --cyan: #0088ff;
       --orange: #ff6b00;
       --red: #ff0055;
-      --blue: #0066ff;
-      --green: #00ff88;
-      --yellow: #ffcc00;
-      --gray: #888888;
+      --blue: #0044cc;
+      --green: #00aa66;
+      --yellow: #cc9900;
+      --gray: #666666;
       
       --font-heading: "Rajdhani", -apple-system, sans-serif;
       --font-body: "Orbitron", -apple-system, sans-serif;
@@ -447,8 +420,8 @@ import Base from "../layouts/Base.astro";
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
 
     body {
-      background: var(--black);
-      color: var(--white);
+      background: var(--white);
+      color: var(--black);
       font-family: var(--font-body);
       font-weight: 400;
       line-height: 1.6;
@@ -465,7 +438,7 @@ import Base from "../layouts/Base.astro";
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.6;
+      opacity: 0.15;
     }
 
     /* Scanlines */
@@ -477,14 +450,14 @@ import Base from "../layouts/Base.astro";
       height: 100%;
       background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.15),
-        rgba(0, 0, 0, 0.15) 1px,
+        rgba(0, 0, 0, 0.02),
+        rgba(0, 0, 0, 0.02) 1px,
         transparent 1px,
         transparent 2px
       );
       pointer-events: none;
       z-index: 5;
-      opacity: 0.3;
+      opacity: 0.5;
     }
 
     /* CRT Flicker */
@@ -494,7 +467,7 @@ import Base from "../layouts/Base.astro";
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 240, 255, 0.03);
+      background: rgba(0, 0, 0, 0.01);
       pointer-events: none;
       z-index: 4;
       animation: flicker 0.15s infinite;
@@ -502,7 +475,7 @@ import Base from "../layouts/Base.astro";
 
     @keyframes flicker {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.95; }
+      50% { opacity: 0.98; }
     }
 
     /* Container */
@@ -521,8 +494,9 @@ import Base from "../layouts/Base.astro";
       left: 0;
       right: 0;
       z-index: 100;
-      background: rgba(0, 0, 0, 0.95);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .nav-container {
@@ -537,11 +511,11 @@ import Base from "../layouts/Base.astro";
     .logo {
       font-size: 1rem;
       font-weight: 700;
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
       letter-spacing: 0.25em;
       transform: skewX(-3deg);
-      text-shadow: 2px 2px 0px rgba(0, 240, 255, 0.3);
+      text-shadow: 2px 2px 0px rgba(0, 136, 255, 0.2);
     }
 
     .glitch {
@@ -555,7 +529,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-links a {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.6);
       text-decoration: none;
       font-size: 0.75rem;
       font-weight: 400;
@@ -563,7 +537,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: var(--black);
     }
 
     .nav-bracket {
@@ -596,13 +570,13 @@ import Base from "../layouts/Base.astro";
       font-weight: 700;
       line-height: 1.1;
       margin-bottom: 2rem;
-      color: var(--white);
+      color: var(--black);
       font-family: var(--font-heading);
       letter-spacing: 0.2em;
       transform: skewX(-3deg);
       text-shadow: 
-        2px 2px 0px rgba(0, 240, 255, 0.5),
-        -1px -1px 0px rgba(255, 0, 255, 0.3);
+        2px 2px 0px rgba(0, 136, 255, 0.3),
+        -1px -1px 0px rgba(102, 102, 102, 0.2);
     }
 
     .glitch-text {
@@ -634,7 +608,7 @@ import Base from "../layouts/Base.astro";
     .hero-subtitle {
       font-size: 1rem;
       line-height: 2;
-      color: rgba(255, 255, 255, 0.95);
+      color: rgba(0, 0, 0, 0.7);
       margin-bottom: 2.5rem;
       font-weight: 400;
       letter-spacing: 0.05em;
@@ -661,25 +635,25 @@ import Base from "../layouts/Base.astro";
     }
 
     .btn-primary {
-      background: var(--white);
-      color: var(--black);
-      border-color: var(--white);
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
     }
 
     .btn-primary:hover {
       background: transparent;
-      color: var(--white);
+      color: var(--black);
     }
 
     .btn-secondary {
       background: transparent;
-      color: var(--white);
-      border-color: rgba(255, 255, 255, 0.3);
+      color: var(--black);
+      border-color: rgba(0, 0, 0, 0.3);
     }
 
     .btn-secondary:hover {
-      background: var(--white);
-      color: var(--black);
+      background: var(--black);
+      color: var(--white);
     }
 
     .btn-bracket {
@@ -699,8 +673,8 @@ import Base from "../layouts/Base.astro";
       justify-content: space-around;
       align-items: center;
       padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: rgba(0, 0, 0, 0.03);
     }
 
     .status-item {
@@ -720,11 +694,11 @@ import Base from "../layouts/Base.astro";
     }
 
     .cyber-number {
-      color: var(--white);
+      color: var(--black);
       font-weight: 700;
       text-shadow: 
-        0 0 10px var(--cyan),
-        2px 2px 0px rgba(0, 240, 255, 0.5);
+        0 0 5px rgba(0, 136, 255, 0.3),
+        2px 2px 0px rgba(0, 136, 255, 0.2);
     }
 
     .cyber-plus, .cyber-slash, .cyber-percent {
@@ -751,7 +725,7 @@ import Base from "../layouts/Base.astro";
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 3rem;
-      color: var(--white);
+      color: var(--black);
       font-family: var(--font-heading);
       letter-spacing: 0.2em;
       transform: skewX(-2deg);
@@ -773,8 +747,8 @@ import Base from "../layouts/Base.astro";
     /* Cyber Card */
     .cyber-card {
       padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      background: rgba(255, 255, 255, 0.8);
       position: relative;
       transition: all 0.3s;
     }
@@ -786,7 +760,7 @@ import Base from "../layouts/Base.astro";
       left: -1px;
       right: -1px;
       bottom: -1px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.05);
       opacity: 0;
       transition: opacity 0.3s;
       z-index: -1;
@@ -794,11 +768,11 @@ import Base from "../layouts/Base.astro";
 
     .cyber-card:hover {
       border-color: var(--cyan);
-      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 136, 255, 0.2);
     }
 
     .cyber-card:hover::before {
-      opacity: 0.5;
+      opacity: 1;
     }
 
     .card-header {
@@ -824,14 +798,14 @@ import Base from "../layouts/Base.astro";
       font-size: 1rem;
       font-weight: 600;
       margin-bottom: 1rem;
-      color: var(--white);
+      color: var(--black);
       font-family: var(--font-heading);
       letter-spacing: 0.15em;
       transform: skewX(-1deg);
     }
 
     .card-text {
-      color: rgba(255, 255, 255, 0.95);
+      color: rgba(0, 0, 0, 0.7);
       line-height: 1.7;
       text-transform: none;
       letter-spacing: 0.02em;
@@ -878,10 +852,10 @@ import Base from "../layouts/Base.astro";
 
     .tech-tag {
       padding: 0.5rem 1rem;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.05);
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.7);
       font-weight: 400;
     }
 
@@ -893,9 +867,9 @@ import Base from "../layouts/Base.astro";
     .text-cyber {
       font-size: 1rem;
       line-height: 2;
-      color: var(--white);
+      color: var(--black);
       margin-bottom: 2rem;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .cyber-list {
@@ -906,7 +880,7 @@ import Base from "../layouts/Base.astro";
     .cyber-list li {
       padding-left: 2rem;
       margin-bottom: 1rem;
-      color: rgba(255, 255, 255, 0.95);
+      color: rgba(0, 0, 0, 0.7);
       position: relative;
       text-transform: none;
       letter-spacing: 0;
@@ -921,7 +895,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .text-muted {
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(0, 0, 0, 0.6);
       margin-bottom: 2rem;
       text-transform: none;
       letter-spacing: 0;
@@ -930,21 +904,19 @@ import Base from "../layouts/Base.astro";
     }
 
     .cyber-link {
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
       font-weight: 400;
       display: inline-block;
-      border: 1px solid var(--cyan);
+      border: 1px solid var(--black);
       padding: 0.75rem 1.5rem;
       transition: all 0.3s;
-      text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
     }
 
     .cyber-link:hover {
-      background: var(--cyan);
-      color: var(--black);
-      box-shadow: 0 0 20px var(--cyan);
-      text-shadow: none;
+      background: var(--black);
+      color: var(--white);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }
 
     /* Contact */
@@ -962,7 +934,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .contact-value {
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
       font-weight: 400;
       display: block;
@@ -979,7 +951,7 @@ import Base from "../layouts/Base.astro";
       position: relative;
       z-index: 10;
       padding: 3rem 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
       margin-top: 6rem;
     }
 
@@ -991,14 +963,14 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-name {
-      font-weight: 300;
+      font-weight: 400;
       margin-bottom: 0.5rem;
-      color: var(--white);
+      color: var(--black);
     }
 
     .footer-role {
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.6);
       font-weight: 400;
     }
 
@@ -1008,7 +980,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(0, 0, 0, 0.6);
       text-decoration: none;
       font-size: 0.7rem;
       transition: all 0.2s;
@@ -1016,7 +988,7 @@ import Base from "../layouts/Base.astro";
     }
 
     .footer-right a:hover {
-      color: var(--white);
+      color: var(--black);
     }
 
     .footer-timestamp {
