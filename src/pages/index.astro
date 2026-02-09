@@ -561,8 +561,11 @@ import Base from "../layouts/Base.astro";
       letter-spacing: 0.25em;
       transform: skewX(-4deg);
       text-shadow: 
-        4px 4px 0px rgba(0, 136, 255, 0.5),
-        -2px -2px 0px rgba(0, 0, 0, 0.4);
+        3px 3px 0px rgba(0, 136, 255, 0.6),
+        -1px -1px 0px rgba(0, 0, 0, 0.5);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
 
     .glitch-text {
@@ -892,12 +895,6 @@ import Base from "../layouts/Base.astro";
       gap: 2rem;
     }
 
-    @media (max-width: 768px) {
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .contact-label {
       font-size: 0.75rem;
       color: var(--cyan);
@@ -972,6 +969,10 @@ import Base from "../layouts/Base.astro";
 
     /* Responsive */
     @media (max-width: 768px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+
       .hero {
         padding: 8rem 0 4rem;
       }
@@ -995,6 +996,11 @@ import Base from "../layouts/Base.astro";
 
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .cyber-card {
+        margin-left: 0;
+        margin-right: 0;
       }
 
       .footer-content {
