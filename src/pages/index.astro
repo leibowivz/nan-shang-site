@@ -523,11 +523,6 @@ import Base from "../layouts/Base.astro";
       color: var(--black);
     }
 
-    .nav-bracket {
-      color: var(--cyan);
-      opacity: 0.6;
-    }
-
     /* Hero */
     .hero {
       position: relative;
@@ -545,11 +540,6 @@ import Base from "../layouts/Base.astro";
       padding-left: 1.5rem;
       border-left: 4px solid var(--black);
       padding-left: 1rem;
-    }
-
-    .terminal-prompt {
-      color: var(--cyan);
-      text-shadow: 0 0 10px var(--cyan);
     }
 
     .hero-title {
@@ -639,11 +629,6 @@ import Base from "../layouts/Base.astro";
     .btn-secondary:hover {
       background: var(--black);
       color: var(--white);
-    }
-
-    .btn-bracket {
-      color: var(--cyan);
-      text-shadow: 0 0 5px var(--cyan);
     }
 
     /* Overview Section */
@@ -788,6 +773,7 @@ import Base from "../layouts/Base.astro";
       letter-spacing: 0.01em;
       font-weight: 400;
       font-size: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .card-text strong {
@@ -833,7 +819,8 @@ import Base from "../layouts/Base.astro";
     .list-marker {
       position: absolute;
       left: 0;
-      color: var(--cyan);
+      color: var(--black);
+      font-weight: 900;
     }
 
     .text-muted {
@@ -935,19 +922,23 @@ import Base from "../layouts/Base.astro";
 
     .footer-timestamp {
       font-size: 0.75rem;
-      color: var(--cyan);
+      color: var(--black);
       text-align: center;
-      opacity: 0.5;
+      opacity: 0.3;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
       .container {
-        padding: 0 1.5rem;
+        padding: 0 1rem;
       }
 
       .hero {
         padding: 8rem 0 4rem;
+      }
+
+      .section {
+        padding: 4rem 0;
       }
 
       .hero-title {
@@ -974,6 +965,12 @@ import Base from "../layouts/Base.astro";
       .cyber-card {
         margin-left: 0;
         margin-right: 0;
+        box-shadow: 4px 4px 0px var(--black);
+      }
+
+      .cyber-card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px var(--black);
       }
 
       .footer-content {
