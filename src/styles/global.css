@@ -90,14 +90,14 @@ a:hover { color: var(--cinnabar-2); }
 ::selection { background: rgba(158,43,37,0.85); color: var(--paper); }
 ::-moz-selection { background: rgba(158,43,37,0.85); color: var(--paper); }
 
-section { padding: clamp(2rem, 5vw, 4rem) 0; }
+section { padding: clamp(1.4rem, 3.5vw, 2.6rem) 0; }
 
 /* ============================================================
    SECTION HEAD
    ============================================================ */
 .section-head {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.6rem;
 }
 .eyebrow {
   font-family: var(--font-sans);
@@ -149,7 +149,7 @@ section { padding: clamp(2rem, 5vw, 4rem) 0; }
    HERO — 双栏紧凑
    ============================================================ */
 .hero {
-  min-height: 78vh;
+  min-height: clamp(60vh, 72vh, 78vh);
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
@@ -239,12 +239,25 @@ section { padding: clamp(2rem, 5vw, 4rem) 0; }
 }
 
 /* ============================================================
+   INK CANVAS
+   ============================================================ */
+#ink-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 999;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+}
+
+/* ============================================================
    DIVIDER — 水墨横抹
    ============================================================ */
 .divider {
   width: min(88%, 520px);
   height: 20px;
-  margin: 2.5rem auto;
+  margin: 1.8rem auto;
   border: 0;
   background:
     radial-gradient(ellipse 60% 80% at 50% 50%, rgba(26,24,20,0.38), transparent 70%),
