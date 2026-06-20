@@ -5,149 +5,243 @@ const scholar  = "https://scholar.google.com/citations?user=TcDAyj0AAAAJ";
 const github  = "https://github.com/leibowivz";
 const orcid   = "https://orcid.org/0009-0003-1202-9900";
 const email   = "nan.shang@droneinstitute.ai";
-
-const education = [
-  { when: "2016 – 2022", title: "地理学 博士 · Ph.D. in Geography", org: "路易斯安那州立大学 · Louisiana State University", desc: "导师 Dr. Xuelian Meng。多源遥感湿地监测。", descEn: "Advisor: Dr. Xuelian Meng. Multi-source remote sensing for coastal wetland monitoring." },
-  { when: "2011 – 2014", title: "地图学与 GIS 硕士 · M.S. in Cartography & GIS", org: "中国科学院大学 · University of Chinese Academy of Sciences", desc: "中华文明探源工程，遗址预测建模。", descEn: "Chinese Civilization Origins Project — archaeological site prediction modeling." },
-  { when: "2007 – 2011", title: "遥感科学与技术 学士 · B.S. in Remote Sensing", org: "武汉大学 · Wuhan University", desc: "遥感学科国内排名第一。", descEn: "Top-ranked remote sensing program in China." },
-];
-
-const experience = [
-  { when: "2024 – 2026", title: "首席科学家 · Chief Scientist", org: "Drone Institute, LLC", desc: "从零构建技术体系，交付 353+ 项目横跨 28 州，主导 AI 检测系统。美国专利与 PCT 第一发明人。", descEn: "Built tech stack from scratch; 353+ projects across 28 states; led AI detection systems. First inventor — US patent + PCT." },
-  { when: "2023 – 2024", title: "研究员 · Research Associate", org: "Louisiana State University", desc: "USDA \$160 万海岸湿地遥感监测项目。", descEn: "USDA-funded coastal wetland remote sensing (\$1.6M)." },
-  { when: "2018 – 2022", title: "研究助理 · Research Assistant", org: "Louisiana State University", desc: "无人机 / LiDAR 地形测绘、三维重建。", descEn: "UAV / LiDAR terrain mapping and 3D reconstruction." },
-  { when: "2015 – 2018", title: "助教 · Teaching Assistant", org: "Louisiana State University", desc: "环境遥感、地理信息系统。", descEn: "Environmental Remote Sensing, GIS." },
-];
-
-const capabilities = [
-  { num: "一", title: "多源遥感融合", en: "Multi-source Fusion", icon: "⛰", items: ["Landsat + WorldView + UAV 多尺度配准", "热红外 + LiDAR 多模态", "时空变化检测"] },
-  { num: "二", title: "深度学习", en: "Deep Learning", icon: "◈", items: ["YOLOv8 目标检测 · mAP 85%+", "五万+ 样本标注体系", "语义分割 · 地物分类"] },
-  { num: "三", title: "系统工程", en: "Systems Engineering", icon: "◎", items: ["端到端自动化流水线", "353 项目跨地域交付", "Python · GEE · QGIS 全栈"] },
-];
 ---
 
 <Base>
-  <main>
-    <!-- ========== 封面 ========== -->
-    <header class="hero">
-      <div class="hero__content">
-        <div class="seal" aria-hidden="true">尚南</div>
-        <h1 class="hero__title">
-          <span class="cn-block">尚南</span>
-          <span class="en-block">Nan Shang, Ph.D.</span>
-        </h1>
-        <p class="hero__tagline cn">遥感 · 地理空间 AI · 系统工程</p>
-        <p class="hero__tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
-        <p class="hero__subtitle">LSU 地理学博士 · Drone Institute 首席科学家</p>
-        <div class="hero__cta-row">
-          <a class="btn btn--primary" href="#experience">经历 Experience</a>
-          <a class="btn" href="#achievements">成果 Work</a>
-          <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
-        </div>
-      </div>
-      <div class="hero__seal">
-        <div class="seal seal--lg">尚南</div>
+  <main class="wrap">
+
+    <!-- ═══ Hero ═══ -->
+    <header class="hero fade">
+      <div class="seal" aria-hidden="true">尚南</div>
+      <h1>
+        <span class="hero__cn">尚南</span>
+        <span class="hero__en">Nan Shang, Ph.D.</span>
+      </h1>
+      <p class="hero__tagline">遥感 · 地理空间 AI · 系统工程</p>
+      <p class="hero__tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
+      <p class="hero__bio">
+        地理学博士（LSU），Drone Institute 首席科学家。研究多源遥感融合与地理空间 AI 系统工程，353+ 商业项目经验。<br />
+        <span lang="en">Ph.D. in Geography (LSU). Chief Scientist at Drone Institute. Multi-source remote sensing, geospatial AI, systems engineering. 353+ commercial projects delivered.</span>
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#about">简介 About</a>
+        <a class="btn" href="#research">研究 Research</a>
+        <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
       </div>
     </header>
 
     <div class="divider" role="separator"></div>
 
-    <!-- ========== 教育经历 ========== -->
-    <section id="education">
+    <!-- ═══ About ═══ -->
+    <section id="about">
       <div class="section-head">
-        <p class="eyebrow">Education</p>
-        <h2 class="section-title">教育经历 <span class="sub">Academic Background</span></h2>
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">简介 <span class="sub">Biography</span></h2>
       </div>
-      <div class="timeline">
-        {education.map((e) => (
-          <div class="timeline__item reveal">
-            <span class="timeline__date">{e.when}</span>
-            <h3 class="timeline__title">{e.title}</h3>
-            <div class="timeline__org">{e.org}</div>
-            <p class="timeline__desc cn">{e.desc}</p>
-            <p class="timeline__desc-en">{e.descEn}</p>
-          </div>
-        ))}
+
+      <div class="about">
+        <p class="about__text">
+          <span class="about__drop">尚</span>南，武汉大学遥感本科、中国科学院 GIS 硕士、路易斯安那州立大学（LSU）地理学博士。现任 Drone Institute 首席科学家，从零构建公司技术体系，主导 AI 检测系统设计与规模化部署，交付 353+ 商业项目覆盖美国 28 州与中国 3 省。
+        </p>
+        <p class="about__text-en" lang="en">
+          Nan Shang holds a B.S. from Wuhan University, an M.S. from the Chinese Academy of Sciences, and a Ph.D. in Geography from Louisiana State University. As Chief Scientist at Drone Institute, he built the technical stack from the ground up, led AI detection system development, and delivered 353+ commercial projects across 28 U.S. states and 3 Chinese provinces. His work spans multi-source remote sensing, deep learning for object detection, and production-grade geospatial systems.
+        </p>
+        <p class="about__text">
+          研究发表见于 <em>Remote Sensing</em>（76 次引用）、<em>ISPRS International Journal of Geo-Information</em>、《测绘科学》等。为美国非临时专利 US 19/402,948 及 PCT/US2025/057386 第一发明人。
+        </p>
       </div>
     </section>
 
     <div class="divider" role="separator"></div>
 
-    <!-- ========== 职业经历 ========== -->
+    <!-- ═══ Research Interests ═══ -->
+    <section id="research">
+      <div class="section-head">
+        <p class="eyebrow">Research</p>
+        <h2 class="section-title">研究方向 <span class="sub">Research Interests</span></h2>
+      </div>
+
+      <div class="research-grid">
+        <div class="research-card reveal">
+          <span class="research-card__num">壹</span>
+          <h3>多源遥感融合</h3>
+          <p class="research-card__en">Multi-source Remote Sensing Fusion</p>
+          <p>Landsat · WorldView · UAV 多尺度配准；热红外 · LiDAR 多模态融合；时空变化检测与湿地动态监测。</p>
+        </div>
+        <div class="research-card reveal">
+          <span class="research-card__num">贰</span>
+          <h3>地理空间深度学习</h3>
+          <p class="research-card__en">Geospatial Deep Learning</p>
+          <p>YOLOv8 目标检测（mAP 85%+）；五万+ 样本标注体系；语义分割与地物分类；模型工程化部署。</p>
+        </div>
+        <div class="research-card reveal">
+          <span class="research-card__num">叁</span>
+          <h3>无人机测绘与三维重建</h3>
+          <p class="research-card__en">UAV Photogrammetry & 3D Reconstruction</p>
+          <p>浓密植被下地形测绘；LiDAR 点云处理；SfM 三维重建；微地形分析。</p>
+        </div>
+        <div class="research-card reveal">
+          <span class="research-card__num">肆</span>
+          <h3>系统工程与规模化交付</h3>
+          <p class="research-card__en">Systems Engineering & Scaled Delivery</p>
+          <p>端到端自动化流水线；Python · GEE · QGIS 全栈；353 项目跨地域生产级交付。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- ═══ Experience ═══ -->
     <section id="experience">
       <div class="section-head">
         <p class="eyebrow">Experience</p>
         <h2 class="section-title">职业经历 <span class="sub">Professional Experience</span></h2>
       </div>
+
       <div class="timeline">
-        {experience.map((e) => (
-          <div class="timeline__item reveal">
-            <span class="timeline__date">{e.when}</span>
-            <h3 class="timeline__title">{e.title}</h3>
-            <div class="timeline__org">{e.org}</div>
-            <p class="timeline__desc cn">{e.desc}</p>
-            <p class="timeline__desc-en">{e.descEn}</p>
-          </div>
-        ))}
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2024 – 现在</span>
+          <h3 class="timeline__title">首席科学家 · Chief Scientist</h3>
+          <div class="timeline__org">Drone Institute, LLC</div>
+          <p class="timeline__desc">从零构建技术体系，交付 353+ 项目横跨 28 州，主导 AI 检测系统。美国专利与 PCT 第一发明人。</p>
+          <p class="timeline__desc-en" lang="en">Built tech stack from scratch; 353+ projects across 28 states; led AI detection systems. First inventor — US patent + PCT.</p>
+        </div>
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2023 – 2024</span>
+          <h3 class="timeline__title">研究员 · Research Associate</h3>
+          <div class="timeline__org">Louisiana State University</div>
+          <p class="timeline__desc">USDA $160 万海岸湿地遥感监测项目。</p>
+          <p class="timeline__desc-en" lang="en">USDA-funded coastal wetland remote sensing ($1.6M).</p>
+        </div>
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2018 – 2022</span>
+          <h3 class="timeline__title">研究助理 · Research Assistant</h3>
+          <div class="timeline__org">Louisiana State University</div>
+          <p class="timeline__desc">无人机 / LiDAR 地形测绘、三维重建。</p>
+          <p class="timeline__desc-en" lang="en">UAV / LiDAR terrain mapping and 3D reconstruction.</p>
+        </div>
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2015 – 2018</span>
+          <h3 class="timeline__title">助教 · Teaching Assistant</h3>
+          <div class="timeline__org">Louisiana State University</div>
+          <p class="timeline__desc">环境遥感、地理信息系统。</p>
+          <p class="timeline__desc-en" lang="en">Environmental Remote Sensing, GIS.</p>
+        </div>
       </div>
     </section>
 
     <div class="divider" role="separator"></div>
 
-    <!-- ========== 核心能力 ========== -->
-    <section id="capabilities">
+    <!-- ═══ Education ═══ -->
+    <section id="education">
       <div class="section-head">
-        <p class="eyebrow">Core Competencies</p>
-        <h2 class="section-title">核心能力 <span class="sub">Core Competencies</span></h2>
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title">教育经历 <span class="sub">Education</span></h2>
       </div>
-      <div class="cards">
-        {capabilities.map((c) => (
-          <div class="card reveal">
-            <div class="card__icon" aria-hidden="true">{c.icon}</div>
-            <h3 class="card__title">{c.title}</h3>
-            <div class="card__sub">{c.en}</div>
-            <ul class="card__list">
-              {c.items.map((it) => <li>{it}</li>)}
-            </ul>
-          </div>
-        ))}
+
+      <div class="timeline">
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2016 – 2022</span>
+          <h3 class="timeline__title">地理学 博士 · Ph.D. in Geography</h3>
+          <div class="timeline__org">路易斯安那州立大学 · Louisiana State University</div>
+          <p class="timeline__desc">导师 Dr. Xuelian Meng。多源遥感湿地监测。</p>
+          <p class="timeline__desc-en" lang="en">Advisor: Dr. Xuelian Meng. Multi-source remote sensing for coastal wetland monitoring.</p>
+        </div>
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2011 – 2014</span>
+          <h3 class="timeline__title">地图学与 GIS 硕士 · M.S. in Cartography & GIS</h3>
+          <div class="timeline__org">中国科学院大学 · University of Chinese Academy of Sciences</div>
+          <p class="timeline__desc">中华文明探源工程，遗址预测建模。</p>
+          <p class="timeline__desc-en" lang="en">Chinese Civilization Origins Project — archaeological site prediction modeling.</p>
+        </div>
+        <div class="timeline__item reveal">
+          <span class="timeline__date">2007 – 2011</span>
+          <h3 class="timeline__title">遥感科学与技术 学士 · B.S. in Remote Sensing</h3>
+          <div class="timeline__org">武汉大学 · Wuhan University</div>
+          <p class="timeline__desc">遥感学科国内排名第一。</p>
+          <p class="timeline__desc-en" lang="en">Top-ranked remote sensing program in China.</p>
+        </div>
       </div>
     </section>
 
     <div class="divider" role="separator"></div>
 
-    <!-- ========== 代表成果 ========== -->
-    <section id="achievements">
+    <!-- ═══ Publications ═══ -->
+    <section id="publications">
       <div class="section-head">
-        <p class="eyebrow">Selected Work</p>
-        <h2 class="section-title">代表成果 <span class="sub">Selected Work</span></h2>
+        <p class="eyebrow">Publications</p>
+        <h2 class="section-title">代表论文 <span class="sub">Selected Publications</span></h2>
       </div>
 
-      <div class="achieve">
-        <div class="achieve__block reveal">
-          <h3 class="achieve__title">论文 <span class="sub">Publications</span></h3>
-          <ul>
-            <li><span class="tag tag--accent">Q1</span> Meng X, <strong>Shang N</strong>, et al. "Photogrammetric UAV Mapping of Terrain under Dense Coastal Vegetation." <em>Remote Sensing</em>, 9(11), 1187, 2017. — 76 citations</li>
-            <li><span class="tag tag--accent">Q2</span> Zhang X, Meng X, Li C, <strong>Shang N</strong>, et al. "Micro-topography Mapping through Terrestrial LiDAR." <em>ISPRS Int. J. Geo-Inf.</em>, 10(10), 665, 2021. — 11 citations</li>
-            <li><span class="tag tag--accent">CSCD</span> <strong>尚南</strong>（第一作者）。《测绘科学》，中文核心期刊。</li>
-            <li><span class="tag">PNAS</span> 参与合作。</li>
+      <ol class="pubs">
+        <li class="pubs__item reveal">
+          <div class="pubs__meta">
+            <span class="tag tag--accent">Q1</span>
+            <span class="pubs__cites">76 cites</span>
+          </div>
+          <div class="pubs__body">
+            Meng X, <strong>Shang N</strong>, Zhang X, Li C, Zhao K, Qiu X, Weeks E. "Photogrammetric UAV Mapping of Terrain under Dense Coastal Vegetation: An Object-Oriented Classification Ensemble Algorithm for Classification and Terrain Correction." <em>Remote Sensing</em>, 9(11), 1187, 2017.
+          </div>
+        </li>
+        <li class="pubs__item reveal">
+          <div class="pubs__meta">
+            <span class="tag tag--accent">Q2</span>
+            <span class="pubs__cites">11 cites</span>
+          </div>
+          <div class="pubs__body">
+            Zhang X, Meng X, Li C, <strong>Shang N</strong>, Wang J, Xu Y, Wu T, Mugnier C. "Micro-topography Mapping through Terrestrial LiDAR in Densely Vegetated Coastal Environments." <em>ISPRS Int. J. Geo-Inf.</em>, 10(10), 665, 2021.
+          </div>
+        </li>
+        <li class="pubs__item reveal">
+          <div class="pubs__meta">
+            <span class="tag tag--accent">CSCD</span>
+          </div>
+          <div class="pubs__body">
+            <strong>尚南</strong>（第一作者）。《测绘科学》，中文核心期刊 / CSCD 核心。
+          </div>
+        </li>
+        <li class="pubs__item reveal">
+          <div class="pubs__meta">
+            <span class="tag">PNAS</span>
+          </div>
+          <div class="pubs__body">
+            参与合作论文 · Contributing author.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <div class="divider" role="separator"></div>
+
+    <!-- ═══ Patents & Projects ═══ -->
+    <section id="patents">
+      <div class="section-head">
+        <p class="eyebrow">Patents & Projects</p>
+        <h2 class="section-title">专利与项目 <span class="sub">Patents & Projects</span></h2>
+      </div>
+
+      <div class="split2">
+        <div class="split2__col reveal">
+          <h3>专利 <span class="sub">Patents</span></h3>
+          <ul class="patent-list">
+            <li>
+              <span class="tag tag--accent">US</span>
+              US 19/402,948 非临时申请<br />
+              <span class="patent-list__note">第一发明人 · First inventor</span>
+            </li>
+            <li>
+              <span class="tag tag--accent">PCT</span>
+              PCT/US2025/057386 国际申请<br />
+              <span class="patent-list__note">第一发明人 · First inventor</span>
+            </li>
           </ul>
         </div>
-
-        <div class="achieve__block reveal">
-          <h3 class="achieve__title">专利 <span class="sub">Patents</span></h3>
-          <ul>
-            <li><span class="tag tag--accent">US</span> US 19/402,948 — 第一发明人</li>
-            <li><span class="tag tag--accent">PCT</span> PCT/US2025/057386 — 第一发明人</li>
-          </ul>
-        </div>
-
-        <div class="achieve__block reveal">
-          <h3 class="achieve__title">工程 <span class="sub">Engineering</span></h3>
-          <ul>
-            <li>353+ 商业项目，覆盖美国 28 州、中国 3 省</li>
+        <div class="split2__col reveal">
+          <h3>项目 <span class="sub">Projects</span></h3>
+          <ul class="patent-list">
+            <li>353+ 商业项目 · 美国 28 州 + 中国 3 省</li>
             <li>AI 检测系统：设计、部署、规模化运行</li>
-            <li>USDA \$160 万湿地遥感系统</li>
+            <li>USDA $160 万湿地遥感监测系统</li>
           </ul>
         </div>
       </div>
@@ -155,21 +249,18 @@ const capabilities = [
 
     <div class="divider" role="separator"></div>
 
-    <!-- ========== 联系方式 ========== -->
+    <!-- ═══ Contact ═══ -->
     <section id="contact">
       <div class="section-head">
         <p class="eyebrow">Contact</p>
         <h2 class="section-title">联系方式 <span class="sub">Get in Touch</span></h2>
       </div>
+
       <div class="contact-grid">
         <a class="contact-item" href={`mailto:${email}`}>
           <span class="contact-item__label">Email</span>
           <span class="contact-item__val">{email}</span>
         </a>
-        <div class="contact-item">
-          <span class="contact-item__label">QQ</span>
-          <span class="contact-item__val">404725819@qq.com</span>
-        </div>
         <a class="contact-item" href={scholar} target="_blank" rel="noopener">
           <span class="contact-item__label">Google Scholar</span>
           <span class="contact-item__val">TcDAyj0AAAAJ</span>
@@ -189,7 +280,7 @@ const capabilities = [
 
   <footer class="footer">
     <div class="footer__inner">
-      <div class="footer__brand" aria-hidden="true">尚南</div>
+      <div class="footer__brand">尚南</div>
       <div class="footer__links">
         <a href={scholar} target="_blank" rel="noopener">Scholar</a>
         <a href={github} target="_blank" rel="noopener">GitHub</a>
