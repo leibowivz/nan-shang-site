@@ -13,172 +13,156 @@ but behavior over time.
 
 ---
 
-## Overview
+## Executive Overview
 
-I design and operate production-grade geospatial and AI systems.
+I design, build, and operate production-grade geospatial and AI systems.
 
-My work sits at the intersection of **remote sensing research**, **geospatial analytics**, and **system architecture**. I focus on building systems that take spatial data—often noisy, incomplete, and operationally constrained—and turn it into outputs that can be trusted in real decision-making contexts.
+My work is focused on systems that must function reliably under real-world constraints: imperfect data, operational pressure, evolving requirements, and long-term use. I am responsible not only for whether a system works in principle, but whether it continues to behave correctly after deployment, iteration, and scale.
 
-What matters to me is not isolated model performance, but how a system behaves end to end: how data enters, how assumptions propagate, how errors surface, and how the system evolves under continuous use.
+I operate primarily at the system level. My role involves defining architecture, evaluation standards, verification strategies, and iteration discipline so that complex spatial intelligence systems can be trusted by operators and decision-makers.
 
 ---
 
-## My Role
+## Role and Accountability
 
 **Chief Scientist & Founding Engineer — Drone Institute**
 
-I am responsible for both technical direction and system integrity.
+I hold end-to-end accountability for technical direction, system architecture, and long-term system behavior across the company’s geospatial and AI platforms.
 
-As a founding engineer, I designed the core architectures from first principles. As chief scientist, I ensure that deployed systems remain scientifically grounded as they scale, evolve, and are exposed to real operational pressure.
+As a founding engineer, I designed the core architectures from first principles. This includes defining data flow, interface boundaries, assumptions embedded in processing steps, and the mechanisms by which failures are detected, surfaced, and corrected.
 
-In practice, I:
+As Chief Scientist, I am responsible for ensuring that research methods are not only technically valid, but operationally deployable, verifiable, and resilient under production constraints.
 
-* define system-level evaluation criteria beyond accuracy alone
-* architect end-to-end geospatial and AI pipelines
-* translate research methods into deployable, auditable systems
-* own trade-offs across accuracy, latency, cost, and reliability
+My accountability spans the full system lifecycle:
 
----
-
-## How I Build Systems
-
-### Production is the benchmark
-
-A system is only meaningful if it continues to behave correctly after deployment.
-
-I design systems to fail visibly rather than silently, to support iteration without destabilization, and to remain interpretable to engineers and operators.
-
-### Constraints shape architecture
-
-Latency, throughput, cost envelopes, and operational friction are architectural facts.
-
-I treat these constraints as inputs to design decisions, making trade-offs explicit so systems can be reasoned about and maintained over time.
-
-### Deployment reveals assumptions
-
-Research does not end at deployment.
-
-I design feedback loops that surface failure modes, quantify drift, and allow systems to improve without eroding trust or stability.
-
-### Data quality compounds
-
-Long-term system advantage comes from disciplined data practices.
-
-I build pipelines where ingestion, annotation, quality control, monitoring, retraining, and rollback strategies reinforce one another.
+* architectural design and evolution
+* evaluation criteria and acceptance thresholds
+* verification and quality control strategy
+* integration of research methods into production
+* operational stability under scale and drift
 
 ---
 
-## Systems I Build
+## System Design Philosophy
 
-### End-to-end geospatial pipelines
+### Production as the Primary Benchmark
 
-I build pipelines that cover the full lifecycle of spatial data, from ingestion and normalization to processing, verification, reporting, and delivery.
+A system is considered successful only if it continues to behave correctly after deployment. I evaluate systems based on their long-term operational behavior rather than isolated demonstrations or benchmark metrics.
 
-These systems are designed to be repeatable, auditable, and resilient under scale.
+This requires designing systems that fail visibly rather than silently, and that surface uncertainty, inconsistency, and degradation before they propagate downstream.
 
-### Multimodal remote sensing workflows
+### Constraints as Design Inputs
 
-I work across RGB imagery, thermal and infrared data, and derived spatial layers.
+Latency requirements, throughput limits, cost envelopes, operator workload, and data availability are treated as architectural facts rather than optimization targets.
 
-The focus is on extracting actionable signals while controlling uncertainty and false positives in operational environments.
+I explicitly design for these constraints so that system behavior remains predictable and maintainable over time.
 
-### Verification and quality control systems
+### Iteration Without Destabilization
 
-Spatial systems often fail quietly through projection errors, unit mismatches, alignment drift, or metadata assumptions.
-
-I build verification layers—automated and human-in-the-loop—that make these failures observable and traceable.
-
-### Secure data delivery architectures
-
-I design delivery systems with clear permission boundaries, multi-tenant access control, and lifecycle management.
+Deployment exposes assumptions that are not visible during development. I design feedback loops that allow systems to evolve through controlled iteration without eroding trust or stability.
 
 ---
 
-## Research and Its Connection to Production
+## End-to-End System Architecture
 
-My research background is in **remote sensing and geospatial analysis**, and it directly informs the systems I build today.
+### Data Ingestion and Normalization
 
-My peer-reviewed work addresses questions that recur in production systems:
+I design ingestion pipelines capable of handling heterogeneous spatial data sources with varying quality, resolution, and metadata completeness. Normalization steps explicitly encode assumptions about coordinate systems, units, and spatial reference frames.
 
-* how spatial measurements behave under noise and scale
-* how resolution, alignment, and representation affect downstream inference
-* how to reason about uncertainty in derived spatial products
+### Processing and Analytics
 
-These research insights shape practical decisions in system design, including data preprocessing, model selection, validation strategies, and quality control thresholds.
+Processing pipelines are structured to isolate transformations, making intermediate outputs inspectable and testable. This enables targeted verification and reduces the risk of compounding errors.
 
-I have authored and co-authored publications in journals and conferences, contributing methods and analytical frameworks that are now embedded in production pipelines.
+### Inference and Decision Logic
+
+Inference components are integrated as part of a broader decision pipeline, where model outputs are contextualized, validated, and filtered before being exposed to downstream consumers.
+
+### Reporting and Delivery
+
+Final outputs are delivered through controlled interfaces with clear access boundaries, lifecycle management, and auditability.
+
+---
+
+## Verification, Validation, and Quality Control
+
+Spatial intelligence systems are particularly susceptible to silent failure modes, including coordinate reference mismatches, unit inconsistencies, alignment drift, and metadata assumptions.
+
+I design verification frameworks that combine:
+
+* automated checks for spatial consistency
+* statistical validation of outputs
+* human-in-the-loop review where uncertainty is high
+
+Verification artifacts are treated as first-class outputs, enabling traceability and post-hoc analysis.
+
+---
+
+## Multimodal Remote Sensing Systems
+
+I design and operate workflows that integrate RGB imagery, thermal and infrared data, and derived spatial layers.
+
+These systems are built to manage:
+
+* sensor-specific noise characteristics
+* alignment and resolution differences
+* uncertainty propagation across modalities
+
+The objective is to extract decision-relevant signals while minimizing false positives in environments with limited or imperfect ground truth.
+
+---
+
+## Research and Production Integration
+
+My academic background is in remote sensing and geospatial analysis, and it directly informs how I design production systems.
+
+My research has addressed recurring questions that surface in operational systems:
+
+* how spatial measurements behave under noise, scale, and resolution changes
+* how representation and alignment choices affect downstream inference
+* how uncertainty should be quantified and communicated in derived products
+
+These insights inform concrete production decisions, including preprocessing strategies, model selection, validation thresholds, and quality control design.
+
+I have authored and co-authored peer-reviewed publications in journals and conferences. Rather than treating research as a parallel activity, I embed research methods into production pipelines where they improve system robustness and interpretability.
 
 My public citation record is available via Google Scholar:
 [https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en](https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en)
 
-I present research selectively, emphasizing work that has informed real system behavior rather than purely theoretical results.
+---
+
+## Data-Centric AI and Model Lifecycle Management
+
+I design AI systems with a data-centric perspective. Model performance is treated as an outcome of data quality, annotation strategy, and verification discipline.
+
+This includes:
+
+* structured dataset construction and curation
+* targeted annotation and re-annotation driven by observed failure modes
+* controlled retraining and comparison
+* rollback mechanisms when regressions are detected
 
 ---
 
 ## Selected Work
 
-The work I lead and build is system-oriented rather than project-oriented. Public descriptions focus on **architectural patterns and operational behavior**, not on clients, locations, or proprietary metrics.
+The work I lead and build is system-oriented rather than project-oriented. Public descriptions focus on architectural patterns and operational behavior.
 
-### Production Geospatial Intelligence Platforms
-
-I have designed and operated large-scale geospatial processing platforms that:
-
-* ingest high-volume spatial data from heterogeneous sources
-* normalize and align data across coordinate systems and resolutions
-* execute analytics and inference at scale
-* embed verification and QC as part of the execution path, not post-processing
-
-These platforms are built to support continuous operation, repeatable results, and controlled iteration under real-world constraints.
-
-### Multisensor Analysis and Decision Pipelines
-
-I have built multisensor pipelines that combine:
-
-* RGB imagery
-* thermal and infrared signals
-* derived spatial features and contextual layers
-
-The emphasis is on extracting **decision-relevant signals**, managing uncertainty, and minimizing false positives in operational environments where ground truth is incomplete.
-
-### Verification-Centric System Design
-
-Across systems, I have led the design of verification frameworks that:
-
-* surface spatial inconsistencies (alignment, scale, unit errors)
-* detect silent failure modes before downstream impact
-* integrate automated checks with human-in-the-loop review
-
-Verification artifacts are treated as first-class outputs, enabling traceability and auditability.
-
-### Data-Centric AI Production Loops
-
-I have built data-centric AI workflows where:
-
-* data quality is continuously measured and corrected
-* annotation, re-annotation, and QC are structured processes
-* retraining is driven by observed failure modes rather than fixed schedules
-* rollback and comparison are supported as operational controls
-
-These loops allow systems to improve over time without destabilizing production behavior.
-
-### Secure, Multi-Tenant Delivery Architectures
-
-I have architected delivery systems that:
-
-* enforce strict tenant isolation
-* support granular access control
-* manage data lifecycle and retention
-* provide audit-friendly access patterns
-
-Public descriptions intentionally omit sensitive operational details.
+* Design and operation of large-scale geospatial intelligence platforms with embedded verification and QC
+* Development of multisensor analysis pipelines operating under real-world constraints
+* Implementation of data-centric AI workflows supporting continuous improvement
+* Architecture of secure, multi-tenant delivery systems with audit-friendly access control
 
 ---
 
-## Writing
+## Technical Communication and Documentation
 
-I write technical notes on production AI systems, geospatial data failure modes, and system-level decision-making under constraints.
+I place strong emphasis on technical documentation and knowledge transfer. Systems are documented so that assumptions, constraints, and failure modes are explicit.
 
-These notes focus on what holds, what fails, and how to design systems that remain reliable as they evolve.
+This documentation supports:
+
+* operational continuity
+* onboarding of new engineers
+* reproducibility and auditability
 
 ---
 
