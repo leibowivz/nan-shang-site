@@ -3,1143 +3,338 @@ import Base from "../layouts/Base.astro";
 ---
 
 <Base>
-  <!-- 墨汁Canvas -->
-  <canvas id="ink-canvas"></canvas>
-
-  <!-- Navigation -->
+  <!-- ═══ Nav ═══ -->
   <nav class="nav">
-    <div class="nav-container">
-      <div class="logo">
-        <!-- 篆刻印章：尚南之印 -->
-        <svg class="seal" width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-          <!-- 外框 -->
-          <rect x="2" y="2" width="116" height="116" fill="white" stroke="black" stroke-width="6"/>
-          <!-- 内框 -->
-          <rect x="10" y="10" width="100" height="100" fill="none" stroke="black" stroke-width="2.5"/>
-          
-          <!-- 右列：尚（上）南（下） -->
-          <text x="85" y="50" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">尚</text>
-          <text x="85" y="98" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">南</text>
-          
-          <!-- 左列：之（上）印（下） -->
-          <text x="35" y="50" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">之</text>
-          <text x="35" y="98" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">印</text>
-        </svg>
-        <span class="glitch" data-text="DR. NAN SHANG">DR. NAN SHANG</span>
-      </div>
-      <div class="nav-links">
-        <a href="#philosophy">PHILOSOPHY</a>
-        <a href="#work">ENGINEERING</a>
-        <a href="#research">SCIENCE</a>
-        <a href="#contact">CONTACT</a>
+    <div class="nav__inner">
+      <a class="nav__brand" href="#">
+        <div class="nav__logo">NS</div>
+        <span class="nav__name">Nan Shang</span>
+      </a>
+      <div class="nav__links">
+        <a class="nav__link" href="#overview">Overview</a>
+        <a class="nav__link" href="#approach">Approach</a>
+        <a class="nav__link" href="#systems">Systems</a>
+        <a class="nav__link" href="#work">Work</a>
+        <a class="nav__link" href="#research">Research</a>
+        <a class="nav__link" href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">
-        CHIEF SCIENTIST & FOUNDING ENGINEER · DRONE INSTITUTE
-      </div>
-      <h1 class="hero-title">
-        GEOSPATIAL SYSTEMS<br/>
-        THAT HOLD OVER TIME
-      </h1>
-      <p class="hero-subtitle">
-        Built for real-world data and long-term use.
-      </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn btn-primary">
-          ENGINEERING
-        </a>
-        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-           target="_blank" class="btn btn-secondary">
-          SCIENCE
-        </a>
-      </div>
-    </div>
-  </section>
+  <!-- ═══ Hero with Aurora ═══ -->
+  <div class="hero-wrap dotgrid">
+    <div class="wrap">
+      <header class="hero">
+        <div class="hero__kicker">
+          <span class="hero__kicker-dot"></span>
+          Chief Scientist & Founding Engineer
+        </div>
 
-  <!-- Overview -->
-  <section class="overview-section">
-    <div class="container">
-        <div class="overview-content">
-        <p class="overview-text">
-          I design and operate production-grade geospatial and AI systems.<br/><br/>
-          My work sits at the intersection of <strong>remote sensing research</strong>, 
-          <strong>geospatial analytics</strong>, and <strong>system architecture</strong>. 
-          I focus on building systems that take spatial data—often noisy, incomplete, 
-          and operationally constrained—and turn it into outputs that can be trusted 
-          in real decision-making contexts.
+        <h1 class="hero__h1">I build systems that last.</h1>
+
+        <p class="hero__desc">
+          Where data meets uncertainty, and where the real test is not
+          performance in isolation — but behavior over time.
         </p>
-      </div>
+
+        <div class="hero__meta">
+          <span class="hero__meta-name">Nan Shang, Ph.D.</span>
+          <span class="hero__meta-role">Chief Scientist & Founding Engineer</span>
+          <span class="hero__meta-org">Drone Institute</span>
+        </div>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#overview">Read more</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
+             target="_blank" rel="noopener">Scholar</a>
+          <a class="btn" href="https://github.com/leibowivz"
+             target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
+        </div>
+      </header>
     </div>
-  </section>
 
-  <!-- Main Content -->
-  <main class="main">
+    <!-- Aurora light ribbons -->
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__ribbon aurora__r1"></div>
+      <div class="aurora__ribbon aurora__r2"></div>
+      <div class="aurora__ribbon aurora__r3"></div>
+      <div class="aurora__line aurora__l1"></div>
+      <div class="aurora__line aurora__l2"></div>
+      <div class="aurora__line aurora__l3"></div>
+    </div>
+  </div>
 
-    <!-- Philosophy -->
-    <section class="section" id="philosophy">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="section-marker">&gt;&gt;</span> PHILOSOPHY
-          <span class="section-seal">哲学</span>
-        </h2>
-        <div class="grid-2">
-          <div class="cyber-card">
-            <div class="card-header">
-              <span class="card-id">01</span>
-            </div>
-            <h3 class="card-title">PRODUCTION IS THE BENCHMARK</h3>
-            <p class="card-text">
-              A system is only meaningful if it continues to behave correctly after deployment. 
-              I design systems to fail visibly rather than silently, to support iteration without 
-              destabilization, and to remain interpretable to engineers and operators.
-            </p>
-          </div>
-          <div class="cyber-card">
-            <div class="card-header">
-              <span class="card-id">02</span>
-            </div>
-            <h3 class="card-title">CONSTRAINTS SHAPE ARCHITECTURE</h3>
-            <p class="card-text">
-              Latency, throughput, cost envelopes, and operational friction are architectural facts. 
-              I treat these constraints as inputs to design decisions, making trade-offs explicit 
-              so systems can be reasoned about and maintained over time.
-            </p>
-          </div>
-          <div class="cyber-card">
-            <div class="card-header">
-              <span class="card-id">03</span>
-            </div>
-            <h3 class="card-title">DEPLOYMENT REVEALS ASSUMPTIONS</h3>
-            <p class="card-text">
-              Research does not end at deployment. I design feedback loops that surface failure modes, 
-              quantify drift, and allow systems to improve without eroding trust or stability.
-            </p>
-          </div>
-          <div class="cyber-card">
-            <div class="card-header">
-              <span class="card-id">04</span>
-            </div>
-            <h3 class="card-title">DATA QUALITY COMPOUNDS</h3>
-            <p class="card-text">
-              Long-term system advantage comes from disciplined data practices. I build pipelines 
-              where ingestion, annotation, quality control, monitoring, retraining, and rollback 
-              strategies reinforce one another.
-            </p>
-          </div>
+  <main class="wrap">
+
+    <!-- ═══ Overview ═══ -->
+    <section id="overview">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Overview</span></div>
+
+      <p class="pull">
+        I design and operate production-grade geospatial and AI systems.
+      </p>
+      <p>
+        My work sits at the intersection of remote sensing research, geospatial
+        analytics, and system architecture. I build systems that take spatial
+        data — often noisy, incomplete, and operationally constrained — and turn
+        it into outputs that can be trusted in real decision-making contexts.
+      </p>
+      <p style="margin-top: 1.25rem;">
+        What matters is not isolated model performance, but how a system behaves
+        end to end: how data enters, how assumptions propagate, how errors surface,
+        and how the system evolves under continuous use.
+      </p>
+    </section>
+
+    <!-- ═══ Role ═══ -->
+    <section>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">My Role</span></div>
+
+      <p style="margin-bottom: 1.5rem;">
+        As a founding engineer, I designed the core architectures from first
+        principles. As chief scientist, I ensure that deployed systems remain
+        scientifically grounded as they scale and face real operational pressure.
+      </p>
+      <ul class="fl">
+        <li>Define system-level evaluation criteria beyond accuracy alone</li>
+        <li>Architect end-to-end geospatial and AI pipelines</li>
+        <li>Translate research methods into deployable, auditable systems</li>
+        <li>Own trade-offs across accuracy, latency, cost, and reliability</li>
+      </ul>
+    </section>
+
+    <!-- ═══ Approach ═══ -->
+    <section id="approach">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">How I Build Systems</span></div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="card__num">01</div>
+          <div class="card__title">Production is the benchmark</div>
+          <p class="card__body">
+            A system is only meaningful if it continues to behave correctly after
+            deployment. I design systems to fail visibly, support iteration without
+            destabilization, and remain interpretable to operators.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card__num">02</div>
+          <div class="card__title">Constraints shape architecture</div>
+          <p class="card__body">
+            Latency, throughput, cost envelopes, and operational friction are
+            architectural facts. I make trade-offs explicit so systems can be
+            reasoned about and maintained over time.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card__num">03</div>
+          <div class="card__title">Deployment reveals assumptions</div>
+          <p class="card__body">
+            Research does not end at deployment. I design feedback loops that
+            surface failure modes, quantify drift, and allow systems to improve
+            without eroding trust or stability.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card__num">04</div>
+          <div class="card__title">Data quality compounds</div>
+          <p class="card__body">
+            Long-term advantage comes from disciplined data practices. I build
+            pipelines where ingestion, annotation, quality control, monitoring,
+            retraining, and rollback reinforce one another.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- Engineering -->
-    <section class="section" id="work">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="section-marker">&gt;&gt;</span> ENGINEERING
-          <span class="section-seal">工程</span>
-        </h2>
-        <div class="systems">
-          <div class="cyber-card system-card">
-            <div class="card-header">
-              <span class="card-id">01</span>
-            </div>
-            <h3 class="card-title">END TO END GEOSPATIAL PIPELINES</h3>
-            <p class="card-text">
-              I build pipelines that cover the full lifecycle of spatial data, from ingestion 
-              and normalization to processing, verification, reporting, and delivery. These 
-              systems are designed to be repeatable, auditable, and resilient under scale.
-            </p>
-          </div>
+    <!-- ═══ Systems ═══ -->
+    <section id="systems">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Systems I Build</span></div>
 
-          <div class="cyber-card system-card">
-            <div class="card-header">
-              <span class="card-id">02</span>
-            </div>
-            <h3 class="card-title">MULTIMODAL REMOTE SENSING WORKFLOWS</h3>
-            <p class="card-text">
-              I work across RGB imagery, thermal and infrared data, and derived spatial layers. 
-              The focus is on extracting actionable signals while controlling uncertainty and 
-              false positives in operational environments.
-            </p>
-          </div>
-
-          <div class="cyber-card system-card">
-            <div class="card-header">
-              <span class="card-id">03</span>
-            </div>
-            <h3 class="card-title">VERIFICATION AND QUALITY CONTROL SYSTEMS</h3>
-            <p class="card-text">
-              Spatial systems often fail quietly through projection errors, unit mismatches, 
-              alignment drift, or metadata assumptions. I build verification layers—automated 
-              and human-in-the-loop—that make these failures observable and traceable.
-            </p>
-          </div>
-
-          <div class="cyber-card system-card">
-            <div class="card-header">
-              <span class="card-id">04</span>
-            </div>
-            <h3 class="card-title">SECURE DATA DELIVERY ARCHITECTURES</h3>
-            <p class="card-text">
-              I design delivery systems with clear permission boundaries, multi-tenant access 
-              control, and lifecycle management. Systems built to support continuous operation, 
-              repeatable results, and controlled iteration under real-world constraints.
-            </p>
-          </div>
+      <div class="g2">
+        <div class="sys sys--pipe">
+          <div class="sys__status"><span class="sys__dot"></span>Pipeline</div>
+          <div class="sys__title">End-to-End Geospatial</div>
+          <p class="sys__body">
+            Full lifecycle — ingestion, normalization, processing, verification,
+            reporting, delivery. Repeatable, auditable, resilient under scale.
+          </p>
+        </div>
+        <div class="sys sys--sense">
+          <div class="sys__status"><span class="sys__dot"></span>Sensing</div>
+          <div class="sys__title">Multimodal Remote Sensing</div>
+          <p class="sys__body">
+            RGB imagery, thermal and infrared data, derived spatial layers.
+            Extracting actionable signals while controlling uncertainty.
+          </p>
+        </div>
+        <div class="sys sys--qc">
+          <div class="sys__status"><span class="sys__dot"></span>Quality</div>
+          <div class="sys__title">Verification & QC</div>
+          <p class="sys__body">
+            Automated and human-in-the-loop layers that surface projection
+            errors, alignment drift, and metadata assumptions.
+          </p>
+        </div>
+        <div class="sys sys--ship">
+          <div class="sys__status"><span class="sys__dot"></span>Delivery</div>
+          <div class="sys__title">Secure Data Delivery</div>
+          <p class="sys__body">
+            Multi-tenant access control, lifecycle management, permission
+            boundaries, and audit-friendly access patterns.
+          </p>
         </div>
       </div>
     </section>
-
-    <!-- Science -->
-    <section class="section" id="research">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="section-marker">&gt;&gt;</span> SCIENCE
-          <span class="section-seal">科学</span>
-        </h2>
-        <div class="research-content">
-          <p class="card-text">
-            My research background is in <strong>remote sensing and geospatial analysis</strong>, 
-            and it directly informs the systems I build today.
-          </p>
-          <p class="card-text">
-            My peer-reviewed work addresses questions that recur in production systems:
-          </p>
-          <ul class="cyber-list">
-            <li><span class="list-marker">▸</span> How spatial measurements behave under noise and scale</li>
-            <li><span class="list-marker">▸</span> How resolution, alignment, and representation affect downstream inference</li>
-            <li><span class="list-marker">▸</span> How to reason about uncertainty in derived spatial products</li>
-          </ul>
-          <p class="card-text">
-            These research insights shape practical decisions in system design, including data 
-            preprocessing, model selection, validation strategies, and quality control thresholds.
-          </p>
-          <p class="card-text">
-            I have authored and co-authored publications in journals and conferences, contributing 
-            methods and analytical frameworks that are now embedded in production pipelines.
-          </p>
-          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" 
-             target="_blank" class="cyber-link">
-            VIEW PUBLICATIONS →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section class="section" id="contact">
-      <div class="container">
-        <h2 class="section-title">
-          <span class="section-marker">&gt;&gt;</span> CONTACT
-          <span class="section-seal">联系</span>
-        </h2>
-        <div class="contact-grid">
-          <div class="cyber-card contact-card">
-            <div class="contact-label">EMAIL</div>
-            <a href="mailto:nan.shang@droneinstitute.ai" class="contact-value">
-              nan.shang@droneinstitute.ai
-            </a>
-          </div>
-          <div class="cyber-card contact-card">
-            <div class="contact-label">PERSONAL</div>
-            <a href="mailto:sn1514826@gmail.com" class="contact-value">
-              sn1514826@gmail.com
-            </a>
-          </div>
-          <div class="cyber-card contact-card">
-            <div class="contact-label">GITHUB</div>
-            <a href="https://github.com/leibowivz" target="_blank" class="contact-value">
-              github.com/leibowivz
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-left">
-          <div class="footer-name">
-            DR. NAN SHANG
-            <!-- 篆刻印章：尚南之印 -->
-            <svg class="seal seal-footer" width="44" height="44" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-              <!-- 外框 -->
-              <rect x="2" y="2" width="116" height="116" fill="white" stroke="black" stroke-width="6"/>
-              <!-- 内框 -->
-              <rect x="10" y="10" width="100" height="100" fill="none" stroke="black" stroke-width="2.5"/>
-              
-              <!-- 右列：尚（上）南（下） -->
-              <text x="85" y="50" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">尚</text>
-              <text x="85" y="98" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">南</text>
-              
-              <!-- 左列：之（上）印（下） -->
-              <text x="35" y="50" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">之</text>
-              <text x="35" y="98" font-size="42" font-weight="900" text-anchor="middle" fill="black" font-family="'ZCOOL XiaoWei', 'STFangsong', 'FangSong', 'Noto Serif SC', serif" stroke="black" stroke-width="1.5">印</text>
-            </svg>
-          </div>
-          <div class="footer-role">CHIEF SCIENTIST & FOUNDING ENGINEER</div>
-        </div>
-        <div class="footer-right">
-          <a href="https://github.com/leibowivz" target="_blank">GITHUB</a>
-          <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en" target="_blank">SCHOLAR</a>
-        </div>
-      </div>
-      <div class="footer-timestamp">
-        UPDATED: 2026.02.09
+  <!-- ═══ Spectral Strip ═══ -->
+  <div class="strip">
+    <div class="wrap">
+      <div class="strip__inner">
+        <div class="strip__band"></div>
+        <div class="strip__label">Research Background</div>
+        <div class="strip__title">Remote Sensing &<br/>Geospatial Information</div>
+        <p class="strip__body">
+          My research directly informs the systems I build. These insights shape
+          practical decisions — data preprocessing, model selection, validation
+          strategies, and quality control thresholds.
+        </p>
+        <ul class="tags">
+          <li>GIS & Spatial Analytics</li>
+          <li>LiDAR & Point Clouds</li>
+          <li>Remote Sensing</li>
+          <li>Geospatial AI</li>
+          <li>Production ML</li>
+          <li>Earth Observation</li>
+        </ul>
       </div>
     </div>
-  </footer>
-
-  </script>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --black: #000000;
-      --white: #ffffff;
-      --gray-dark: #1a1a1a;
-      --gray-mid: #666666;
-      --gray-light: #cccccc;
-      
-      --font-heading: "Rajdhani", -apple-system, sans-serif;
-      --font-body: "Orbitron", -apple-system, sans-serif;
-      --font-mono: "SF Mono", "Monaco", "Courier New", monospace;
-    }
-
-    /* Import Cyberpunk-style fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
-
-    body {
-      background: 
-        /* 宣纸纹理效果 */
-        repeating-linear-gradient(
-          0deg,
-          rgba(0, 0, 0, 0.01),
-          rgba(0, 0, 0, 0.01) 1px,
-          transparent 1px,
-          transparent 3px
-        ),
-        repeating-linear-gradient(
-          90deg,
-          rgba(0, 0, 0, 0.01),
-          rgba(0, 0, 0, 0.01) 1px,
-          transparent 1px,
-          transparent 3px
-        ),
-        /* 宣纸底色 */
-        linear-gradient(
-          135deg,
-          #fdfcfa 0%,
-          #fffef9 20%,
-          #fdfcf8 40%,
-          #fffefa 60%,
-          #fefdf7 80%,
-          #fffef9 100%
-        );
-      color: var(--black);
-      font-family: var(--font-body);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      position: relative;
-    }
-
-    /* 宣纸纹理叠加层 */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        radial-gradient(circle at 20% 30%, rgba(0, 0, 0, 0.015) 0%, transparent 3%),
-        radial-gradient(circle at 60% 70%, rgba(0, 0, 0, 0.012) 0%, transparent 2%),
-        radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.018) 0%, transparent 2.5%),
-        radial-gradient(circle at 30% 80%, rgba(0, 0, 0, 0.01) 0%, transparent 2%),
-        radial-gradient(circle at 70% 50%, rgba(0, 0, 0, 0.014) 0%, transparent 2.8%);
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-
-    /* 墨汁Canvas - 背景层 */
-    #ink-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    /* Container */
-    .container {
-      position: relative;
-      z-index: 100;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Navigation */
-    .nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 500;
-      background: rgba(253, 252, 250, 0.95);
-      border-bottom: 3px solid var(--black);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--black);
-      text-decoration: none;
-      letter-spacing: 0.25em;
-      text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .glitch {
-      position: relative;
-      display: inline-block;
-    }
-
-    /* 篆刻印章 */
-    .seal {
-      flex-shrink: 0;
-    }
-
-    .seal-footer {
-      width: 44px;
-      height: 44px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3rem;
-    }
-
-    .nav-links a {
-      color: rgba(0, 0, 0, 0.6);
-      text-decoration: none;
-      font-size: 0.75rem;
-      font-weight: 400;
-      transition: all 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--black);
-    }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      z-index: 10;
-      padding: 12rem 0 6rem;
-    }
-
-    .hero-badge {
-      font-size: 0.875rem;
-      color: var(--black);
-      margin-bottom: 2rem;
-      font-weight: 600;
-      position: relative;
-      display: inline-block;
-      padding-left: 1.5rem;
-      border-left: 4px solid var(--black);
-      padding-left: 1rem;
-    }
-
-    .hero-title {
-      font-size: clamp(2.75rem, 7.5vw, 5.5rem);
-      font-weight: 900;
-      line-height: 0.95;
-      margin-bottom: 2.5rem;
-      color: var(--black);
-      font-family: var(--font-heading);
-      letter-spacing: 0.3em;
-      text-shadow: 
-        4px 4px 0px rgba(0, 0, 0, 0.2);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-
-    .glitch-text {
-      position: relative;
-      display: inline-block;
-    }
-
-    .cyber-gradient {
-      color: var(--black);
-      font-weight: 900;
-      text-shadow: 
-        6px 6px 0px rgba(0, 0, 0, 0.2);
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
-    }
-
-    .hero-subtitle {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: rgba(0, 0, 0, 0.75);
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      text-transform: none;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 1rem 2rem;
-      border: 3px solid var(--black);
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 0.875rem;
-      text-decoration: none;
-      transition: all 0.15s;
-      display: inline-block;
-      position: relative;
-      letter-spacing: 0.15em;
-      box-shadow: 4px 4px 0px var(--black);
-    }
-
-    .btn:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 6px 6px 0px var(--black);
-    }
-
-    .btn-primary {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .btn-secondary:hover {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    /* Overview Section */
-    .overview-section {
-      position: relative;
-      z-index: 10;
-      padding: 4rem 0 6rem;
-    }
-
-    .overview-content {
-      max-width: 900px;
-      margin: 0;
-      text-align: left;
-      width: 100%;
-    }
-
-    .overview-text {
-      font-size: 1.15rem;
-      line-height: 1.8;
-      color: rgba(0, 0, 0, 0.8);
-      text-transform: none;
-      letter-spacing: 0.02em;
-      font-weight: 400;
-      text-align: left;
-    }
-
-    .overview-text strong {
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    /* Main */
-    .main {
-      position: relative;
-      z-index: 10;
-    }
-
-    .section {
-      padding: 6rem 0;
-      margin-bottom: 4rem;
-    }
-
-    .section-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 3rem;
-      color: var(--black);
-      font-family: var(--font-heading);
-      letter-spacing: 0.2em;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
-      display: flex;
-      align-items: center;
-    }
-
-    .section-marker {
-      color: var(--black);
-      margin-right: 1rem;
-      font-weight: 900;
-      display: inline-block;
-    }
-
-    .section-seal {
-      display: inline-block;
-      border: 2px solid var(--black);
-      padding: 0.1rem 0.2rem;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-left: 1.5rem;
-      font-family: 'ZCOOL XiaoWei', 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
-      letter-spacing: 0.05em;
-      background: var(--white);
-      position: relative;
-      box-shadow: 0 0 0 1px var(--white), 0 0 0 2px var(--black);
-    }
-
-    /* Grid */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
-    }
-
-    /* 锐利卡片 */
-    .cyber-card {
-      padding: 2rem;
-      border: 3px solid var(--black);
-      background: var(--white);
-      position: relative;
-      transition: all 0.2s;
-      box-shadow: 
-        6px 6px 0px var(--black);
-    }
-
-    /* 角标装饰 */
-    .cyber-card::before {
-      content: '';
-      position: absolute;
-      top: -3px;
-      left: -3px;
-      width: 20px;
-      height: 20px;
-      border-top: 4px solid var(--black);
-      border-left: 4px solid var(--black);
-    }
-
-    .cyber-card::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      right: -3px;
-      width: 20px;
-      height: 20px;
-      border-bottom: 4px solid var(--black);
-      border-right: 4px solid var(--black);
-    }
-
-    .cyber-card:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 
-        8px 8px 0px var(--black);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .card-id {
-      font-size: 0.75rem;
-      color: var(--white);
-      font-weight: 900;
-      background: var(--black);
-      padding: 0.25rem 0.5rem;
-      line-height: 1;
-    }
-
-    .card-status {
-      font-size: 0.75rem;
-      color: var(--green);
-      text-shadow: 0 0 5px var(--green);
-    }
-
-    .card-title {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--black);
-      font-family: var(--font-heading);
-      letter-spacing: 0.15em;
-      transform: skewX(-2deg);
-      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-text {
-      color: rgba(0, 0, 0, 0.75);
-      line-height: 1.75;
-      text-transform: none;
-      letter-spacing: 0.01em;
-      font-weight: 400;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-text strong {
-      color: var(--black);
-      font-weight: 600;
-    }
-
-    /* Systems */
-    .systems {
-      display: grid;
-      gap: 2rem;
-    }
-
-    /* Research */
-    .research-content {
-      max-width: 900px;
-    }
-
-    .text-cyber {
-      font-size: 1rem;
-      line-height: 2;
-      color: var(--black);
-      margin-bottom: 2rem;
-      font-weight: 400;
-    }
-
-    .cyber-list {
-      list-style: none;
-      margin: 2rem 0;
-    }
-
-    .cyber-list li {
-      padding-left: 2rem;
-      margin-bottom: 1rem;
-      color: rgba(0, 0, 0, 0.7);
-      position: relative;
-      text-transform: none;
-      letter-spacing: 0;
-      font-weight: 400;
-      font-size: 0.95rem;
-    }
-
-    .list-marker {
-      position: absolute;
-      left: 0;
-      color: var(--black);
-      font-weight: 900;
-    }
-
-    .text-muted {
-      color: rgba(0, 0, 0, 0.6);
-      margin-bottom: 2rem;
-      text-transform: none;
-      letter-spacing: 0;
-      font-weight: 400;
-      font-size: 0.95rem;
-    }
-
-    .cyber-link {
-      color: var(--black);
-      text-decoration: none;
-      font-weight: 400;
-      display: inline-block;
-      border: 1px solid var(--black);
-      padding: 0.75rem 1.5rem;
-      transition: all 0.3s;
-    }
-
-    .cyber-link:hover {
-      background: var(--black);
-      color: var(--white);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-    }
-
-    .contact-label {
-      font-size: 0.75rem;
-      color: var(--black);
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-
-    .contact-value {
-      color: var(--black);
-      text-decoration: none;
-      font-weight: 400;
-      display: block;
-      transition: all 0.2s;
-      font-size: 0.9rem;
-    }
-
-    .contact-value:hover {
-      color: var(--cyan);
-    }
-
-    /* Footer */
-    .footer {
-      position: relative;
-      z-index: 10;
-      padding: 3rem 0;
-      border-top: 2px solid var(--black);
-      margin-top: 6rem;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-
-    .footer-name {
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      color: var(--black);
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .footer-role {
-      font-size: 0.7rem;
-      color: rgba(0, 0, 0, 0.6);
-      font-weight: 400;
-    }
-
-    .footer-right {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer-right a {
-      color: rgba(0, 0, 0, 0.8);
-      text-decoration: none;
-      font-size: 0.7rem;
-      transition: all 0.2s;
-      font-weight: 700;
-    }
-
-    .footer-right a:hover {
-      color: var(--black);
-    }
-
-    .footer-timestamp {
-      font-size: 0.75rem;
-      color: var(--black);
-      text-align: center;
-      opacity: 0.3;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .container {
-        padding: 0 1rem;
-      }
-
-      .hero {
-        padding: 8rem 0 4rem;
-      }
-
-      .section {
-        padding: 4rem 0;
-      }
-
-      .hero-title {
-        font-size: 2.5rem;
-        letter-spacing: 0.15em;
-      }
-
-      .hero-subtitle {
-        font-size: 1rem;
-      }
-
-      .overview-text {
-        font-size: 1rem;
-      }
-
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cyber-card {
-        margin-left: 0;
-        margin-right: 0;
-        box-shadow: 4px 4px 0px var(--black);
-      }
-
-      .cyber-card:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 6px 6px 0px var(--black);
-      }
-
-      .footer-content {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
-      }
-
-      .footer-name {
-        justify-content: center;
-      }
-
-      .footer-right {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .nav-links {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.6rem;
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .nav-links a {
-        font-size: 0.7rem;
-        text-align: center;
-        padding: 0.4rem 0;
-      }
-
-      .section-title {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 0.75rem;
-      }
-
-      .section-seal {
-        margin-left: 0;
-      }
-    }
-  </style>
-  <script>
-    // 真实墨汁粒子动画
-    const canvas = document.getElementById('ink-canvas');
-    const ctx = canvas.getContext('2d');
-    
-    let width, height;
-    const inkDrops = [];
-    
-    class InkDrop {
-      constructor(x, targetY) {
-        this.startX = x;
-        this.x = x;
-        // 从屏幕上方固定距离开始（这样尾迹长度固定）
-        this.y = Math.max(0, targetY - 150); // 在目标位置上方150px
-        this.targetY = targetY;
-        this.particles = [];
-        this.age = 0;
-        this.maxAge = 300; // 更长的生命周期
-        this.state = 'falling'; // falling -> impact -> spreading
-        this.fallSpeed = 1; // 更慢的初始速度
-        this.gravity = 0.3; // 更小的重力
-        
-        // 移动端检测，调整尺寸
-        const isMobile = width < 768;
-        const sizeScale = isMobile ? 0.5 : 1;
-        
-        // 创建初始粒子（晕染时使用）
-        const particleCount = isMobile ? 80 : 120;
-        for (let i = 0; i < particleCount; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const speed = Math.random() * 0.8 + 0.3; // 更慢的扩散速度
-          this.particles.push({
-            x: 0,
-            y: 0,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed,
-            size: (Math.random() * 8 + 3) * sizeScale,
-            opacity: Math.random() * 0.6 + 0.3
-          });
-        }
-      }
-      
-      update() {
-        this.age++;
-        
-        if (this.state === 'falling') {
-          // 滴落阶段
-          this.fallSpeed += this.gravity;
-          this.y += this.fallSpeed;
-          
-          // 接触到目标位置
-          if (this.y >= this.targetY) {
-            this.y = this.targetY;
-            this.state = 'impact';
-          }
-        } else if (this.state === 'impact') {
-          // 冲击瞬间
-          if (this.age < 10) {
-            // 短暂停留
-          } else {
-            this.state = 'spreading';
-          }
-        } else if (this.state === 'spreading') {
-          // 晕染扩散（更慢）
-          this.particles.forEach(p => {
-            p.x += p.vx;
-            p.y += p.vy;
-            p.vx *= 0.98; // 更大的摩擦力
-            p.vy *= 0.98;
-            p.size *= 1.008; // 更慢的扩散
-          });
-        }
-      }
-      
-      draw() {
-        if (this.state === 'falling') {
-          // 滴落的小墨点
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
-          ctx.fill();
-          
-          // 短小的拖尾
-          ctx.beginPath();
-          ctx.arc(this.x, this.y - 5, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
-          ctx.fill();
-        } else if (this.state === 'impact') {
-          // 冲击波
-          const impactSize = (this.age - 10) * 5;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, impactSize, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(0, 0, 0, ${0.5 - (this.age - 10) * 0.05})`;
-          ctx.fill();
-        } else if (this.state === 'spreading') {
-          // 晕染粒子
-          const spreadAge = this.age - 10;
-          const fadeRatio = spreadAge / this.maxAge;
-          
-          this.particles.forEach(p => {
-            const alpha = (1 - fadeRatio) * p.opacity;
-            const x = this.x + p.x;
-            const y = this.y + p.y;
-            
-            // 深黑到淡灰渐变
-            const grayValue = Math.floor(fadeRatio * 120);
-            
-            ctx.beginPath();
-            ctx.arc(x, y, p.size, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(${grayValue}, ${grayValue}, ${grayValue}, ${alpha})`;
-            ctx.fill();
-          });
-        }
-      }
-      
-      isDead() {
-        return this.age >= this.maxAge + 10;
-      }
-    }
-    
-    function resize() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    }
-    
-    function createInkDrop() {
-      // 随机水平位置
-      const x = width * (0.1 + Math.random() * 0.8);
-      // 目标高度（落到屏幕的中上部分）
-      const targetY = height * (0.2 + Math.random() * 0.5);
-      
-      inkDrops.push(new InkDrop(x, targetY));
-    }
-    
-    function animate() {
-      // 轻微拖尾效果
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.fillRect(0, 0, width, height);
-      
-      // 更新和绘制墨汁
-      for (let i = inkDrops.length - 1; i >= 0; i--) {
-        inkDrops[i].update();
-        inkDrops[i].draw();
-        
-        if (inkDrops[i].isDead()) {
-          inkDrops.splice(i, 1);
-        }
-      }
-      
-      requestAnimationFrame(animate);
-    }
-    
-    window.addEventListener('resize', resize);
-    resize();
-    
-    // 定期生成墨汁（18秒一次，更慢）
-    setInterval(createInkDrop, 18000);
-    createInkDrop(); // 立即创建一个
-    
-    // 5秒后再创建一个
-    setTimeout(createInkDrop, 5000);
-    
-    animate();
-  </script>
+  </div>
+
+  <main class="wrap">
+
+    <!-- ═══ Selected Work ═══ -->
+    <section id="work">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Selected Work</span></div>
+
+      <p class="aside">
+        Public descriptions focus on architectural patterns and operational
+        behavior, not on clients, locations, or proprietary metrics.
+      </p>
+
+      <div class="g1">
+        <div class="card">
+          <h3>Production Geospatial Intelligence Platforms</h3>
+          <p class="card__body" style="margin-bottom: 1rem;">
+            Large-scale platforms built to support continuous operation, repeatable
+            results, and controlled iteration under real-world constraints.
+          </p>
+          <ul class="fl">
+            <li>Ingest high-volume spatial data from heterogeneous sources</li>
+            <li>Normalize and align across coordinate systems and resolutions</li>
+            <li>Execute analytics and inference at scale</li>
+            <li>Verification and QC embedded in the execution path</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Multisensor Analysis & Decision Pipelines</h3>
+          <p class="card__body">
+            Combining RGB imagery, thermal and infrared signals, and derived
+            spatial features. Emphasis on extracting decision-relevant signals
+            and minimizing false positives where ground truth is incomplete.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Verification-Centric System Design</h3>
+          <ul class="fl">
+            <li>Surface spatial inconsistencies — alignment, scale, unit errors</li>
+            <li>Detect silent failure modes before downstream impact</li>
+            <li>Automated checks integrated with human-in-the-loop review</li>
+            <li>Verification artifacts treated as first-class outputs</li>
+          </ul>
+        </div>
+
+        <div class="g2">
+          <div class="card">
+            <h3>Data-Centric AI Loops</h3>
+            <ul class="fl">
+              <li>Continuously measured data quality</li>
+              <li>Structured annotation pipelines</li>
+              <li>Failure-driven retraining</li>
+              <li>Rollback as operational control</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Secure Multi-Tenant Delivery</h3>
+            <ul class="fl">
+              <li>Strict tenant isolation</li>
+              <li>Granular access control</li>
+              <li>Lifecycle & retention management</li>
+              <li>Audit-friendly access patterns</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Research ═══ -->
+    <section id="research">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Research & Production</span></div>
+
+      <p>
+        My peer-reviewed work addresses questions that recur in production:
+      </p>
+      <ul class="fl" style="margin-top: 1rem; margin-bottom: 1.75rem;">
+        <li>How spatial measurements behave under noise and scale</li>
+        <li>How resolution and alignment affect downstream inference</li>
+        <li>How to reason about uncertainty in derived spatial products</li>
+      </ul>
+      <p>
+        I have authored and co-authored publications in journals and conferences,
+        contributing methods and frameworks now embedded in production pipelines.
+      </p>
+      <div class="links" style="margin-top: 2rem;">
+        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
+           target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </section>
+
+    <!-- ═══ Writing ═══ -->
+    <section>
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Writing</span></div>
+      <p>
+        Technical notes on production AI systems, geospatial data failure modes,
+        and system-level decision-making under constraints. What holds, what fails,
+        and how to design systems that remain reliable as they evolve.
+      </p>
+    </section>
+
+    <!-- ═══ Contact ═══ -->
+    <section id="contact">
+      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Contact</span></div>
+      <ul class="contact">
+        <li><a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a></li>
+        <li><a href="mailto:sn1514826@gmail.com">sn1514826@gmail.com</a></li>
+      </ul>
+      <div class="links">
+        <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
+           target="_blank" rel="noopener">Google Scholar</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="footer__logo">NS</div>
+          <span class="footer__copy">Nan Shang, Ph.D.</span>
+        </div>
+        <span class="footer__copy">Chief Scientist & Founding Engineer</span>
+      </div>
+    </footer>
+  </main>
 </Base>
