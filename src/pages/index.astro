@@ -1,340 +1,281 @@
 ---
 import Base from "../layouts/Base.astro";
+
+const scholar = "https://scholar.google.com/";
+const github = "https://github.com/leibowivz";
+const orcid = "https://orcid.org/";
+const email = "nan.shang@droneinstitute.ai";
+const qq = "404725819@qq.com";
+
+const education = [
+  {
+    when: "2016 – 2022",
+    degree: "地理学 博士 · Ph.D. in Geography",
+    org: "路易斯安那州立大学 · Louisiana State University (LSU)",
+    detail: "导师 Dr. Xuelian Meng。博士论文：基于多源遥感的密西西比河三角洲湿地监测。",
+    detailEn:
+      "Advisor: Dr. Xuelian Meng. Dissertation: Multi-source remote sensing for wetland monitoring of the Mississippi River Delta.",
+  },
+  {
+    when: "2011 – 2014",
+    degree: "地图学与地理信息系统 硕士 · M.S. in Cartography & GIS",
+    org: "中国科学院大学 · University of Chinese Academy of Sciences",
+    detail: "参与中华文明探源工程，开展黄河流域遗址预测建模。",
+    detailEn:
+      "Contributed to the Chinese Civilization Origins Project; predictive modeling of archaeological sites in the Yellow River basin.",
+  },
+  {
+    when: "2007 – 2011",
+    degree: "遥感科学与技术 学士 · B.S. in Remote Sensing Science & Technology",
+    org: "武汉大学 · Wuhan University",
+    detail: "遥感学科国内排名第一。",
+    detailEn: "Top-ranked remote sensing program in China.",
+  },
+];
+
+const experience = [
+  {
+    when: "2024.05 – 2026.06",
+    role: "首席科学家 · Chief Scientist",
+    org: "Drone Institute, LLC（美国）",
+    detail:
+      "从零搭建技术体系；交付 353+ 项目覆盖 28 州；构建 AI 检测系统；美国专利与 PCT 第一发明人。",
+    detailEn:
+      "Built the technical stack from the ground up; delivered 353+ projects across 28 states; developed AI detection systems; first inventor on US patent + PCT filings.",
+  },
+  {
+    when: "2023 – 2024",
+    role: "研究员 · Research Associate",
+    org: "Louisiana State University · USDA 合作项目",
+    detail: "USDA 资助的遥感与农业地理空间研究。",
+    detailEn: "USDA-funded research in remote sensing and agricultural geospatial analysis.",
+  },
+  {
+    when: "2018 – 2022",
+    role: "研究助理 · Research Assistant",
+    org: "Louisiana State University",
+    detail: "无人机 / LiDAR 地形测绘与三维建模。",
+    detailEn: "UAV / LiDAR terrain mapping and 3D modeling.",
+  },
+  {
+    when: "2015 – 2018",
+    role: "助教 · Teaching Assistant",
+    org: "Louisiana State University",
+    detail: "讲授环境遥感、地理信息系统等课程。",
+    detailEn: "Environmental Remote Sensing and GIS courses.",
+  },
+];
+
+const capabilities = [
+  {
+    num: "一",
+    title: "多源遥感融合",
+    en: "Multi-source Remote Sensing",
+    items: [
+      "Landsat + WorldView + UAV 多尺度配准",
+      "热红外 + LiDAR 多模态融合",
+      "时空数据分析与变化检测",
+    ],
+  },
+  {
+    num: "二",
+    title: "深度学习",
+    en: "Deep Learning",
+    items: [
+      "YOLOv8 目标检测（mAP 85%+）",
+      "5 万+ 样本标注体系",
+      "语义分割与地物分类",
+    ],
+  },
+  {
+    num: "三",
+    title: "系统工程",
+    en: "Systems Engineering",
+    items: [
+      "端到端自动化流水线",
+      "353 项目跨地域交付",
+      "Python / GEE / QGIS 全栈",
+    ],
+  },
+];
 ---
 
 <Base>
-  <!-- ═══ Nav ═══ -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <a class="nav__brand" href="#">
-        <div class="nav__logo">NS</div>
-        <span class="nav__name">Nan Shang</span>
-      </a>
-      <div class="nav__links">
-        <a class="nav__link" href="#overview">Overview</a>
-        <a class="nav__link" href="#approach">Approach</a>
-        <a class="nav__link" href="#systems">Systems</a>
-        <a class="nav__link" href="#work">Work</a>
-        <a class="nav__link" href="#research">Research</a>
-        <a class="nav__link" href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- ═══ Hero with Aurora ═══ -->
-  <div class="hero-wrap dotgrid">
-    <div class="wrap">
-      <header class="hero">
-        <div class="hero__kicker">
-          <span class="hero__kicker-dot"></span>
-          Chief Scientist & Founding Engineer
-        </div>
-
-        <h1 class="hero__h1">I build systems that last.</h1>
-
-        <p class="hero__desc">
-          Where data meets uncertainty, and where the real test is not
-          performance in isolation — but behavior over time.
-        </p>
-
-        <div class="hero__meta">
-          <span class="hero__meta-name">Nan Shang, Ph.D.</span>
-          <span class="hero__meta-role">Chief Scientist & Founding Engineer</span>
-          <span class="hero__meta-org">Drone Institute</span>
-        </div>
-
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#overview">Read more</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-             target="_blank" rel="noopener">Scholar</a>
-          <a class="btn" href="https://github.com/leibowivz"
-             target="_blank" rel="noopener">GitHub</a>
-          <a class="btn" href="mailto:nan.shang@droneinstitute.ai">Contact</a>
-        </div>
-      </header>
-    </div>
-
-    <!-- Aurora light ribbons -->
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora__ribbon aurora__r1"></div>
-      <div class="aurora__ribbon aurora__r2"></div>
-      <div class="aurora__ribbon aurora__r3"></div>
-      <div class="aurora__line aurora__l1"></div>
-      <div class="aurora__line aurora__l2"></div>
-      <div class="aurora__line aurora__l3"></div>
-    </div>
-  </div>
-
   <main class="wrap">
+    <!-- ========== 封面 ========== -->
+    <header class="hero fade">
+      <div class="seal" aria-hidden="true">尚南</div>
 
-    <!-- ═══ Overview ═══ -->
-    <section id="overview">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Overview</span></div>
+      <h1>
+        <span class="name-cn">尚南</span>
+        <span class="name-en">Nan Shang, Ph.D.</span>
+      </h1>
 
-      <p class="pull">
-        I design and operate production-grade geospatial and AI systems.
+      <p class="tagline cn">遥感 · 地理空间 AI · 系统工程</p>
+      <p class="tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
+
+      <p class="subtitle">
+        路易斯安那州立大学地理学博士 · 前 Drone Institute 首席科学家<br />
+        Ph.D. in Geography, LSU · Former Chief Scientist, Drone Institute
       </p>
-      <p>
-        My work sits at the intersection of remote sensing research, geospatial
-        analytics, and system architecture. I build systems that take spatial
-        data — often noisy, incomplete, and operationally constrained — and turn
-        it into outputs that can be trusted in real decision-making contexts.
-      </p>
-      <p style="margin-top: 1.25rem;">
-        What matters is not isolated model performance, but how a system behaves
-        end to end: how data enters, how assumptions propagate, how errors surface,
-        and how the system evolves under continuous use.
-      </p>
-    </section>
 
-    <!-- ═══ Role ═══ -->
-    <section>
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">My Role</span></div>
+      <div class="btn-row">
+        <a class="btn primary" href="#experience">English Bio</a>
+        <a class="btn" href="#education">中文简介</a>
+        <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </header>
 
-      <p style="margin-bottom: 1.5rem;">
-        As a founding engineer, I designed the core architectures from first
-        principles. As chief scientist, I ensure that deployed systems remain
-        scientifically grounded as they scale and face real operational pressure.
-      </p>
-      <ul class="fl">
-        <li>Define system-level evaluation criteria beyond accuracy alone</li>
-        <li>Architect end-to-end geospatial and AI pipelines</li>
-        <li>Translate research methods into deployable, auditable systems</li>
-        <li>Own trade-offs across accuracy, latency, cost, and reliability</li>
-      </ul>
-    </section>
+    <hr class="divider" />
 
-    <!-- ═══ Approach ═══ -->
-    <section id="approach">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">How I Build Systems</span></div>
+    <!-- ========== 教育经历 ========== -->
+    <section id="education">
+      <p class="eyebrow">Education</p>
+      <h2 class="section-title">教育经历 <span class="sub">Academic Background</span></h2>
 
-      <div class="g2">
-        <div class="card">
-          <div class="card__num">01</div>
-          <div class="card__title">Production is the benchmark</div>
-          <p class="card__body">
-            A system is only meaningful if it continues to behave correctly after
-            deployment. I design systems to fail visibly, support iteration without
-            destabilization, and remain interpretable to operators.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card__num">02</div>
-          <div class="card__title">Constraints shape architecture</div>
-          <p class="card__body">
-            Latency, throughput, cost envelopes, and operational friction are
-            architectural facts. I make trade-offs explicit so systems can be
-            reasoned about and maintained over time.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card__num">03</div>
-          <div class="card__title">Deployment reveals assumptions</div>
-          <p class="card__body">
-            Research does not end at deployment. I design feedback loops that
-            surface failure modes, quantify drift, and allow systems to improve
-            without eroding trust or stability.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card__num">04</div>
-          <div class="card__title">Data quality compounds</div>
-          <p class="card__body">
-            Long-term advantage comes from disciplined data practices. I build
-            pipelines where ingestion, annotation, quality control, monitoring,
-            retraining, and rollback reinforce one another.
-          </p>
-        </div>
+      <div class="timeline">
+        {education.map((e) => (
+          <div class="entry">
+            <span class="when">{e.when}</span>
+            <h3>{e.degree}</h3>
+            <div class="org">{e.org}</div>
+            <p class="detail cn">{e.detail}</p>
+            <p class="detail-en">{e.detailEn}</p>
+          </div>
+        ))}
       </div>
     </section>
 
-    <!-- ═══ Systems ═══ -->
-    <section id="systems">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Systems I Build</span></div>
+    <hr class="divider" />
 
-      <div class="g2">
-        <div class="sys sys--pipe">
-          <div class="sys__status"><span class="sys__dot"></span>Pipeline</div>
-          <div class="sys__title">End-to-End Geospatial</div>
-          <p class="sys__body">
-            Full lifecycle — ingestion, normalization, processing, verification,
-            reporting, delivery. Repeatable, auditable, resilient under scale.
-          </p>
-        </div>
-        <div class="sys sys--sense">
-          <div class="sys__status"><span class="sys__dot"></span>Sensing</div>
-          <div class="sys__title">Multimodal Remote Sensing</div>
-          <p class="sys__body">
-            RGB imagery, thermal and infrared data, derived spatial layers.
-            Extracting actionable signals while controlling uncertainty.
-          </p>
-        </div>
-        <div class="sys sys--qc">
-          <div class="sys__status"><span class="sys__dot"></span>Quality</div>
-          <div class="sys__title">Verification & QC</div>
-          <p class="sys__body">
-            Automated and human-in-the-loop layers that surface projection
-            errors, alignment drift, and metadata assumptions.
-          </p>
-        </div>
-        <div class="sys sys--ship">
-          <div class="sys__status"><span class="sys__dot"></span>Delivery</div>
-          <div class="sys__title">Secure Data Delivery</div>
-          <p class="sys__body">
-            Multi-tenant access control, lifecycle management, permission
-            boundaries, and audit-friendly access patterns.
-          </p>
-        </div>
+    <!-- ========== 职业经历 ========== -->
+    <section id="experience">
+      <p class="eyebrow">Experience</p>
+      <h2 class="section-title">职业经历 <span class="sub">Professional Experience</span></h2>
+
+      <div class="timeline">
+        {experience.map((e) => (
+          <div class="entry">
+            <span class="when">{e.when}</span>
+            <h3>{e.role}</h3>
+            <div class="org">{e.org}</div>
+            <p class="detail cn">{e.detail}</p>
+            <p class="detail-en">{e.detailEn}</p>
+          </div>
+        ))}
       </div>
     </section>
-  </main>
 
-  <!-- ═══ Spectral Strip ═══ -->
-  <div class="strip">
-    <div class="wrap">
-      <div class="strip__inner">
-        <div class="strip__band"></div>
-        <div class="strip__label">Research Background</div>
-        <div class="strip__title">Remote Sensing &<br/>Geospatial Information</div>
-        <p class="strip__body">
-          My research directly informs the systems I build. These insights shape
-          practical decisions — data preprocessing, model selection, validation
-          strategies, and quality control thresholds.
-        </p>
-        <ul class="tags">
-          <li>GIS & Spatial Analytics</li>
-          <li>LiDAR & Point Clouds</li>
-          <li>Remote Sensing</li>
-          <li>Geospatial AI</li>
-          <li>Production ML</li>
-          <li>Earth Observation</li>
-        </ul>
+    <hr class="divider" />
+
+    <!-- ========== 核心能力 ========== -->
+    <section id="capabilities">
+      <p class="eyebrow">Core Competencies</p>
+      <h2 class="section-title">核心能力 <span class="sub">Core Competencies</span></h2>
+
+      <div class="cards">
+        {capabilities.map((c) => (
+          <div class="card">
+            <span class="num" aria-hidden="true">{c.num}</span>
+            <h3>{c.title}</h3>
+            <div class="h-en">{c.en}</div>
+            <ul>
+              {c.items.map((it) => <li>{it}</li>)}
+            </ul>
+          </div>
+        ))}
       </div>
-    </div>
-  </div>
+    </section>
 
-  <main class="wrap">
+    <hr class="divider" />
 
-    <!-- ═══ Selected Work ═══ -->
-    <section id="work">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Selected Work</span></div>
+    <!-- ========== 代表成果 ========== -->
+    <section id="achievements">
+      <p class="eyebrow">Selected Achievements</p>
+      <h2 class="section-title">代表成果 <span class="sub">Selected Achievements</span></h2>
 
-      <p class="aside">
-        Public descriptions focus on architectural patterns and operational
-        behavior, not on clients, locations, or proprietary metrics.
-      </p>
-
-      <div class="g1">
-        <div class="card">
-          <h3>Production Geospatial Intelligence Platforms</h3>
-          <p class="card__body" style="margin-bottom: 1rem;">
-            Large-scale platforms built to support continuous operation, repeatable
-            results, and controlled iteration under real-world constraints.
-          </p>
-          <ul class="fl">
-            <li>Ingest high-volume spatial data from heterogeneous sources</li>
-            <li>Normalize and align across coordinate systems and resolutions</li>
-            <li>Execute analytics and inference at scale</li>
-            <li>Verification and QC embedded in the execution path</li>
+      <div class="achieve">
+        <div class="block">
+          <h3>论文 <span class="sub">Publications</span></h3>
+          <ul>
+            <li><span class="tag">Q1</span><em>Remote Sensing</em> — 被引 76 次 / 76 citations</li>
+            <li><span class="tag">Q2</span><em>ISPRS Int. J. Geo-Information</em> — 被引 11 次</li>
+            <li><span class="tag">核心</span>《测绘科学》中文核心期刊 / CSCD core journal</li>
+            <li><span class="tag">PNAS</span>参与合作论文 / Contributing author</li>
           </ul>
         </div>
 
-        <div class="card">
-          <h3>Multisensor Analysis & Decision Pipelines</h3>
-          <p class="card__body">
-            Combining RGB imagery, thermal and infrared signals, and derived
-            spatial features. Emphasis on extracting decision-relevant signals
-            and minimizing false positives where ground truth is incomplete.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Verification-Centric System Design</h3>
-          <ul class="fl">
-            <li>Surface spatial inconsistencies — alignment, scale, unit errors</li>
-            <li>Detect silent failure modes before downstream impact</li>
-            <li>Automated checks integrated with human-in-the-loop review</li>
-            <li>Verification artifacts treated as first-class outputs</li>
+        <div class="block">
+          <h3>专利 <span class="sub">Patents</span></h3>
+          <ul>
+            <li><span class="tag">US</span>US 19/402,948 非临时申请 — 第一发明人 / First inventor</li>
+            <li><span class="tag">PCT</span>PCT/US2025/057386 国际申请 — 第一发明人 / First inventor</li>
           </ul>
         </div>
 
-        <div class="g2">
-          <div class="card">
-            <h3>Data-Centric AI Loops</h3>
-            <ul class="fl">
-              <li>Continuously measured data quality</li>
-              <li>Structured annotation pipelines</li>
-              <li>Failure-driven retraining</li>
-              <li>Rollback as operational control</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Secure Multi-Tenant Delivery</h3>
-            <ul class="fl">
-              <li>Strict tenant isolation</li>
-              <li>Granular access control</li>
-              <li>Lifecycle & retention management</li>
-              <li>Audit-friendly access patterns</li>
-            </ul>
-          </div>
+        <div class="block">
+          <h3>工程项目 <span class="sub">Engineering Projects</span></h3>
+          <ul>
+            <li>353+ 商业项目，覆盖美国 28 州 + 中国 3 省 / 353+ commercial projects across 28 US states + 3 Chinese provinces</li>
+            <li>AI 检测系统设计、部署与规模化运行 / Design, deployment and scaling of AI detection systems</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ═══ Research ═══ -->
-    <section id="research">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Research & Production</span></div>
+    <hr class="divider" />
 
-      <p>
-        My peer-reviewed work addresses questions that recur in production:
-      </p>
-      <ul class="fl" style="margin-top: 1rem; margin-bottom: 1.75rem;">
-        <li>How spatial measurements behave under noise and scale</li>
-        <li>How resolution and alignment affect downstream inference</li>
-        <li>How to reason about uncertainty in derived spatial products</li>
-      </ul>
-      <p>
-        I have authored and co-authored publications in journals and conferences,
-        contributing methods and frameworks now embedded in production pipelines.
-      </p>
-      <div class="links" style="margin-top: 2rem;">
-        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-           target="_blank" rel="noopener">Google Scholar</a>
+    <!-- ========== 现在状态 ========== -->
+    <section id="now">
+      <p class="eyebrow">Current Status</p>
+      <h2 class="section-title">现在状态 <span class="sub">Where I Am Now</span></h2>
+
+      <div class="status-box">
+        <p class="bi">
+          <span class="cn">2026 年 6 月底回国，正在与崂山实验室、浙交投等机构接洽合作。</span>
+          <span class="en">Returning to China in late June 2026; in discussions with Laoshan Laboratory, Zhejiang Communications Investment Group and other institutions.</span>
+        </p>
+        <p class="bi">
+          <span class="cn">研究方向：多源数据融合 · 深度学习检测 · 时空网格计算 · 工程化系统。</span>
+          <span class="en">Research focus: multi-source data fusion · deep-learning detection · spatio-temporal grid computing · production-grade systems.</span>
+        </p>
       </div>
     </section>
 
-    <!-- ═══ Writing ═══ -->
-    <section>
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Writing</span></div>
-      <p>
-        Technical notes on production AI systems, geospatial data failure modes,
-        and system-level decision-making under constraints. What holds, what fails,
-        and how to design systems that remain reliable as they evolve.
-      </p>
-    </section>
+    <hr class="divider" />
 
-    <!-- ═══ Contact ═══ -->
+    <!-- ========== 联系方式 ========== -->
     <section id="contact">
-      <div class="sh"><div class="sh__bar"></div><span class="sh__text">Contact</span></div>
-      <ul class="contact">
-        <li><a href="mailto:nan.shang@droneinstitute.ai">nan.shang@droneinstitute.ai</a></li>
-        <li><a href="mailto:sn1514826@gmail.com">sn1514826@gmail.com</a></li>
-      </ul>
-      <div class="links">
-        <a href="https://github.com/leibowivz" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://scholar.google.com/citations?user=TcDAyj0AAAAJ&hl=en"
-           target="_blank" rel="noopener">Google Scholar</a>
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">联系方式 <span class="sub">Get in Touch</span></h2>
+
+      <div class="contact-grid">
+        <div class="item">
+          <span class="label">Email</span>
+          <a href={`mailto:${email}`}>{email}</a>
+        </div>
+        <div class="item">
+          <span class="label">QQ</span>
+          <a href={`mailto:${qq}`}>{qq}</a>
+        </div>
+        <div class="item">
+          <span class="label">Google Scholar</span>
+          <a href={scholar} target="_blank" rel="noopener">scholar.google.com</a>
+        </div>
+        <div class="item">
+          <span class="label">GitHub</span>
+          <a href={github} target="_blank" rel="noopener">github.com/leibowivz</a>
+        </div>
+        <div class="item">
+          <span class="label">ORCID</span>
+          <a href={orcid} target="_blank" rel="noopener">orcid.org</a>
+        </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="footer__inner">
-        <div class="footer__left">
-          <div class="footer__logo">NS</div>
-          <span class="footer__copy">Nan Shang, Ph.D.</span>
-        </div>
-        <span class="footer__copy">Chief Scientist & Founding Engineer</span>
-      </div>
+    <footer>
+      <div class="seal-mini" aria-hidden="true">尚南</div>
+      <p>© 2026 尚南 Nan Shang, Ph.D. · 遥感 · 地理空间 AI · 系统工程</p>
     </footer>
   </main>
 </Base>
