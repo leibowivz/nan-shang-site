@@ -9,19 +9,19 @@
    VARIABLES
    ============================================================ */
 :root {
-  --ink-900:   #1a1814;
-  --ink-800:   #2b2620;
-  --ink-700:   #3d362c;
-  --ink-600:   #554d40;
-  --ink-400:   #8a7f6e;
-  --ink-300:   #b3a894;
-  --paper:     #f4efe4;
-  --paper-2:   #ece4d3;
-  --paper-3:   #e3d8c2;
-  --cinnabar:  #9e2b25;
-  --cinnabar-2:#b8403a;
-  --seal:      #c0392b;
-  --gold:      #b08d4f;
+  --ink-900:   #1a1a1c;
+  --ink-800:   #2b2b2e;
+  --ink-700:   #3d3d42;
+  --ink-600:   #5a5a60;
+  --ink-400:   #94949a;
+  --ink-300:   #b8b8be;
+  --paper:     #f5f3ef;
+  --paper-2:   #edebe5;
+  --paper-3:   #e4e1da;
+  --cinnabar:  #8b1a1a;
+  --cinnabar-2:#a32222;
+  --seal:      #8b1a1a;
+  --gold:      #9e8a5e;
   --line:      rgba(40,34,26,0.14);
 
   --font-kai:   'Ma Shan Zheng', 'Noto Serif SC', serif;
@@ -174,6 +174,8 @@ section { padding: clamp(1.4rem, 3.5vw, 2.6rem) 0; }
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   padding: 2rem 0 1.5rem;
   position: relative;
 }
