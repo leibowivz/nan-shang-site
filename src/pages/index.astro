@@ -1,9 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const scholar = "https://scholar.google.com/";
+const scholar = "https://scholar.google.com/citations?user=TcDAyj0AAAAJ";
 const github = "https://github.com/leibowivz";
-const orcid = "https://orcid.org/";
+const orcid = "https://orcid.org/0009-0003-1202-9900";
 const email = "nan.shang@droneinstitute.ai";
 const qq = "404725819@qq.com";
 
@@ -11,22 +11,20 @@ const education = [
   {
     when: "2016 – 2022",
     degree: "地理学 博士 · Ph.D. in Geography",
-    org: "路易斯安那州立大学 · Louisiana State University (LSU)",
-    detail: "导师 Dr. Xuelian Meng。博士论文：基于多源遥感的密西西比河三角洲湿地监测。",
-    detailEn:
-      "Advisor: Dr. Xuelian Meng. Dissertation: Multi-source remote sensing for wetland monitoring of the Mississippi River Delta.",
+    org: "路易斯安那州立大学 · Louisiana State University",
+    detail: "导师 Dr. Xuelian Meng。多源遥感湿地监测。",
+    detailEn: "Advisor: Dr. Xuelian Meng. Multi-source remote sensing for coastal wetland monitoring.",
   },
   {
     when: "2011 – 2014",
-    degree: "地图学与地理信息系统 硕士 · M.S. in Cartography & GIS",
+    degree: "地图学与 GIS 硕士 · M.S. in Cartography & GIS",
     org: "中国科学院大学 · University of Chinese Academy of Sciences",
-    detail: "参与中华文明探源工程，开展黄河流域遗址预测建模。",
-    detailEn:
-      "Contributed to the Chinese Civilization Origins Project; predictive modeling of archaeological sites in the Yellow River basin.",
+    detail: "中华文明探源工程，遗址预测建模。",
+    detailEn: "Chinese Civilization Origins Project — archaeological site prediction modeling.",
   },
   {
     when: "2007 – 2011",
-    degree: "遥感科学与技术 学士 · B.S. in Remote Sensing Science & Technology",
+    degree: "遥感科学与技术 学士 · B.S. in Remote Sensing",
     org: "武汉大学 · Wuhan University",
     detail: "遥感学科国内排名第一。",
     detailEn: "Top-ranked remote sensing program in China.",
@@ -35,34 +33,32 @@ const education = [
 
 const experience = [
   {
-    when: "2024.05 – 2026.06",
+    when: "2024 – 2026",
     role: "首席科学家 · Chief Scientist",
-    org: "Drone Institute, LLC（美国）",
-    detail:
-      "从零搭建技术体系；交付 353+ 项目覆盖 28 州；构建 AI 检测系统；美国专利与 PCT 第一发明人。",
-    detailEn:
-      "Built the technical stack from the ground up; delivered 353+ projects across 28 states; developed AI detection systems; first inventor on US patent + PCT filings.",
+    org: "Drone Institute, LLC",
+    detail: "从零构建技术体系，交付 353+ 项目横跨 28 州，主导 AI 检测系统。美国专利与 PCT 第一发明人。",
+    detailEn: "Built technical stack from scratch; 353+ projects across 28 states; led AI detection systems. First inventor — US patent + PCT.",
   },
   {
     when: "2023 – 2024",
     role: "研究员 · Research Associate",
-    org: "Louisiana State University · USDA 合作项目",
-    detail: "USDA 资助的遥感与农业地理空间研究。",
-    detailEn: "USDA-funded research in remote sensing and agricultural geospatial analysis.",
+    org: "Louisiana State University",
+    detail: "USDA $160 万海岸湿地遥感监测项目。",
+    detailEn: "USDA-funded coastal wetland remote sensing ($1.6M).",
   },
   {
     when: "2018 – 2022",
     role: "研究助理 · Research Assistant",
     org: "Louisiana State University",
-    detail: "无人机 / LiDAR 地形测绘与三维建模。",
-    detailEn: "UAV / LiDAR terrain mapping and 3D modeling.",
+    detail: "无人机 / LiDAR 地形测绘、三维重建。",
+    detailEn: "UAV / LiDAR terrain mapping and 3D reconstruction.",
   },
   {
     when: "2015 – 2018",
     role: "助教 · Teaching Assistant",
     org: "Louisiana State University",
-    detail: "讲授环境遥感、地理信息系统等课程。",
-    detailEn: "Environmental Remote Sensing and GIS courses.",
+    detail: "环境遥感、地理信息系统。",
+    detailEn: "Environmental Remote Sensing, GIS.",
   },
 ];
 
@@ -70,11 +66,11 @@ const capabilities = [
   {
     num: "一",
     title: "多源遥感融合",
-    en: "Multi-source Remote Sensing",
+    en: "Multi-source Fusion",
     items: [
       "Landsat + WorldView + UAV 多尺度配准",
-      "热红外 + LiDAR 多模态融合",
-      "时空数据分析与变化检测",
+      "热红外 + LiDAR 多模态",
+      "时空变化检测",
     ],
   },
   {
@@ -82,9 +78,9 @@ const capabilities = [
     title: "深度学习",
     en: "Deep Learning",
     items: [
-      "YOLOv8 目标检测（mAP 85%+）",
-      "5 万+ 样本标注体系",
-      "语义分割与地物分类",
+      "YOLOv8 目标检测 · mAP 85%+",
+      "五万+ 样本标注体系",
+      "语义分割 · 地物分类",
     ],
   },
   {
@@ -94,7 +90,7 @@ const capabilities = [
     items: [
       "端到端自动化流水线",
       "353 项目跨地域交付",
-      "Python / GEE / QGIS 全栈",
+      "Python · GEE · QGIS 全栈",
     ],
   },
 ];
@@ -115,13 +111,12 @@ const capabilities = [
       <p class="tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
 
       <p class="subtitle">
-        路易斯安那州立大学地理学博士 · 前 Drone Institute 首席科学家<br />
-        Ph.D. in Geography, LSU · Former Chief Scientist, Drone Institute
+        LSU 地理学博士 · 前 Drone Institute 首席科学家
       </p>
 
       <div class="btn-row">
-        <a class="btn primary" href="#experience">English Bio</a>
-        <a class="btn" href="#education">中文简介</a>
+        <a class="btn primary" href="#experience">经历 Experience</a>
+        <a class="btn" href="#achievements">成果 Work</a>
         <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
       </div>
     </header>
@@ -191,54 +186,61 @@ const capabilities = [
 
     <!-- ========== 代表成果 ========== -->
     <section id="achievements">
-      <p class="eyebrow">Selected Achievements</p>
-      <h2 class="section-title">代表成果 <span class="sub">Selected Achievements</span></h2>
+      <p class="eyebrow">Selected Work</p>
+      <h2 class="section-title">代表成果 <span class="sub">Selected Work</span></h2>
 
       <div class="achieve">
         <div class="block">
           <h3>论文 <span class="sub">Publications</span></h3>
           <ul>
-            <li><span class="tag">Q1</span><em>Remote Sensing</em> — 被引 76 次 / 76 citations</li>
-            <li><span class="tag">Q2</span><em>ISPRS Int. J. Geo-Information</em> — 被引 11 次</li>
-            <li><span class="tag">核心</span>《测绘科学》中文核心期刊 / CSCD core journal</li>
-            <li><span class="tag">PNAS</span>参与合作论文 / Contributing author</li>
+            <li>
+              <span class="tag">Q1</span>
+              Meng X, <strong>Shang N</strong>, et al.
+              "Photogrammetric UAV Mapping of Terrain under Dense Coastal Vegetation."
+              <em>Remote Sensing</em>, 9(11), 1187, 2017.
+              — 76 citations
+            </li>
+            <li>
+              <span class="tag">Q2</span>
+              Zhang X, Meng X, Li C, <strong>Shang N</strong>, et al.
+              "Micro-topography Mapping through Terrestrial LiDAR in Densely Vegetated Coastal Environments."
+              <em>ISPRS Int. J. Geo-Inf.</em>, 10(10), 665, 2021.
+              — 11 citations
+            </li>
+            <li>
+              <span class="tag">CSCD</span>
+              <strong>尚南</strong>（第一作者）。
+              《测绘科学》，中文核心期刊 / CSCD 核心。
+            </li>
+            <li>
+              <span class="tag">PNAS</span>
+              参与合作。
+            </li>
           </ul>
         </div>
 
         <div class="block">
           <h3>专利 <span class="sub">Patents</span></h3>
           <ul>
-            <li><span class="tag">US</span>US 19/402,948 非临时申请 — 第一发明人 / First inventor</li>
-            <li><span class="tag">PCT</span>PCT/US2025/057386 国际申请 — 第一发明人 / First inventor</li>
+            <li>
+              <span class="tag">US</span>
+              US 19/402,948 — 第一发明人
+            </li>
+            <li>
+              <span class="tag">PCT</span>
+              PCT/US2025/057386 — 第一发明人
+            </li>
           </ul>
         </div>
 
         <div class="block">
-          <h3>工程项目 <span class="sub">Engineering Projects</span></h3>
+          <h3>工程 <span class="sub">Engineering</span></h3>
           <ul>
-            <li>353+ 商业项目，覆盖美国 28 州 + 中国 3 省 / 353+ commercial projects across 28 US states + 3 Chinese provinces</li>
-            <li>AI 检测系统设计、部署与规模化运行 / Design, deployment and scaling of AI detection systems</li>
+            <li>353+ 商业项目，覆盖美国 28 州、中国 3 省</li>
+            <li>AI 检测系统：设计、部署、规模化运行</li>
+            <li>USDA $160 万湿地遥感系统</li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <hr class="divider" />
-
-    <!-- ========== 现在状态 ========== -->
-    <section id="now">
-      <p class="eyebrow">Current Status</p>
-      <h2 class="section-title">现在状态 <span class="sub">Where I Am Now</span></h2>
-
-      <div class="status-box">
-        <p class="bi">
-          <span class="cn">2026 年 6 月底回国，正在与崂山实验室、浙交投等机构接洽合作。</span>
-          <span class="en">Returning to China in late June 2026; in discussions with Laoshan Laboratory, Zhejiang Communications Investment Group and other institutions.</span>
-        </p>
-        <p class="bi">
-          <span class="cn">研究方向：多源数据融合 · 深度学习检测 · 时空网格计算 · 工程化系统。</span>
-          <span class="en">Research focus: multi-source data fusion · deep-learning detection · spatio-temporal grid computing · production-grade systems.</span>
-        </p>
       </div>
     </section>
 
@@ -256,26 +258,26 @@ const capabilities = [
         </div>
         <div class="item">
           <span class="label">QQ</span>
-          <a href={`mailto:${qq}`}>{qq}</a>
+          <span>{qq}</span>
         </div>
         <div class="item">
           <span class="label">Google Scholar</span>
-          <a href={scholar} target="_blank" rel="noopener">scholar.google.com</a>
+          <a href={scholar} target="_blank" rel="noopener">TcDAyj0AAAAJ</a>
         </div>
         <div class="item">
           <span class="label">GitHub</span>
-          <a href={github} target="_blank" rel="noopener">github.com/leibowivz</a>
+          <a href={github} target="_blank" rel="noopener">leibowivz</a>
         </div>
         <div class="item">
           <span class="label">ORCID</span>
-          <a href={orcid} target="_blank" rel="noopener">orcid.org</a>
+          <a href={orcid} target="_blank" rel="noopener">0009-0003-1202-9900</a>
         </div>
       </div>
     </section>
 
     <footer>
       <div class="seal-mini" aria-hidden="true">尚南</div>
-      <p>© 2026 尚南 Nan Shang, Ph.D. · 遥感 · 地理空间 AI · 系统工程</p>
+      <p>© 2026 尚南 Nan Shang · 遥感 · 地理空间 AI · 系统工程</p>
     </footer>
   </main>
 </Base>
