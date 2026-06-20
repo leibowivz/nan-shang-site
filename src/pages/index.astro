@@ -1,180 +1,112 @@
 ---
 import Base from "../layouts/Base.astro";
 
-const scholar = "https://scholar.google.com/citations?user=TcDAyj0AAAAJ";
-const github = "https://github.com/leibowivz";
-const orcid = "https://orcid.org/0009-0003-1202-9900";
-const email = "nan.shang@droneinstitute.ai";
-const qq = "404725819@qq.com";
+const scholar  = "https://scholar.google.com/citations?user=TcDAyj0AAAAJ";
+const github  = "https://github.com/leibowivz";
+const orcid   = "https://orcid.org/0009-0003-1202-9900";
+const email   = "nan.shang@droneinstitute.ai";
 
 const education = [
-  {
-    when: "2016 – 2022",
-    degree: "地理学 博士 · Ph.D. in Geography",
-    org: "路易斯安那州立大学 · Louisiana State University",
-    detail: "导师 Dr. Xuelian Meng。多源遥感湿地监测。",
-    detailEn: "Advisor: Dr. Xuelian Meng. Multi-source remote sensing for coastal wetland monitoring.",
-  },
-  {
-    when: "2011 – 2014",
-    degree: "地图学与 GIS 硕士 · M.S. in Cartography & GIS",
-    org: "中国科学院大学 · University of Chinese Academy of Sciences",
-    detail: "中华文明探源工程，遗址预测建模。",
-    detailEn: "Chinese Civilization Origins Project — archaeological site prediction modeling.",
-  },
-  {
-    when: "2007 – 2011",
-    degree: "遥感科学与技术 学士 · B.S. in Remote Sensing",
-    org: "武汉大学 · Wuhan University",
-    detail: "遥感学科国内排名第一。",
-    detailEn: "Top-ranked remote sensing program in China.",
-  },
+  { when: "2016 – 2022", title: "地理学 博士 · Ph.D. in Geography", org: "路易斯安那州立大学 · Louisiana State University", desc: "导师 Dr. Xuelian Meng。多源遥感湿地监测。", descEn: "Advisor: Dr. Xuelian Meng. Multi-source remote sensing for coastal wetland monitoring." },
+  { when: "2011 – 2014", title: "地图学与 GIS 硕士 · M.S. in Cartography & GIS", org: "中国科学院大学 · University of Chinese Academy of Sciences", desc: "中华文明探源工程，遗址预测建模。", descEn: "Chinese Civilization Origins Project — archaeological site prediction modeling." },
+  { when: "2007 – 2011", title: "遥感科学与技术 学士 · B.S. in Remote Sensing", org: "武汉大学 · Wuhan University", desc: "遥感学科国内排名第一。", descEn: "Top-ranked remote sensing program in China." },
 ];
 
 const experience = [
-  {
-    when: "2024 – 2026",
-    role: "首席科学家 · Chief Scientist",
-    org: "Drone Institute, LLC",
-    detail: "从零构建技术体系，交付 353+ 项目横跨 28 州，主导 AI 检测系统。美国专利与 PCT 第一发明人。",
-    detailEn: "Built technical stack from scratch; 353+ projects across 28 states; led AI detection systems. First inventor — US patent + PCT.",
-  },
-  {
-    when: "2023 – 2024",
-    role: "研究员 · Research Associate",
-    org: "Louisiana State University",
-    detail: "USDA $160 万海岸湿地遥感监测项目。",
-    detailEn: "USDA-funded coastal wetland remote sensing ($1.6M).",
-  },
-  {
-    when: "2018 – 2022",
-    role: "研究助理 · Research Assistant",
-    org: "Louisiana State University",
-    detail: "无人机 / LiDAR 地形测绘、三维重建。",
-    detailEn: "UAV / LiDAR terrain mapping and 3D reconstruction.",
-  },
-  {
-    when: "2015 – 2018",
-    role: "助教 · Teaching Assistant",
-    org: "Louisiana State University",
-    detail: "环境遥感、地理信息系统。",
-    detailEn: "Environmental Remote Sensing, GIS.",
-  },
+  { when: "2024 – 2026", title: "首席科学家 · Chief Scientist", org: "Drone Institute, LLC", desc: "从零构建技术体系，交付 353+ 项目横跨 28 州，主导 AI 检测系统。美国专利与 PCT 第一发明人。", descEn: "Built tech stack from scratch; 353+ projects across 28 states; led AI detection systems. First inventor — US patent + PCT." },
+  { when: "2023 – 2024", title: "研究员 · Research Associate", org: "Louisiana State University", desc: "USDA \$160 万海岸湿地遥感监测项目。", descEn: "USDA-funded coastal wetland remote sensing (\$1.6M)." },
+  { when: "2018 – 2022", title: "研究助理 · Research Assistant", org: "Louisiana State University", desc: "无人机 / LiDAR 地形测绘、三维重建。", descEn: "UAV / LiDAR terrain mapping and 3D reconstruction." },
+  { when: "2015 – 2018", title: "助教 · Teaching Assistant", org: "Louisiana State University", desc: "环境遥感、地理信息系统。", descEn: "Environmental Remote Sensing, GIS." },
 ];
 
 const capabilities = [
-  {
-    num: "一",
-    title: "多源遥感融合",
-    en: "Multi-source Fusion",
-    items: [
-      "Landsat + WorldView + UAV 多尺度配准",
-      "热红外 + LiDAR 多模态",
-      "时空变化检测",
-    ],
-  },
-  {
-    num: "二",
-    title: "深度学习",
-    en: "Deep Learning",
-    items: [
-      "YOLOv8 目标检测 · mAP 85%+",
-      "五万+ 样本标注体系",
-      "语义分割 · 地物分类",
-    ],
-  },
-  {
-    num: "三",
-    title: "系统工程",
-    en: "Systems Engineering",
-    items: [
-      "端到端自动化流水线",
-      "353 项目跨地域交付",
-      "Python · GEE · QGIS 全栈",
-    ],
-  },
+  { num: "一", title: "多源遥感融合", en: "Multi-source Fusion", icon: "⛰", items: ["Landsat + WorldView + UAV 多尺度配准", "热红外 + LiDAR 多模态", "时空变化检测"] },
+  { num: "二", title: "深度学习", en: "Deep Learning", icon: "◈", items: ["YOLOv8 目标检测 · mAP 85%+", "五万+ 样本标注体系", "语义分割 · 地物分类"] },
+  { num: "三", title: "系统工程", en: "Systems Engineering", icon: "◎", items: ["端到端自动化流水线", "353 项目跨地域交付", "Python · GEE · QGIS 全栈"] },
 ];
 ---
 
 <Base>
-  <main class="wrap">
+  <main>
     <!-- ========== 封面 ========== -->
-    <header class="hero fade">
-      <div class="seal" aria-hidden="true">尚南</div>
-
-      <h1>
-        <span class="name-cn">尚南</span>
-        <span class="name-en">Nan Shang, Ph.D.</span>
-      </h1>
-
-      <p class="tagline cn">遥感 · 地理空间 AI · 系统工程</p>
-      <p class="tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
-
-      <p class="subtitle">
-        LSU 地理学博士 · 前 Drone Institute 首席科学家
-      </p>
-
-      <div class="btn-row">
-        <a class="btn primary" href="#experience">经历 Experience</a>
-        <a class="btn" href="#achievements">成果 Work</a>
-        <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
+    <header class="hero">
+      <div class="hero__content">
+        <div class="seal" aria-hidden="true">尚南</div>
+        <h1 class="hero__title">
+          <span class="cn-block">尚南</span>
+          <span class="en-block">Nan Shang, Ph.D.</span>
+        </h1>
+        <p class="hero__tagline cn">遥感 · 地理空间 AI · 系统工程</p>
+        <p class="hero__tagline-en">Remote Sensing · Geospatial AI · Systems Engineering</p>
+        <p class="hero__subtitle">LSU 地理学博士 · 前 Drone Institute 首席科学家</p>
+        <div class="hero__cta-row">
+          <a class="btn btn--primary" href="#experience">经历 Experience</a>
+          <a class="btn" href="#achievements">成果 Work</a>
+          <a class="btn" href={scholar} target="_blank" rel="noopener">Scholar</a>
+        </div>
+      </div>
+      <div class="hero__seal">
+        <div class="seal seal--lg">尚南</div>
       </div>
     </header>
 
-    <hr class="divider" />
+    <div class="divider" role="separator"></div>
 
     <!-- ========== 教育经历 ========== -->
     <section id="education">
-      <p class="eyebrow">Education</p>
-      <h2 class="section-title">教育经历 <span class="sub">Academic Background</span></h2>
-
+      <div class="section-head">
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title">教育经历 <span class="sub">Academic Background</span></h2>
+      </div>
       <div class="timeline">
         {education.map((e) => (
-          <div class="entry">
-            <span class="when">{e.when}</span>
-            <h3>{e.degree}</h3>
-            <div class="org">{e.org}</div>
-            <p class="detail cn">{e.detail}</p>
-            <p class="detail-en">{e.detailEn}</p>
+          <div class="timeline__item reveal">
+            <span class="timeline__date">{e.when}</span>
+            <h3 class="timeline__title">{e.title}</h3>
+            <div class="timeline__org">{e.org}</div>
+            <p class="timeline__desc cn">{e.desc}</p>
+            <p class="timeline__desc-en">{e.descEn}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <hr class="divider" />
+    <div class="divider" role="separator"></div>
 
     <!-- ========== 职业经历 ========== -->
     <section id="experience">
-      <p class="eyebrow">Experience</p>
-      <h2 class="section-title">职业经历 <span class="sub">Professional Experience</span></h2>
-
+      <div class="section-head">
+        <p class="eyebrow">Experience</p>
+        <h2 class="section-title">职业经历 <span class="sub">Professional Experience</span></h2>
+      </div>
       <div class="timeline">
         {experience.map((e) => (
-          <div class="entry">
-            <span class="when">{e.when}</span>
-            <h3>{e.role}</h3>
-            <div class="org">{e.org}</div>
-            <p class="detail cn">{e.detail}</p>
-            <p class="detail-en">{e.detailEn}</p>
+          <div class="timeline__item reveal">
+            <span class="timeline__date">{e.when}</span>
+            <h3 class="timeline__title">{e.title}</h3>
+            <div class="timeline__org">{e.org}</div>
+            <p class="timeline__desc cn">{e.desc}</p>
+            <p class="timeline__desc-en">{e.descEn}</p>
           </div>
         ))}
       </div>
     </section>
 
-    <hr class="divider" />
+    <div class="divider" role="separator"></div>
 
     <!-- ========== 核心能力 ========== -->
     <section id="capabilities">
-      <p class="eyebrow">Core Competencies</p>
-      <h2 class="section-title">核心能力 <span class="sub">Core Competencies</span></h2>
-
+      <div class="section-head">
+        <p class="eyebrow">Core Competencies</p>
+        <h2 class="section-title">核心能力 <span class="sub">Core Competencies</span></h2>
+      </div>
       <div class="cards">
         {capabilities.map((c) => (
-          <div class="card">
-            <span class="num" aria-hidden="true">{c.num}</span>
-            <h3>{c.title}</h3>
-            <div class="h-en">{c.en}</div>
-            <ul>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true">{c.icon}</div>
+            <h3 class="card__title">{c.title}</h3>
+            <div class="card__sub">{c.en}</div>
+            <ul class="card__list">
               {c.items.map((it) => <li>{it}</li>)}
             </ul>
           </div>
@@ -182,102 +114,88 @@ const capabilities = [
       </div>
     </section>
 
-    <hr class="divider" />
+    <div class="divider" role="separator"></div>
 
     <!-- ========== 代表成果 ========== -->
     <section id="achievements">
-      <p class="eyebrow">Selected Work</p>
-      <h2 class="section-title">代表成果 <span class="sub">Selected Work</span></h2>
+      <div class="section-head">
+        <p class="eyebrow">Selected Work</p>
+        <h2 class="section-title">代表成果 <span class="sub">Selected Work</span></h2>
+      </div>
 
       <div class="achieve">
-        <div class="block">
-          <h3>论文 <span class="sub">Publications</span></h3>
+        <div class="achieve__block reveal">
+          <h3 class="achieve__title">论文 <span class="sub">Publications</span></h3>
           <ul>
-            <li>
-              <span class="tag">Q1</span>
-              Meng X, <strong>Shang N</strong>, et al.
-              "Photogrammetric UAV Mapping of Terrain under Dense Coastal Vegetation."
-              <em>Remote Sensing</em>, 9(11), 1187, 2017.
-              — 76 citations
-            </li>
-            <li>
-              <span class="tag">Q2</span>
-              Zhang X, Meng X, Li C, <strong>Shang N</strong>, et al.
-              "Micro-topography Mapping through Terrestrial LiDAR in Densely Vegetated Coastal Environments."
-              <em>ISPRS Int. J. Geo-Inf.</em>, 10(10), 665, 2021.
-              — 11 citations
-            </li>
-            <li>
-              <span class="tag">CSCD</span>
-              <strong>尚南</strong>（第一作者）。
-              《测绘科学》，中文核心期刊 / CSCD 核心。
-            </li>
-            <li>
-              <span class="tag">PNAS</span>
-              参与合作。
-            </li>
+            <li><span class="tag tag--accent">Q1</span> Meng X, <strong>Shang N</strong>, et al. "Photogrammetric UAV Mapping of Terrain under Dense Coastal Vegetation." <em>Remote Sensing</em>, 9(11), 1187, 2017. — 76 citations</li>
+            <li><span class="tag tag--accent">Q2</span> Zhang X, Meng X, Li C, <strong>Shang N</strong>, et al. "Micro-topography Mapping through Terrestrial LiDAR." <em>ISPRS Int. J. Geo-Inf.</em>, 10(10), 665, 2021. — 11 citations</li>
+            <li><span class="tag tag--accent">CSCD</span> <strong>尚南</strong>（第一作者）。《测绘科学》，中文核心期刊。</li>
+            <li><span class="tag">PNAS</span> 参与合作。</li>
           </ul>
         </div>
 
-        <div class="block">
-          <h3>专利 <span class="sub">Patents</span></h3>
+        <div class="achieve__block reveal">
+          <h3 class="achieve__title">专利 <span class="sub">Patents</span></h3>
           <ul>
-            <li>
-              <span class="tag">US</span>
-              US 19/402,948 — 第一发明人
-            </li>
-            <li>
-              <span class="tag">PCT</span>
-              PCT/US2025/057386 — 第一发明人
-            </li>
+            <li><span class="tag tag--accent">US</span> US 19/402,948 — 第一发明人</li>
+            <li><span class="tag tag--accent">PCT</span> PCT/US2025/057386 — 第一发明人</li>
           </ul>
         </div>
 
-        <div class="block">
-          <h3>工程 <span class="sub">Engineering</span></h3>
+        <div class="achieve__block reveal">
+          <h3 class="achieve__title">工程 <span class="sub">Engineering</span></h3>
           <ul>
             <li>353+ 商业项目，覆盖美国 28 州、中国 3 省</li>
             <li>AI 检测系统：设计、部署、规模化运行</li>
-            <li>USDA $160 万湿地遥感系统</li>
+            <li>USDA \$160 万湿地遥感系统</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <hr class="divider" />
+    <div class="divider" role="separator"></div>
 
     <!-- ========== 联系方式 ========== -->
     <section id="contact">
-      <p class="eyebrow">Contact</p>
-      <h2 class="section-title">联系方式 <span class="sub">Get in Touch</span></h2>
-
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section-title">联系方式 <span class="sub">Get in Touch</span></h2>
+      </div>
       <div class="contact-grid">
-        <div class="item">
-          <span class="label">Email</span>
-          <a href={`mailto:${email}`}>{email}</a>
+        <a class="contact-item" href={`mailto:${email}`}>
+          <span class="contact-item__label">Email</span>
+          <span class="contact-item__val">{email}</span>
+        </a>
+        <div class="contact-item">
+          <span class="contact-item__label">QQ</span>
+          <span class="contact-item__val">404725819@qq.com</span>
         </div>
-        <div class="item">
-          <span class="label">QQ</span>
-          <span>{qq}</span>
-        </div>
-        <div class="item">
-          <span class="label">Google Scholar</span>
-          <a href={scholar} target="_blank" rel="noopener">TcDAyj0AAAAJ</a>
-        </div>
-        <div class="item">
-          <span class="label">GitHub</span>
-          <a href={github} target="_blank" rel="noopener">leibowivz</a>
-        </div>
-        <div class="item">
-          <span class="label">ORCID</span>
-          <a href={orcid} target="_blank" rel="noopener">0009-0003-1202-9900</a>
-        </div>
+        <a class="contact-item" href={scholar} target="_blank" rel="noopener">
+          <span class="contact-item__label">Google Scholar</span>
+          <span class="contact-item__val">TcDAyj0AAAAJ</span>
+        </a>
+        <a class="contact-item" href={github} target="_blank" rel="noopener">
+          <span class="contact-item__label">GitHub</span>
+          <span class="contact-item__val">leibowivz</span>
+        </a>
+        <a class="contact-item" href={orcid} target="_blank" rel="noopener">
+          <span class="contact-item__label">ORCID</span>
+          <span class="contact-item__val">0009-0003-1202-9900</span>
+        </a>
       </div>
     </section>
 
-    <footer>
-      <div class="seal-mini" aria-hidden="true">尚南</div>
-      <p>© 2026 尚南 Nan Shang · 遥感 · 地理空间 AI · 系统工程</p>
-    </footer>
   </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand" aria-hidden="true">尚南</div>
+      <div class="footer__links">
+        <a href={scholar} target="_blank" rel="noopener">Scholar</a>
+        <a href={github} target="_blank" rel="noopener">GitHub</a>
+        <a href={orcid} target="_blank" rel="noopener">ORCID</a>
+      </div>
+      <p class="footer__copy">© 2026 尚南 Nan Shang · 遥感 · 地理空间 AI · 系统工程</p>
+    </div>
+  </footer>
 </Base>
