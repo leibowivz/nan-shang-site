@@ -1,28 +1,47 @@
 ---
 import "../styles/global.css";
 
-interface Props {
+export interface Props {
   title?: string;
   description?: string;
 }
 
 const {
-  title = "Nan Shang — Systems, Research, Production AI",
-  description = "Chief Scientist & Founding Engineer. Geospatial AI systems architect focused on production-grade, constraint-aware systems.",
+  title = "尚南 Nan Shang, Ph.D. — 遥感 · 地理空间 AI · 系统工程",
+  description = "尚南（Nan Shang），路易斯安那州立大学地理学博士，前 Drone Institute 首席科学家。研究遥感、地理空间 AI 与系统工程。 / Nan Shang, Ph.D. in Geography (LSU). Former Chief Scientist at Drone Institute. Remote Sensing · Geospatial AI · Systems Engineering.",
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <meta name="color-scheme" content="dark" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Nan Shang 尚南" />
+    <meta
+      name="keywords"
+      content="Nan Shang, 尚南, Remote Sensing, 遥感, Geospatial AI, 地理空间人工智能, GIS, LiDAR, UAV, Deep Learning, LSU, Drone Institute"
+    />
+
+    <!-- Open Graph 双语 -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="canonical" href="https://leibowivz.github.io/nan-shang-site/" />
+    <link rel="icon" href={`${base}favicon.svg`} />
   </head>
   <body>
     <slot />
