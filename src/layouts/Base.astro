@@ -78,7 +78,7 @@ const base = import.meta.env.BASE_URL;
             opacity: 0.25 + Math.random() * 0.35,
             life: life,
             age: 0,
-            color: Math.random() < 0.15 ? '160,40,35' : '40,34,26', // 偶有朱砂粒子
+            color: Math.random() < 0.12 ? '139,26,26' : '26,26,28', // 偶有朱砂粒子
           });
         }
         // 中心洇墨圈
@@ -92,7 +92,7 @@ const base = import.meta.env.BASE_URL;
             opacity: 0.12 + Math.random() * 0.10,
             life: 1.5 + Math.random() * 0.6,
             age: 0,
-            color: '40,34,26',
+            color: '26,26,28',
           });
         }
         if (!animId) animId = requestAnimationFrame(animate);
