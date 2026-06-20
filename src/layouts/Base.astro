@@ -8,7 +8,7 @@ export interface Props {
 
 const {
   title = "尚南 Nan Shang · 遥感 · 地理空间AI",
-  description = "尚南（Nan Shang），LSU 地理学博士，前 Drone Institute 首席科学家。遥感 · 地理空间 AI · 系统工程。 / Ph.D. in Geography (LSU). Former Chief Scientist, Drone Institute. Remote Sensing · Geospatial AI · Systems Engineering.",
+  description = "尚南（Nan Shang），LSU 地理学博士，Drone Institute 首席科学家。遥感 · 地理空间 AI · 系统工程。 / Ph.D. in Geography (LSU). Chief Scientist, Drone Institute. Remote Sensing · Geospatial AI · Systems Engineering.",
 } = Astro.props;
 
 const base = import.meta.env.BASE_URL;
@@ -136,7 +136,7 @@ const base = import.meta.env.BASE_URL;
       }
 
       document.addEventListener('click', function(e) {
-        createSplash(e.clientX, e.clientY + window.scrollY);
+        createSplash(e.pageX, e.pageY);
       });
 
       // 页面滚动时同步 canvas 高度
